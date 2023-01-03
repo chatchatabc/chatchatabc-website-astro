@@ -1,12 +1,12 @@
 ---
 interface Props {
-  sectionTitle: string;
+  sectionTitle?: string;
 }
 
 const { sectionTitle } = Astro.props as Props;
 ---
 
-<section id={sectionTitle} class="py-8">
+<section id={sectionTitle ?? ""} class="py-8">
   <div class="container mx-auto">
     {
       sectionTitle ? (

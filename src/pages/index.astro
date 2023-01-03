@@ -12,6 +12,59 @@ const positions = [
 ---
 
 <Layout title="Welcome to Astro.">
+  <!-- Hero Section -->
+  <Section>
+    <div class="relative grid grid-cols-2">
+      <!-- Background -->
+      <div class="absolute top-0 left-0 h-full w-full">
+        <img src="/images/tailwind.png" class="h-full w-full object-contain" />
+      </div>
+
+      <!-- Left Side -->
+      <div class="relative max-h-[500px]\">
+        <img
+          src="/images/jobs.png"
+          class="w-full h-full object-contain object-top"
+        />
+      </div>
+
+      <!-- Right Sides -->
+      <div class="relative flex flex-col w-full justify-between">
+        <div class="flex w-full justify-around">
+          <img
+            src="/images/astro.png"
+            class="w-[30%] aspect-square object-cover"
+          />
+          <img
+            src="/images/kotlin.png"
+            class="w-[30%] aspect-square object-cover"
+          />
+          <img
+            src="/images/java.png"
+            class="w-[30%] aspect-square object-cover"
+          />
+        </div>
+        <h2 class="text-5xl text-[#6750A4]">
+          "It's not about ideas, It's about making ideas happen!"
+        </h2>
+        <div class="flex w-full justify-around">
+          <img
+            src="/images/ts.png"
+            class="w-[30%] aspect-square object-cover"
+          />
+          <img
+            src="/images/js.png"
+            class="w-[30%] aspect-square object-cover"
+          />
+          <img
+            src="/images/rust.png"
+            class="w-[30%] aspect-square object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
+
   <!-- Outsourcing Section -->
   <Section sectionTitle="Outsourcing">
     <ul class="flex gap-8 px-16">
