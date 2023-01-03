@@ -11,8 +11,9 @@ const positions = [
 ---
 
 <Layout title="Welcome to Astro.">
+  <!-- Outsourcing Section -->
   <Section sectionTitle="Outsourcing">
-    <ul class="flex gap-8">
+    <ul class="flex gap-8 px-16">
       {
         positions.map((position) => {
           return (
@@ -28,4 +29,45 @@ const positions = [
       }
     </ul>
   </Section>
+
+  <!-- About Us Section -->
+  <Section sectionTitle="About Us">
+    <ul class="px-2 relative flex flex-col">
+      <li
+        class="w-[35vw] rounded-t-[4rem] rounded-b-xl bg-[#6750A4] border-2 p-12"
+      >
+        <h4 class="text-4xl pb-2">Priority</h4>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+          voluptatum delectus doloremque nesciunt optio, nobis neque perferendis
+          aliquam dignissimos dolores voluptate provident! Facilis alias ad
+          dolorem nisi velit dicta eum.
+        </p>
+      </li>
+      <li
+        class="w-[35vw] rounded-t-[4rem] rounded-b-xl bg-[#6750A4] border-2 p-12 -mt-44 mx-auto"
+      >
+        <h4 class="text-4xl pb-2">Priority</h4>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+          voluptatum delectus doloremque nesciunt optio, nobis neque perferendis
+          aliquam dignissimos dolores voluptate provident! Facilis alias ad
+          dolorem nisi velit dicta eum.
+        </p>
+      </li>
+      <li
+        class="w-[35vw] rounded-t-[4rem] rounded-b-xl bg-[#6750A4] border-2 p-12 -mt-44 ml-auto"
+      >
+        <h4 class="text-4xl pb-2">Priority</h4>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+          voluptatum delectus doloremque nesciunt optio, nobis neque perferendis
+          aliquam dignissimos dolores voluptate provident! Facilis alias ad
+          dolorem nisi velit dicta eum.
+        </p>
+      </li>
+    </ul>
+  </Section>
+
+	
 </Layout>

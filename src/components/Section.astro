@@ -10,13 +10,13 @@ const { sectionTitle } = Astro.props as Props;
   <div class="container mx-auto">
     {
       sectionTitle ? (
-        <div class="flex items-center gap-4">
-          <div class="rounded-full h-1 bg-black w-24" />
-          <h2 class="text-3xl">{sectionTitle}</h2>
+        <div class="flex items-center gap-4 px-8">
+          <div class="rounded-full h-1 bg-black w-16" />
+          <h2 class="text-2xl">{sectionTitle}</h2>
         </div>
       ) : null
     }
-    <div class="p-8">
+    <div class="mt-8">
       <slot />
     </div>
   </div>
