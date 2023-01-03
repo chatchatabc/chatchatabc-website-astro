@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon";
+---
+
 <footer>
   <div class="border-y-2 py-16">
     <div class="container mx-auto grid grid-cols-3">
@@ -5,9 +9,15 @@
         <img src="/images/ChatChat.png" class="w-52 object-contain" />
         <div>
           <ul class="flex gap-4">
-            <li>icon</li>
-            <li>icon</li>
-            <li>icon</li>
+            <li>
+              <Icon name="ic:baseline-facebook" />
+            </li>
+            <li>
+              <Icon name="ph:instagram-logo-fill" />
+            </li>
+            <li>
+              <Icon name="mdi:telephone" />
+            </li>
           </ul>
         </div>
       </div>
@@ -50,3 +60,10 @@
   </div>
   <p class="text-center py-1">Copyright by ChatChatABC (2023)</p>
 </footer>
+
+<style is:global>
+  [astro-icon] {
+    height: 3rem;
+    width: 3rem;
+  }
+</style>
