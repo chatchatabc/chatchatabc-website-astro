@@ -21,27 +21,34 @@ const positions = [
       </div>
 
       <!-- Left Side -->
-      <div class="relative max-h-[500px]\">
-        <img
-          src="/images/jobs.png"
-          class="w-full h-full object-contain object-top"
-        />
-      </div>
+      <ul
+        class="relative flex flex-col-reverse justify-center items-center gap-2"
+      >
+        {
+          positions.map((position) => {
+            return (
+              <li class="bg-[#6750A4] text-white shadow-2xl flex items-end w-1/2 -rotate-45 rounded-lg border-2 text-2xl border-white p-4 capitalize hero-position">
+                {position}
+              </li>
+            );
+          })
+        }
+      </ul>
 
       <!-- Right Sides -->
-      <div class="relative flex flex-col w-full justify-between">
+      <div class="relative flex flex-col gap-8 w-full justify-between">
         <div class="flex w-full justify-around">
           <img
             src="/images/astro.png"
-            class="w-[30%] aspect-square object-cover"
+            class="min-w-[100px] w-[20%] aspect-square object-cover"
           />
           <img
             src="/images/kotlin.png"
-            class="w-[30%] aspect-square object-cover"
+            class="min-w-[100px] w-[20%] aspect-square object-cover"
           />
           <img
             src="/images/java.png"
-            class="w-[30%] aspect-square object-cover"
+            class="min-w-[100px] w-[20%] aspect-square object-cover"
           />
         </div>
         <h2 class="text-5xl text-[#6750A4]">
@@ -50,15 +57,15 @@ const positions = [
         <div class="flex w-full justify-around">
           <img
             src="/images/ts.png"
-            class="w-[30%] aspect-square object-cover"
+            class="min-w-[100px] w-[20%] aspect-square object-cover"
           />
           <img
             src="/images/js.png"
-            class="w-[30%] aspect-square object-cover"
+            class="min-w-[100px] w-[20%] aspect-square object-cover"
           />
           <img
             src="/images/rust.png"
-            class="w-[30%] aspect-square object-cover"
+            class="min-w-[100px] w-[20%] aspect-square object-cover"
           />
         </div>
       </div>
@@ -122,6 +129,10 @@ const positions = [
       </li>
     </ul>
   </Section>
-
-  <Footer />
 </Layout>
+
+<style is:global>
+  .hero-position {
+    transform: rotateX("45deg");
+  }
+</style>
