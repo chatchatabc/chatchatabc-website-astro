@@ -1,6 +1,7 @@
 ---
 import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
+import { Icon } from "astro-icon";
 
 const blogs = await Astro.glob("./*.md");
 ---
@@ -11,36 +12,43 @@ const blogs = await Astro.glob("./*.md");
       blogs.length ? (
         <ul class="grid grid-cols-3 gap-x-4 gap-y-8">
           {blogs.map((blog) => {
-            const { title, author, tags, date, excerpt } = blog.frontmatter;
+            const { title, author, tags, date, excerpt, author_icon, image } =
+              blog.frontmatter;
             return (
-              <li class="rounded-xl shadow-lg">
-                <div class="px-4 py-2 border-b-2">
-                  <h3 class="text-2xl">{title}</h3>
-                  <ul class="flex flex-wrap gap-x-4">
-                    <li class="text-xs font-medium text-neutral-500">
-                      <span class="font-bold text-neutral-600">Date:</span>
-                      {date ?? "N/A"}
-                    </li>
-                    <li class="text-xs font-medium text-neutral-500">
-                      <span class="font-bold text-neutral-600">Author:</span>
-                      {author ?? "Anonymous"}
-                    </li>
-                    <li class="text-xs font-medium text-neutral-500">
-                      <span class="font-bold text-neutral-600">Tags:</span>
-                      {tags ?? "N/A"}
-                    </li>
-                  </ul>
+              <li class="border grid grid-cols-3 rounded-sm overflow-hidden">
+                <div class="h-full">
+                  <img
+                    class="w-full h-full object-cover"
+                    src={image ?? "/images/no-image.png"}
+                  />
                 </div>
-                <div class="px-4 py-2 min-h-[200px] flex flex-col">
-                  <p class="text-sm text-neutral-600">
-                    {excerpt ?? "No Excerpt"}
-                  </p>
+                <div class="p-4 flex flex-col col-span-2 border">
                   <a
-                    class="block mt-auto text-center hover:underline"
                     href={blog.url}
+                    class="text-xl font-bold hover:text-neutral-600 max-w-max"
                   >
-                    Read More &gt;
+                    {title}
                   </a>
+                  <p class="text-neutral-500 text-sm py-2 h-20">
+                    {excerpt}
+                  </p>
+                  <div class="mt-auto flex items-center gap-2">
+                    <div class="w-14 rounded-full aspect-square border overflow-hidden">
+                      {author_icon ? (
+                        <img
+                          class="w-full h-full object-cover"
+                          src="?"
+                          alt="author"
+                        />
+                      ) : (
+                        <Icon name="mdi:user" />
+                      )}
+                    </div>
+                    <div class="text-xs w-full">
+                      <p class="font-medium">Author</p>
+                      <p>Date: {date ?? "N/A"}</p>
+                    </div>
+                  </div>
                 </div>
               </li>
             );
@@ -52,3 +60,11 @@ const blogs = await Astro.glob("./*.md");
     }
   </Section>
 </Layout>
+
+<style>
+  [astro-icon] {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+</style>
