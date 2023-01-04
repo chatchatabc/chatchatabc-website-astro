@@ -4,8 +4,10 @@ title: Test
 excerpt: None
 slug: test
 author:
+author_image:
 tags:
 date:
+image:
 ---
 
 # Test
