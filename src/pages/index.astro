@@ -168,6 +168,10 @@ const positions = [
 
 <!-- Always use is:global to prevent astro using .where() selector. -->
 <style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
   .hero-position {
     transform: rotateX(60deg) rotateZ(325deg);
   }
