@@ -1,0 +1,26 @@
+---
+import Section from "../../components/Section.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const blogs = await Astro.glob("./*.md");
+---
+
+<Layout title="Blogs">
+  <Section>
+    {
+      blogs.length ? (
+        <ul class="grid grid-cols-2">
+          {blogs.map((blog) => {
+            return (
+              <li>
+                <a href={blog.url}>Open</a>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div>No blogs yet!</div>
+      )
+    }
+  </Section>
+</Layout>
