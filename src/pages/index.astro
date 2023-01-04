@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import Footer from "../components/Footer.astro";
 
 const positions = [
   "java developer",
@@ -11,7 +10,7 @@ const positions = [
 ];
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="ChatChatABC">
   <!-- Hero Section -->
   <Section>
     <div class="relative grid grid-cols-2">
@@ -145,6 +144,7 @@ const positions = [
   </Section>
 </Layout>
 
+<!-- Always use is:global to prevent astro using .where() selector. -->
 <style is:global>
   .hero-position {
     transform: rotateX("45deg");
