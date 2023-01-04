@@ -29,9 +29,7 @@ const blogs = await Astro.glob("./*.md");
                   >
                     {title}
                   </a>
-                  <p class="text-neutral-500 text-sm py-2 h-20">
-                    {excerpt}
-                  </p>
+                  <p class="text-neutral-500 text-sm py-2 h-20">{excerpt}</p>
                   <div class="mt-auto flex items-center gap-2">
                     <div class="w-14 rounded-full aspect-square border overflow-hidden">
                       {author_icon ? (
@@ -45,8 +43,8 @@ const blogs = await Astro.glob("./*.md");
                       )}
                     </div>
                     <div class="text-xs w-full">
-                      <p class="font-medium">Author</p>
-                      <p>Date: {date ?? "N/A"}</p>
+                      <p class="font-medium">{author ?? "Anonymous"}</p>
+                      <p class="text-neutral-500"><span class="text-neutral-600 font-medium">Date:</span> {date ?? "N/A"}</p>
                     </div>
                   </div>
                 </div>
