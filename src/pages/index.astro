@@ -26,7 +26,7 @@ const positions = [
         {
           positions.reverse().map((position) => {
             return (
-              <li class="bg-[#6750A4] py-8 -mt-28 text-white shadow-2xl flex h-48 items-end w-1/2 rounded-3xl border-2 text-4xl border-white p-4 capitalize hero-position">
+              <li class="bg-[#6750A4] py-8 -mt-28 duration-1000 text-white shadow-2xl flex h-48 items-end w-1/2 rounded-3xl border-2 text-4xl border-white p-4 capitalize hero-position">
                 {position}
               </li>
             );
@@ -76,14 +76,32 @@ const positions = [
     <div>
       <ul class="flex gap-8 px-16 relative">
         {
-          positions.map((position) => {
+          positions.map((position, index) => {
             return (
-              <li class="max-w-xs text-center flex-1">
+              <li class="text-center flex-1 outsourcing-cards duration-500">
                 <div class="relative">
                   <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
                   <h4 class="text-xl capitalize">{position}</h4>
                 </div>
-                <div class="mt-2 h-72 rounded-xl bg-[#9A82DB] w-full" />
+                <div class="mt-2 h-72 rounded-xl bg-[#9A82DB] flex flex-col group overflow-hidden">
+                  <div class="w-24 h-24 mx-auto mt-2 border rounded-full overflow-hidden">
+                    <img
+                      src="?"
+                      class="w-full h-full object-cover"
+                      alt={position}
+                    />
+                  </div>
+                  <p class="text-left px-4 py-2">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Inventore repudiandae similique porro aut.
+                  </p>
+                  <button
+                    class="bg-gradient-to-b from-transparent py-4 to-[#6750A4] mt-auto duration-1000 lg:opacity-0 group-hover:opacity-100"
+                    onclick={`OpenOutsourceCard(${index})`}
+                  >
+                    Show more
+                  </button>
+                </div>
               </li>
             );
           })
@@ -108,7 +126,9 @@ const positions = [
 
   <!-- About Us Section -->
   <Section sectionTitle="about us">
-    <ul class="px-2 relative flex flex-col">
+    <ul
+      class="px-2 relative flex flex-col [&>*:hover]:delay-75 [&>*:hover]:duration-1000 [&>*:hover]:scale-105 [&>*:hover]:z-10"
+    >
       <li
         class="w-[35vw] rounded-t-[4rem] rounded-b-xl bg-[#c4b8e6] border-2 p-12"
       >
@@ -151,4 +171,27 @@ const positions = [
   .hero-position {
     transform: rotateX(60deg) rotateZ(325deg);
   }
+  .hero-position:hover {
+    transform: rotateX(0deg) rotateZ(30deg);
+    scale: 80%;
+    z-index: 1;
+  }
+
+  .outsourcing-cards-hide {
+    background-color: aqua;
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+  }
 </style>
+
+<script lang="ts">
+  function OpenOutsourceCard(cardIndex) {
+    const cards = document.getElementsByClassName("outsourcing-cards");
+    for (var index = 0; index < cards.length; index++) {
+      if (index !== cardIndex)
+        cards[index].classList.add("outsourcing-cards-hide");
+      else cards[index].classList.add("outsourcing-cards-show");
+    }
+  }
+</script>
