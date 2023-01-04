@@ -1,0 +1,32 @@
+---
+import Section from "../components/Section.astro";
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, date, author, tags } = frontmatter;
+---
+
+<Layout title={title}>
+  <Section>
+    <div class="py-2 px-8 border-b-2">
+      <h1 class="text-4xl">{title}</h1>
+      <ul class="flex flex-wrap gap-x-4">
+        <li class="text-xs font-medium text-neutral-500">
+          <span class="font-bold text-neutral-600">Date:</span>
+          {date ?? "N/A"}
+        </li>
+        <li class="text-xs font-medium text-neutral-500">
+          <span class="font-bold text-neutral-600">Author:</span>
+          {author ?? "Anonymous"}
+        </li>
+        <li class="text-xs font-medium text-neutral-500">
+          <span class="font-bold text-neutral-600">Tags:</span>
+          {tags ?? "N/A"}
+        </li>
+      </ul>
+    </div>
+    <div class="px-8 py-2">
+      <slot />
+    </div>
+  </Section>
+</Layout>

@@ -6,14 +6,42 @@ const blogs = await Astro.glob("./*.md");
 ---
 
 <Layout title="Blogs">
-  <Section>
+  <Section sectionTitle={"Blogs"}>
     {
       blogs.length ? (
-        <ul class="grid grid-cols-2">
+        <ul class="grid grid-cols-3">
           {blogs.map((blog) => {
+            const { title, author, tags, date, excerpt } = blog.frontmatter;
             return (
-              <li>
-                <a href={blog.url}>Open</a>
+              <li class="rounded-xl shadow-lg">
+                <div class="px-4 py-2 border-b-2">
+                  <h3 class="text-2xl">{title}</h3>
+                  <ul class="flex flex-wrap gap-x-4">
+                    <li class="text-xs font-medium text-neutral-500">
+                      <span class="font-bold text-neutral-600">Date:</span>
+                      {date ?? "N/A"}
+                    </li>
+                    <li class="text-xs font-medium text-neutral-500">
+                      <span class="font-bold text-neutral-600">Author:</span>
+                      {author ?? "Anonymous"}
+                    </li>
+                    <li class="text-xs font-medium text-neutral-500">
+                      <span class="font-bold text-neutral-600">Tags:</span>
+                      {tags ?? "N/A"}
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-4 py-2 min-h-[200px] flex flex-col">
+                  <p class="text-sm text-neutral-600">
+                    {excerpt ?? "No Excerpt"}
+                  </p>
+                  <a
+                    class="block mt-auto text-center hover:underline"
+                    href={blog.url}
+                  >
+                    Read More &gt;
+                  </a>
+                </div>
               </li>
             );
           })}
