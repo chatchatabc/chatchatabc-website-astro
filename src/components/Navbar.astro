@@ -4,13 +4,18 @@ const navItems = ["outsourcing", "software development", "about us", "blog"];
 
 <header class="p-2">
   <nav class="container mx-auto flex justify-around gap-8 items-center lg:px-8">
-    <img src="/images/ChatChat.png" class="w-52 object-contain" />
+    <a href="/">
+      <img src="/images/ChatChat.png" class="w-52 object-contain" />
+    </a>
     <ul class="flex gap-2 text-purple-700 font-medium ml-auto">
       {
         navItems.map((item) => {
           return (
             <li>
-              <a class="border-2 border-gray-500 text-[#6750A4] rounded-full capitalize block px-4 py-2">
+              <a
+                href={`#${item}`}
+                class="border-2 border-[#79747E] text-[#6750A4] rounded-full capitalize block px-4 py-2 hover:bg-[#6750A414]"
+              >
                 {item}
               </a>
             </li>
@@ -18,10 +23,10 @@ const navItems = ["outsourcing", "software development", "about us", "blog"];
         })
       }
     </ul>
-    <a
-      class="bg-[#E8DEF8] text-[#7D5260] rounded-full capitalize block px-4 py-2"
+    <button
+      class="bg-[#E8DEF8] rounded-full capitalize block px-4 py-2 hover:bg-[#e8d3f899]"
     >
       contact us
-    </a>
+    </button>
   </nav>
 </header>

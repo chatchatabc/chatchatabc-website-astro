@@ -26,7 +26,7 @@ const positions = [
         {
           positions.reverse().map((position) => {
             return (
-              <li class="bg-[#6750A4] py-8 -mt-24 text-white shadow-2xl flex h-40 items-end w-1/2 rounded-3xl border-2 text-4xl border-white p-4 capitalize hero-position">
+              <li class="bg-[#6750A4] py-8 -mt-28 text-white shadow-2xl flex h-48 items-end w-1/2 rounded-3xl border-2 text-4xl border-white p-4 capitalize hero-position">
                 {position}
               </li>
             );
@@ -72,26 +72,28 @@ const positions = [
   </Section>
 
   <!-- Outsourcing Section -->
-  <Section sectionTitle="Outsourcing">
-    <ul class="flex gap-8 px-16">
-      {
-        positions.map((position) => {
-          return (
-            <li class="max-w-xs text-center flex-1">
-              <div class="relative">
-                <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
-                <h4 class="text-xl capitalize">{position}</h4>
-              </div>
-              <div class="mt-2 aspect-[8/10] rounded-xl bg-[#9A82DB]" />
-            </li>
-          );
-        })
-      }
-    </ul>
+  <Section sectionTitle="outsourcing">
+    <div>
+      <ul class="flex gap-8 px-16 relative">
+        {
+          positions.map((position) => {
+            return (
+              <li class="max-w-xs text-center flex-1">
+                <div class="relative">
+                  <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
+                  <h4 class="text-xl capitalize">{position}</h4>
+                </div>
+                <div class="mt-2 h-72 rounded-xl bg-[#9A82DB] w-full" />
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
   </Section>
 
   <!-- Software Development Section -->
-  <Section sectionTitle="Software Development">
+  <Section sectionTitle="software development">
     <div class="grid grid-cols-2">
       <div class="flex items-center w-full">
         <div class="h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB]"></div>
@@ -105,7 +107,7 @@ const positions = [
   </Section>
 
   <!-- About Us Section -->
-  <Section sectionTitle="About Us">
+  <Section sectionTitle="about us">
     <ul class="px-2 relative flex flex-col">
       <li
         class="w-[35vw] rounded-t-[4rem] rounded-b-xl bg-[#c4b8e6] border-2 p-12"
