@@ -1,5 +1,10 @@
 ---
-const navItems = ["outsourcing", "software development", "about us", "blog"];
+const navItems = [
+  { url: "#outsourcing", name: "outsourcing" },
+  { url: "#software-development", name: "software development" },
+  { url: "#about-us", name: "about us" },
+  { url: "/blogs", name: "blogs" },
+];
 ---
 
 <header class="p-2">
@@ -13,10 +18,10 @@ const navItems = ["outsourcing", "software development", "about us", "blog"];
           return (
             <li>
               <a
-                href={`#${item}`}
+                href={item.url}
                 class="border-2 border-[#79747E] text-[#6750A4] rounded-full capitalize block px-4 py-2 hover:bg-[#6750A414]"
               >
-                {item}
+                {item.name}
               </a>
             </li>
           );
