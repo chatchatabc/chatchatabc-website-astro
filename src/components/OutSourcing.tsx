@@ -14,7 +14,7 @@ function OutSourcing() {
   };
   return (
     <div>
-      <ul className="flex gap-8 px-16 relative justify-center flex-wrap">
+      <ul className="flex gap-8 px-16 relative justify-center">
         {positions.map((position, index) => {
           index += 1;
           return (
@@ -22,10 +22,10 @@ function OutSourcing() {
               key={position + index}
               className={`text-center outsourcing-cards duration-500 ${
                 selected && index !== selected
-                  ? "w-0 hidden opacity-0"
+                  ? "w-0 h-0 opacity-0"
                   : index === selected
                   ? "w-full"
-                  : "w-[45%] lg:w-1/4"
+                  : "opacity-100 w-1/4"
               }`}
             >
               <div className="relative">
