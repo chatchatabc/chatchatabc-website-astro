@@ -14,7 +14,7 @@ function OutSourcing() {
   };
   return (
     <div>
-      <ul className="flex gap-8 px-16 relative">
+      <ul className="flex gap-8 px-16 relative justify-center flex-wrap">
         {positions.map((position, index) => {
           index += 1;
           return (
@@ -25,7 +25,7 @@ function OutSourcing() {
                   ? "w-0 hidden opacity-0"
                   : index === selected
                   ? "w-full"
-                  : "w-1/4"
+                  : "w-[45%] lg:w-1/4"
               }`}
             >
               <div className="relative">

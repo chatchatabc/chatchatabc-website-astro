@@ -11,7 +11,7 @@ const navItems = [
 <header class="p-2">
   <nav class="container mx-auto flex justify-around gap-8 items-center lg:px-8">
     <a href="/">
-      <div class="w-52 object-contain">
+      <div class="object-contain w-32 lg:w-52">
         <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
       </div>
     </a>
@@ -22,7 +22,7 @@ const navItems = [
             <li>
               <a
                 href={item.url}
-                class="border-2 border-[#79747E] text-[#6750A4] rounded-full capitalize block px-4 py-2 hover:bg-[#6750A414]"
+                class="border-2 border-[#79747E] text-[#6750A4] rounded-full capitalize block px-4 py-2 text-xs lg:text-base hover:bg-[#6750A414]"
               >
                 {item.name}
               </a>
@@ -32,7 +32,7 @@ const navItems = [
       }
     </ul>
     <button
-      class="bg-[#E8DEF8] rounded-full capitalize block px-4 py-2 hover:bg-[#e8d3f899]"
+      class="text-xs bg-[#E8DEF8] rounded-full capitalize block px-4 py-2 lg:text-base hover:bg-[#e8d3f899]"
     >
       contact us
     </button>
