@@ -1,5 +1,7 @@
 ---
 import { Picture } from "astro-imagetools/components";
+import Modal from "./Modal.astro";
+
 const navItems = [
   { url: "/#outsourcing", name: "outsourcing" },
   { url: "/#software-development", name: "software development" },
@@ -8,34 +10,42 @@ const navItems = [
 ];
 ---
 
-<header class="p-2">
-  <nav class="container mx-auto flex justify-around gap-8 items-center lg:px-8">
-    <a href="/">
-      <div class="object-contain w-32 lg:w-52">
-        <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
-      </div>
-    </a>
-    <ul class="flex gap-2 text-purple-700 font-medium ml-auto">
-      {
-        navItems.map((item) => {
-          return (
-            <li>
-              <a
-                href={item.url}
-                class="border-2 border-[#79747E] text-[#6750A4] rounded-full capitalize block px-4 py-2 text-xs lg:text-base hover:bg-[#6750A414]"
-              >
-                {item.name}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-    <button
-      id="modal-open-btn"
-      class="text-xs bg-[#E8DEF8] rounded-full capitalize block px-4 py-2 lg:text-base hover:bg-[#e8d3f899]"
+<>
+  <!-- Modal -->
+  <Modal />
+
+  <!-- Navbar -->
+  <header class="p-2">
+    <nav
+      class="container mx-auto flex justify-around gap-8 items-center lg:px-8"
     >
-      contact us
-    </button>
-  </nav>
-</header>
+      <a href="/">
+        <div class="object-contain w-32 lg:w-52">
+          <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
+        </div>
+      </a>
+      <ul class="flex gap-2 text-purple-700 font-medium ml-auto">
+        {
+          navItems.map((item) => {
+            return (
+              <li>
+                <a
+                  href={item.url}
+                  class="border-2 border-[#79747E] text-[#6750A4] rounded-full capitalize block px-4 py-2 text-xs lg:text-base hover:bg-[#6750A414]"
+                >
+                  {item.name}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <button
+        id="modal-open-btn"
+        class="text-xs bg-[#E8DEF8] rounded-full capitalize block px-4 py-2 lg:text-base hover:bg-[#e8d3f899]"
+      >
+        contact us
+      </button>
+    </nav>
+  </header>
+</>
