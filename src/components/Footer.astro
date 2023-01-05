@@ -1,12 +1,16 @@
 ---
 import { Icon } from "astro-icon";
+import { Picture } from "astro-imagetools/components";
 ---
 
 <footer>
   <div class="border-y-2 py-16">
     <div class="container mx-auto grid grid-cols-3">
       <div class="flex flex-col gap-8 items-center">
-        <img src="/images/ChatChat.png" class="w-52 object-contain" />
+        <div class="w-52 object-contain">
+          <Picture src="/images/ChatChat.png" alt="logo" />
+        </div>
+
         <div>
           <ul class="flex gap-4">
             <li>
