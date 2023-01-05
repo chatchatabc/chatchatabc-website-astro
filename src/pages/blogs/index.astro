@@ -63,8 +63,8 @@ const blogs = await Astro.glob("./*.mdx");
   }
 </Layout>
 
-<style>
-  [astro-icon] {
+<style is:global>
+  [astro-icon="mdi:user"] {
     height: 100%;
     width: 100%;
     object-fit: cover;
