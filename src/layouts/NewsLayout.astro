@@ -31,7 +31,7 @@ const { title, author_image, date, author, tags, image } = frontmatter;
         <h1 class="text-5xl font-medium">{title ?? "No Title"}</h1>
         <p>{date ?? "No Date"}</p>
       </div>
-      <div class="aspect-1 overflow-hidden border">
+      <div class="aspect-1 overflow-hidden border max-h-[500px]">
         <Img alt={title} src={image ?? "/images/no-image.png"} />
       </div>
     </section>
