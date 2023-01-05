@@ -3,69 +3,64 @@ import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 
-const blogs = await Astro.glob("./*.{md, mdx}");
+const blogs = await Astro.glob("./*.mdx");
 ---
 
 <Layout title="Blogs">
-  <Section sectionTitle={"Blogs"}>
-    {
-      blogs.length ? (
-        <ul class="grid grid-cols-2 gap-4 px-8">
-          {blogs.map((blog) => {
-            const { title, author, tags, date, excerpt, author_image, image } =
-              blog.frontmatter;
-            return (
-              <li class="border rounded-sm overflow-hidden aspect-w-2 aspect-h-1">
-                <div class="grid grid-cols-5">
-                  <div class="h-full col-span-2">
-                    <img
-                      class="w-full h-full object-cover"
-                      src={image ?? "/images/no-image.png"}
-                    />
-                  </div>
-                  <div class="h-full p-4 flex flex-col col-span-3">
-                    <a
-                      href={blog.url}
-                      class="text-xl font-bold hover:text-neutral-600 max-w-max"
-                    >
-                      {title}
-                    </a>
-                    <p class="text-neutral-500 text-sm py-2 flex-1">
-                      {excerpt}
-                    </p>
-                    <div class="mt-auto flex items-center gap-2">
-                      <div class="w-14 rounded-full aspect-square border overflow-hidden">
-                        {author_image ? (
-                          <img
-                            class="w-full h-full object-cover"
-                            src="?"
-                            alt="author"
-                          />
-                        ) : (
-                          <Icon name="mdi:user" />
-                        )}
-                      </div>
-                      <div class="text-xs w-full">
-                        <p class="font-medium">{author ?? "Anonymous"}</p>
-                        <p class="text-neutral-500">
-                          <span class="text-neutral-600 font-medium">
-                            Date:
-                          </span>{" "}
-                          {date ?? "N/A"}
-                        </p>
-                      </div>
+  <Section sectionTitle={"Blogs"} />
+  {
+    blogs.length ? (
+      <ul class="grid grid-cols-2 gap-4 px-8">
+        {blogs.map((blog) => {
+          const { title, author, tags, date, excerpt, author_image, image } =
+            blog.frontmatter;
+          return (
+            <li class="border rounded-sm overflow-hidden aspect-w-2 aspect-h-1">
+              <div class="grid grid-cols-5">
+                <div class="h-full col-span-2">
+                  <img
+                    class="w-full h-full object-cover"
+                    src={image ?? "/images/no-image.png"}
+                  />
+                </div>
+                <div class="h-full p-4 flex flex-col col-span-3">
+                  <a
+                    href={blog.url}
+                    class="text-xl font-bold hover:text-neutral-600 max-w-max"
+                  >
+                    {title}
+                  </a>
+                  <p class="text-neutral-500 text-sm py-2 flex-1">{excerpt}</p>
+                  <div class="mt-auto flex items-center gap-2">
+                    <div class="w-14 rounded-full aspect-square border overflow-hidden">
+                      {author_image ? (
+                        <img
+                          class="w-full h-full object-cover"
+                          src="?"
+                          alt="author"
+                        />
+                      ) : (
+                        <Icon name="mdi:user" />
+                      )}
+                    </div>
+                    <div class="text-xs w-full">
+                      <p class="font-medium">{author ?? "Anonymous"}</p>
+                      <p class="text-neutral-500">
+                        <span class="text-neutral-600 font-medium">Date:</span>{" "}
+                        {date ?? "N/A"}
+                      </p>
                     </div>
                   </div>
                 </div>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <div>No blogs yet!</div>
-      )
-    }
-  </Section>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    ) : (
+      <div>No blogs yet!</div>
+    )
+  }
 </Layout>
 
 <style>
