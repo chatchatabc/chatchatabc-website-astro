@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import { Picture } from "astro-imagetools/components";
+import OutSourcing from "../components/OutSourcing"
 
 const positions = [
   "java developer",
@@ -68,41 +69,7 @@ const positions = [
 
   <!-- Outsourcing Section -->
   <Section sectionTitle="outsourcing">
-    <div>
-      <ul class="flex gap-8 px-16 relative">
-        {
-          positions.map((position, index) => {
-            return (
-              <li class="text-center flex-1 outsourcing-cards duration-500">
-                <div class="relative">
-                  <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
-                  <h4 class="text-xl capitalize">{position}</h4>
-                </div>
-                <div class="mt-2 h-72 rounded-xl bg-[#9A82DB] flex flex-col group overflow-hidden shadow-xl">
-                  <div class="w-24 h-24 mx-auto mt-2 border rounded-full overflow-hidden">
-                    <img
-                      src="?"
-                      class="w-full h-full object-cover"
-                      alt={position}
-                    />
-                  </div>
-                  <p class="text-left px-4 py-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Inventore repudiandae similique porro aut.
-                  </p>
-                  <button
-                    class="bg-gradient-to-b from-transparent py-4 to-[#6750A4] mt-auto duration-1000 lg:opacity-0 group-hover:opacity-100"
-                    onclick={`OpenOutsourceCard(${index})`}
-                  >
-                    Show more
-                  </button>
-                </div>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
+    <OutSourcing client:load />
   </Section>
 
   <!-- Software Development Section -->
@@ -184,14 +151,3 @@ const positions = [
     pointer-events: none;
   }
 </style>
-
-<script>
-  function OpenOutsourceCard(cardIndex: number) {
-    const cards = document.getElementsByClassName("outsourcing-cards");
-    for (var index = 0; index < cards.length; index++) {
-      if (index !== cardIndex)
-        cards[index].classList.add("outsourcing-cards-hide");
-      else cards[index].classList.add("outsourcing-cards-show");
-    }
-  }
-</script>
