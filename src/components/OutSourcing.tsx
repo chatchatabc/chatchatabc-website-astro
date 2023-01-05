@@ -14,7 +14,11 @@ function OutSourcing() {
   };
   return (
     <div>
-      <ul className="flex gap-8 px-16 relative justify-center">
+      <ul
+        className={`flex px-16 relative justify-center ${
+          selected ? "" : "gap-8"
+        }`}
+      >
         {positions.map((position, index) => {
           index += 1;
           return (
@@ -33,13 +37,17 @@ function OutSourcing() {
                 <h4 className="text-xl capitalize">{position}</h4>
               </div>
               <div
-                className={`mt-2 h-72 rounded-xl bg-[#9A82DB] flex flex-col group overflow-hidden ${
+                className={`mt-2 h-72 rounded-xl bg-[#9A82DB] flex group overflow-hidden ${
                   index === selected
-                    ? "shadow-2xl shadow-neutral-700"
-                    : "shadow-xl"
-                }`}
+                    ? "shadow-2xl shadow-neutral-700 flex-row"
+                    : "shadow-xl flex-col"
+                } relative`}
               >
-                <div className="w-24 h-24 mx-auto mt-2 border rounded-full overflow-hidden">
+                <div
+                  className={`mx-auto border overflow-hidden ${
+                    selected ? "w-1/3 h-full" : "w-24 h-24 rounded-full mt-2"
+                  }`}
+                >
                   <img
                     src="?"
                     className="w-full h-full object-cover"
@@ -52,9 +60,13 @@ function OutSourcing() {
                 </p>
                 <button
                   onClick={() => handleButton(index)}
-                  className="bg-gradient-to-b from-transparent py-4 to-[#6750A4] mt-auto duration-1000 lg:opacity-0 group-hover:opacity-100"
+                  className={`from-transparent py-4 to-[#6750A4] ${
+                    selected
+                      ? "absolute top-0 h-full bg-gradient-to-r px-2"
+                      : "bg-gradient-to-b"
+                  } mt-auto duration-1000 right-0 lg:opacity-0 group-hover:opacity-100`}
                 >
-                  Show more
+                  {selected ? "Close" : "Show more"}
                 </button>
               </div>
             </li>
