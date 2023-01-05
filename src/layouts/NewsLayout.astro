@@ -10,7 +10,7 @@ const { title, author_image, date, author, tags, image } = frontmatter;
 ---
 
 <Layout title={title}>
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-3xl mx-auto pb-16">
     <section class="py-2 flex gap-4">
       <div class="aspect-square w-16 rounded-full border overflow-hidden">
         {
@@ -29,7 +29,7 @@ const { title, author_image, date, author, tags, image } = frontmatter;
     <section class="flex flex-col py-2 gap-4">
       <div>
         <h1 class="text-5xl font-medium">{title ?? "No Title"}</h1>
-        <p>{date ?? "No Date"}</p>
+        <p class="text-sm text-neutral-500">{date ?? "No Date"}</p>
       </div>
       <div class="aspect-1 overflow-hidden border max-h-[500px]">
         <Img alt={title} src={image ?? "/images/no-image.png"} />
