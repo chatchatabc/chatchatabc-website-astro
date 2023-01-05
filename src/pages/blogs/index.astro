@@ -12,7 +12,7 @@ const blogs = await Astro.glob("./*.md");
       blogs.length ? (
         <ul class="grid grid-cols-2 gap-4 px-8">
           {blogs.map((blog) => {
-            const { title, author, tags, date, excerpt, author_icon, image } =
+            const { title, author, tags, date, excerpt, author_image, image } =
               blog.frontmatter;
             return (
               <li class="border rounded-sm overflow-hidden aspect-w-2 aspect-h-1">
@@ -35,7 +35,7 @@ const blogs = await Astro.glob("./*.md");
                     </p>
                     <div class="mt-auto flex items-center gap-2">
                       <div class="w-14 rounded-full aspect-square border overflow-hidden">
-                        {author_icon ? (
+                        {author_image ? (
                           <img
                             class="w-full h-full object-cover"
                             src="?"

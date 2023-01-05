@@ -1,32 +1,50 @@
 ---
-import Section from "../components/Section.astro";
+import { Img } from "astro-imagetools/components";
+import { Icon } from "astro-icon";
 import Layout from "./Layout.astro";
+import "../styles/markdown.css";
+import Markdown from "../components/Markdown.astro";
 
 const { frontmatter } = Astro.props;
-const { title, date, author, tags } = frontmatter;
+const { title, author_image, date, author, tags, image } = frontmatter;
 ---
 
 <Layout title={title}>
-  <Section>
-    <div class="py-2 px-8 border-b-2">
-      <h1 class="text-4xl">{title}</h1>
-      <ul class="flex flex-wrap gap-x-4">
-        <li class="text-xs font-medium text-neutral-500">
-          <span class="font-bold text-neutral-600">Date:</span>
-          {date ?? "N/A"}
-        </li>
-        <li class="text-xs font-medium text-neutral-500">
-          <span class="font-bold text-neutral-600">Author:</span>
-          {author ?? "Anonymous"}
-        </li>
-        <li class="text-xs font-medium text-neutral-500">
-          <span class="font-bold text-neutral-600">Tags:</span>
-          {tags ?? "N/A"}
-        </li>
-      </ul>
-    </div>
-    <div class="px-8 py-2">
+  <div class="max-w-3xl mx-auto">
+    <section class="py-2 flex gap-4">
+      <div class="aspect-square w-16 rounded-full border overflow-hidden">
+        {
+          author_image ? (
+            <Img src={author_image} alt={author} />
+          ) : (
+            <Icon name="mdi:user" />
+          )
+        }
+      </div>
+      <div class="flex flex-col justify-center">
+        <p>{author ?? "Anonymous"}</p>
+        <p class="text-neutral-500">test test test</p>
+      </div>
+    </section>
+    <section class="flex flex-col py-2 gap-4">
+      <div>
+        <h1 class="text-5xl font-medium">{title ?? "No Title"}</h1>
+        <p>{date ?? "No Date"}</p>
+      </div>
+      <div class="aspect-1 overflow-hidden border">
+        <Img alt={title} src={image ?? "/images/no-image.png"} />
+      </div>
+    </section>
+    <Markdown>
       <slot />
-    </div>
-  </Section>
+    </Markdown>
+  </div>
 </Layout>
+
+<style is:global>
+  [astro-icon] {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+</style>
