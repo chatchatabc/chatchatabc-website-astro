@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// https://github.com/zloirock/core-js
-import "core-js/stable";
 
 function OutSourcing() {
   const positions = [
