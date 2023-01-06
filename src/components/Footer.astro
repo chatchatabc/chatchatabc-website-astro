@@ -4,13 +4,12 @@ import { Picture } from "astro-imagetools/components";
 ---
 
 <footer>
-  <div class="border-y-2 py-16">
-    <div class="container mx-auto grid grid-cols-3">
-      <div class="flex flex-col gap-8 items-center">
+  <div class="border-y-2 py-4 lg:py-16">
+    <div class="container mx-auto grid lg:grid-cols-3">
+      <div class="flex flex-col gap-8 items-center w-screen py-4 lg:w-[unset]">
         <div class="w-52 object-contain">
           <Picture src="/images/ChatChat.png" alt="logo" />
         </div>
-
         <div>
           <ul class="flex gap-4">
             <li>
@@ -25,8 +24,8 @@ import { Picture } from "astro-imagetools/components";
           </ul>
         </div>
       </div>
-      <div class="col-span-2 grid grid-cols-3 text-[#6750A4]">
-        <ul class="flex flex-col gap-4">
+      <div class="px-4 col-span-2 grid gap-y-8 text-[#6750A4] md:grid-cols-3">
+        <ul class="flex flex-col md:gap-4">
           <li>
             <a>Service</a>
           </li>
@@ -37,7 +36,7 @@ import { Picture } from "astro-imagetools/components";
             <a>Software Development</a>
           </li>
         </ul>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-col md:gap-4">
           <li>
             <a>We're Hiring</a>
           </li>
@@ -45,7 +44,7 @@ import { Picture } from "astro-imagetools/components";
             <a>davao.jobs.page</a>
           </li>
         </ul>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-col md:gap-4">
           <li>
             <a>Contact Us</a>
           </li>
@@ -67,7 +66,14 @@ import { Picture } from "astro-imagetools/components";
 
 <style is:global>
   [astro-icon] {
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  @media (min-width="768px") {
+    [astro-icon] {
+      height: 3rem;
+      width: 3rem;
+    }
   }
 </style>
