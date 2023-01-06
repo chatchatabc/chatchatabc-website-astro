@@ -52,12 +52,12 @@ function OutSourcing() {
                 className={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
                   isSelected
                     ? "min-h-[500px] lg:min-h-[18rem] shadow-2xl lg:shadow-neutral-700 lg:flex-row"
-                    : "shadow-xl h-[18rem]"
-                } duration-500 relative`}
+                    : "shadow-xl min-h-[18rem]"
+                } duration-500 relative lg:h-[18rem]`}
               >
                 {/* Image || Avatar */}
                 <div
-                  className={`mx-auto border overflow-hidden ${
+                  className={`mx-auto border duration-300 overflow-hidden ${
                     isSelected
                       ? "w-full h-32 lg:h-full lg:w-1/3"
                       : "w-24 h-24 rounded-full mt-2"
@@ -71,7 +71,7 @@ function OutSourcing() {
                 </div>
 
                 {/* Description */}
-                <p className="text-left px-4 py-2">
+                <p className="text-left text-sm px-4 py-2 md:text-base">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Inventore repudiandae similique porro aut.
                 </p>
