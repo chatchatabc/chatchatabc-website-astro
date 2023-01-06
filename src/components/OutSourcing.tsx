@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// https://github.com/zloirock/core-js
+import "core-js/stable";
 
 function OutSourcing() {
   const positions = [
@@ -34,9 +36,9 @@ function OutSourcing() {
               id={isSelected ? "card-focus" : ""}
               tabIndex={selected === index ? -1 : index}
               className={`text-center outsourcing-cards duration-500 ${
-                selected && index !== selected
+                selected && !isSelected
                   ? "md:w-0 md:h-0 md:opacity-0"
-                  : index === selected
+                  : selected
                   ? "w-full"
                   : "opacity-100 w-full md:w-[45%]"
               }`}
@@ -51,9 +53,9 @@ function OutSourcing() {
               <div
                 className={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
                   isSelected
-                    ? "min-h-[500px] lg:min-h-[18rem] shadow-2xl lg:shadow-neutral-700 lg:flex-row"
+                    ? "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row"
                     : "shadow-xl min-h-[18rem]"
-                } duration-500 relative lg:h-[18rem]`}
+                } duration-500 relative`}
               >
                 {/* Image || Avatar */}
                 <div
