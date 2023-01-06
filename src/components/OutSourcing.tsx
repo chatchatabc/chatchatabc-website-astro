@@ -51,8 +51,8 @@ function OutSourcing() {
               <div
                 className={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
                   isSelected
-                    ? "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row"
-                    : "shadow-xl min-h-[18rem]"
+                    ? "min-h-[500px] lg:min-h-[18rem] shadow-2xl lg:shadow-neutral-700 lg:flex-row"
+                    : "shadow-xl h-[18rem]"
                 } duration-500 relative`}
               >
                 {/* Image || Avatar */}
