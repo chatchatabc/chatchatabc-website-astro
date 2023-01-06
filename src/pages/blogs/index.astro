@@ -10,28 +10,29 @@ const blogs = await Astro.glob("./*.mdx");
   <Section sectionTitle={"Blogs"}>
     {
       blogs.length ? (
-        <ul class="grid grid-cols-2 gap-4 px-8">
+        <ul class="grid md:grid-cols-2 gap-4 px-8">
           {blogs.map((blog) => {
             const { title, author, tags, date, excerpt, author_image, image } =
               blog.frontmatter;
             return (
-              <li class="border rounded-sm overflow-hidden aspect-w-2 aspect-h-1">
-                <div class="grid grid-cols-5">
-                  <div class="h-full col-span-2">
+              <li class="border rounded-sm overflow-hidden md:aspect-w-2 md:aspect-h-1">
+                <div class="grid md:grid-cols-5">
+                  <div class="h-32 md:h-full md:col-span-2">
                     <img
                       class="w-full h-full object-cover"
                       src={image ?? "/images/no-image.png"}
                     />
                   </div>
-                  <div class="h-full p-4 flex flex-col col-span-3">
+                  <div class="h-full p-4 flex flex-col md:col-span-3">
                     <a
                       href={blog.url}
-                      class="text-xl font-bold hover:text-neutral-600 max-w-max"
+                      class="text-xl leading-[0.3rem] font-bold hover:text-neutral-600 max-w-max md:leading-3"
                     >
                       {title}
                     </a>
-                    <p class="text-neutral-500 text-sm py-2 flex-1">
-                      {excerpt}
+                    <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1">
+                      {excerpt} Lorem ipsum dolor sit amet, consectetur
+                      adipisicing elit.
                     </p>
                     <div class="mt-auto flex items-center gap-2">
                       <div class="w-14 rounded-full aspect-square border overflow-hidden">
