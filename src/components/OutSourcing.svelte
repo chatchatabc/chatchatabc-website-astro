@@ -9,7 +9,8 @@
   const handleBtn = (index) => {
     if (selected) selected = null;
     else selected = index;
-    document.getElementById("card-focus")?.focus();
+    const card = document.getElementById("card-focus");
+    if (card) card.focus();
   };
 </script>
 
@@ -17,15 +18,14 @@
   <!-- Card Container -->
   <ul
     class={`flex px-8 relative justify-center flex-wrap ${
-      selected ? "lg:space-x-0" : ""
-    } lg:flex-nowrap lg:px-16 lg:space-x-8`}
+      selected ? "lg:space-x-0" : "lg:space-x-8"
+    } lg:flex-nowrap lg:px-16`}
   >
     {#each positions as position, index}
       <li
-        key={position + (index + 1)}
         id={selected === index + 1 ? "card-focus" : ""}
         tabIndex={selected === index + 1 ? -1 : index + 1}
-        class={`text-center outsourcing-cards duration-500 ${
+        class={`text-center duration-500 ${
           selected && index + 1 !== selected
             ? "md:w-0 md:h-0 md:opacity-0"
             : selected
