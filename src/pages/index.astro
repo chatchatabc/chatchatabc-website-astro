@@ -2,8 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import { Picture } from "astro-imagetools/components";
-import OutSourcing from "../components/OutSourcing";
-import Test from "../components/Test";
+import OutSourcing from "../components/OutSourcing.svelte";
 
 const positions = [
   "java developer",
@@ -14,8 +13,6 @@ const positions = [
 ---
 
 <Layout title="ChatChatABC">
-  <Test client:load />
-
   <!-- Hero Section -->
   <Section>
     <div class="relative grid grid-cols-2 md:min-h-[250px]">

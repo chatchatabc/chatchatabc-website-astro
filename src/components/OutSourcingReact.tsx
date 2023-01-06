@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function OutSourcing() {
+function OutSourcingReact() {
   const positions = [
     "java developer",
     "web developer",
@@ -107,4 +107,4 @@ function OutSourcing() {
   );
 }
 
-export default OutSourcing;
+export default OutSourcingReact;
