@@ -23,15 +23,15 @@ const positions = [
 
       <!-- Left Side -->
       <ul
-        class="relative flex flex-col-reverse justify-start items-center gap-2 -rotate-[30deg] scale-105 lg:justify-center lg:pt-28"
+        class="relative flex flex-col-reverse justify-start items-center -rotate-[30deg] scale-105 lg:justify-center lg:pt-28"
       >
         {
           positions.reverse().map((position) => {
             return (
               <li
                 class="text-xs bg-[#6750A4] py-4 duration-1000 text-white flex items-end w-1/2
-              rounded-3xl border-2 border-white px-2 capitalize hero-position -mt-14 h-20
-              md:h-28 md:-mt-20 md:text-xl lg:-mt-28 lg:h-48 lg:text-4xl lg:shadow-2xl lg:px-4"
+              rounded-3xl border-2 border-white px-2 capitalize hero-position -mt-12 h-20
+              md:h-28 md:-mt-16 md:text-xl lg:-mt-28 lg:h-48 lg:text-4xl lg:shadow-2xl lg:px-4"
               >
                 {position}
               </li>
@@ -41,7 +41,7 @@ const positions = [
       </ul>
 
       <!-- Right Sides -->
-      <div class="relative flex flex-col w-full justify-between gap-4">
+      <div class="relative flex flex-col w-full justify-between space-x-4">
         <h2
           class="flex-1 flex items-center text-[#6750A4] md:text-3xl lg:text-5xl"
         >

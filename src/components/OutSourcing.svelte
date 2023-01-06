@@ -16,9 +16,9 @@
 <div>
   <!-- Card Container -->
   <ul
-    class={`flex px-8 relative justify-center flex-wrap gap-8 ${
-      selected ? "lg:gap-0" : ""
-    } lg:flex-nowrap lg:px-16`}
+    class={`flex px-8 relative justify-center flex-wrap ${
+      selected ? "lg:space-x-0" : ""
+    } lg:flex-nowrap lg:px-16 lg:space-x-8`}
   >
     {#each positions as position, index}
       <li
@@ -31,7 +31,7 @@
             : selected
             ? "w-full"
             : "opacity-100 w-full md:w-[45%]"
-        }`}
+        } mb-8`}
       >
         <!-- Title -->
         <div class="relative">
