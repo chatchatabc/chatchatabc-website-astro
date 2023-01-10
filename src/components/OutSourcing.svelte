@@ -43,9 +43,9 @@
         <div
           class={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
             selected === index + 1
-              ? "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row"
+              ? "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row lg:min-h-[unset] lg:h-[350px]"
               : "shadow-xl min-h-[18rem] lg:h-[18rem]"
-          } duration-500 relative lg:min-h-[18rem]`}
+          } duration-500 relative`}
         >
           <!-- Image || Avatar -->
           <div
