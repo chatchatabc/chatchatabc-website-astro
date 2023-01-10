@@ -1,6 +1,8 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import i18next from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
 
 export interface Props {
   title: string;
@@ -10,7 +12,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -34,6 +36,8 @@ const { title } = Astro.props;
       href="/logo/favicon-16x16.png"
     />
     <link rel="manifest" href="/logo/site.webmanifest" />
+
+    <HeadHrefLangs />
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
