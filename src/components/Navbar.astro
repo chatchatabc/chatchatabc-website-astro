@@ -2,6 +2,9 @@
 import { Picture } from "astro-imagetools/components";
 import Modal from "./Modal.astro";
 import ContactUs from "./ContactUs.astro";
+import Language from "./Language.svelte";
+
+const { pathname } = Astro.url;
 
 const navItems = [
   { url: "/#outsourcing", name: "outsourcing" },
@@ -23,16 +26,16 @@ const navItems = [
       class="container mx-auto flex flex-wrap justify-between items-center md:flex-nowrap md:gap-8 md:justify-around lg:px-8"
     >
       <a href="/">
-        <div class="object-contain w-32 lg:w-52">
+        <div class="object-contain w-28 lg:w-44">
           <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
         </div>
       </a>
-      <button id="nav-menu-btn" class="md:hidden md:pointer-events-none"
-        >Menu</button
-      >
+      <button id="nav-menu-btn" class="md:hidden md:pointer-events-none">
+        Menu
+      </button>
       <ul
         id="nav"
-        class="max-h-screen py-1 hide-nav flex flex-col w-full text-purple-700 font-medium ml-auto text-xs duration-500 md:justify-end md:py-0 md:duration-[0s] md:flex-row md:gap-2 lg:text-base"
+        class="max-h-screen py-1 hide-nav flex flex-col w-full text-purple-700 font-medium ml-auto text-xs duration-500 md:items-center md:justify-end md:py-0 md:duration-[0s] md:flex-row md:gap-2 lg:text-base"
       >
         {
           navItems.map((item) => {
@@ -51,10 +54,13 @@ const navItems = [
         <li>
           <button
             id="modal-open-btn"
-            class="w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:ml-8 md:w-max hover:bg-[#e8d3f899]"
+            class="w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"
           >
             contact us
           </button>
+        </li>
+        <li>
+          <Language url={pathname} client:load />
         </li>
       </ul>
     </nav>

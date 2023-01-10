@@ -1,0 +1,126 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import { Picture } from "astro-imagetools/components";
+import OutSourcing from "../../components/OutSourcing.svelte";
+import AboutUs from "../../components/AboutUs.svelte";
+
+const positions = [
+  "java developer",
+  "web developer",
+  "backend engineer",
+  "designer",
+];
+---
+
+<Layout title="ChatChatABC">
+  <p>Should be in Chinese Langauge</p>
+  <!-- Hero Section -->
+  <Section>
+    <div class="relative grid grid-cols-2 md:min-h-[250px]">
+      <!-- Background -->
+      <div class="absolute top-0 left-0 h-full w-full">
+        <img src="/images/tailwind.png" class="h-full w-full object-contain" />
+      </div>
+
+      <!-- Left Side -->
+      <ul
+        class="relative w-2/4 mx-auto flex flex-col-reverse justify-start items-center -rotate-[30deg] scale-105 lg:justify-center lg:pt-28"
+      >
+        {
+          positions.reverse().map((position) => {
+            return (
+              <li
+                class="text-xs bg-[#6750A4] py-4 duration-1000 text-white flex items-end w-full
+              rounded-3xl border-2 border-white px-2 capitalize hero-position -mt-12 h-20
+              md:h-28 md:-mt-16 md:text-xl lg:-mt-28 lg:h-48 lg:text-4xl lg:shadow-2xl lg:px-4"
+              >
+                {position}
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <!-- Right Sides -->
+      <div class="relative flex flex-col w-full justify-between space-x-4">
+        <h2
+          class="flex-1 flex items-center text-[#6750A4] md:text-3xl lg:text-5xl"
+        >
+          "It's not about ideas, It's about making ideas happen!"
+        </h2>
+        <div
+          class="grid grid-cols-3 gap-2 w-full justify-around md:grid-cols-6"
+        >
+          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
+            <Picture src="/images/astro.png" alt="astro" />
+          </div>
+          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
+            <Picture src="/images/kotlin.png" alt="astro" />
+          </div>
+          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
+            <Picture src="/images/java.png" alt="astro" />
+          </div>
+          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
+            <Picture src="/images/ts.png" alt="astro" />
+          </div>
+          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
+            <Picture src="/images/js.png" alt="astro" />
+          </div>
+          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
+            <Picture src="/images/rust.png" alt="astro" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Outsourcing Section -->
+  <Section sectionTitle="outsourcing">
+    <OutSourcing client:load />
+  </Section>
+
+  <!-- Software Development Section -->
+  <Section sectionTitle="software-development">
+    <div class="grid lg:grid-cols-2">
+      <div class="hidden items-center w-full lg:flex">
+        <div class="h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl">
+        </div>
+      </div>
+      <Picture
+        src="/images/tech-stack.png"
+        alt="tech stack"
+        layout="constrained"
+      />
+    </div>
+  </Section>
+
+  <!-- About Us Section -->
+  <Section sectionTitle="about-us">
+    <AboutUs client:visible />
+  </Section>
+</Layout>
+
+<!-- Always use is:global to prevent astro using .where() selector. -->
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  .hero-position {
+    transform: rotateX(60deg) rotateZ(325deg);
+  }
+  @media (min-width: 1024px) {
+    .hero-position:hover {
+      transform: rotateX(0deg) rotateZ(30deg);
+      scale: 80%;
+      z-index: 1;
+    }
+  }
+
+  .outsourcing-cards-hide {
+    background-color: aqua;
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+  }
+</style>
