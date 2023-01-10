@@ -1,7 +1,10 @@
 <script>
+  import { fixUrl } from "../helpers/commonUtils";
+
   export let url;
+
   let currentLang = "EN";
-  if (url && url.includes("chi-zh")) currentLang = "ZH";
+  if (url && url.includes("/zh/")) currentLang = "ZH";
   let open = false;
 </script>
 
@@ -16,10 +19,10 @@
     } duration-500 rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
   >
     <li>
-      <a href="/eng-en/">ENG-EN</a>
+      <a href="/">ENG-EN</a>
     </li>
     <li>
-      <a href="/chi-zh/">CHI-ZH</a>
+      <a href={fixUrl("/zh/", url)}>CHI-ZH</a>
     </li>
   </ul>
 </div>

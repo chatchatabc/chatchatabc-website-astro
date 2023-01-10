@@ -8,10 +8,13 @@ import { fixUrl } from "../helpers/commonUtils";
 const { pathname } = Astro.url;
 
 const navItems = [
-  { url: "/#outsourcing", name: "outsourcing" },
-  { url: "/#software-development", name: "software development" },
-  { url: "/#about-us", name: "about us" },
-  { url: fixUrl(pathname, "blogs"), name: "blogs" },
+  { url: fixUrl(pathname, "/#outsourcing"), name: "outsourcing" },
+  {
+    url: fixUrl(pathname, "/#software-development"),
+    name: "software development",
+  },
+  { url: fixUrl(pathname, "/#about-us"), name: "about us" },
+  { url: fixUrl(pathname, "/blogs"), name: "blogs" },
 ];
 ---
 
@@ -26,7 +29,7 @@ const navItems = [
     <nav
       class="container mx-auto flex flex-wrap justify-between items-center md:flex-nowrap md:gap-8 md:justify-around lg:px-8"
     >
-      <a href="/">
+      <a href={fixUrl(pathname, "/")}>
         <div class="object-contain w-28 lg:w-44">
           <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
         </div>
