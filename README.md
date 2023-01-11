@@ -9,8 +9,8 @@ In this section you'll see the list of tools and technologies that was used to d
 - [**`Astro`**](https://docs.astro.build/en/getting-started/): Main jamstack that is used to develop the website
 - MDX ([**`@astro/mdx`**](https://docs.astro.build/en/guides/integrations-guide/mdx/)): This tool is used to utilize .mdx files within this project.
 - Svelte ([**`@astro/svelte`**](https://docs.astro.build/en/guides/integrations-guide/svelte/)): This framework is used to develop some reactive components instead of using ReactJS. The resources of this framework is much more lighter and is able to run on older browsers.
-- TailwindCSS ([**`@astro/tailwind`**](https://docs.astro.build/en/guides/integrations-guide/tailwind/)): asd
-- [**`astro-icon`**](https://github.com/natemoo-re/astro-icon#readme): This CSS framework is used to assist with the styling of the website on the frontend.
+- TailwindCSS ([**`@astro/tailwind`**](https://docs.astro.build/en/guides/integrations-guide/tailwind/)): This CSS framework is used to assist with the styling of the website on the frontend.
+- [**`astro-icon`**](https://github.com/natemoo-re/astro-icon#readme): This library is used to implement wide variety of icons that could be found within [`iconify`](https://iconify.design) website.
 - [**`astro-imagetools`**](https://github.com/RafidMuhymin/astro-imagetools#readme): This tool is used to optimize the loading performance of images within the project.
 
 # 👾 Project Structure
