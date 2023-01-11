@@ -46,7 +46,7 @@
           class={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
             selected === index + 1
               ? "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row lg:min-h-[unset] lg:h-[350px]"
-              : "shadow-xl min-h-[18rem] lg:h-[18rem]"
+              : "shadow-xl min-h-[18rem]"
           } duration-500 relative`}
         >
           <!-- Image || Avatar -->
@@ -54,7 +54,7 @@
             class={`mx-auto border duration-300 overflow-hidden ${
               selected === index + 1
                 ? "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
-                : "h-20 aspect-1 rounded-full mt-2 md:h-28"
+                : "w-[40%] aspect-1 rounded-full mt-2"
             }`}
           >
             <img
