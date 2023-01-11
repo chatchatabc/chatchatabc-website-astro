@@ -82,20 +82,22 @@ We used the services of Cloudflare, such as Cloudflare Pages and Wrangler, to de
 
 - **Cloudflare**: https://developers.cloudflare.com
 - **Cloudflare Pages**: https://developers.cloudflare.com/pages/
-- **Wrangler**:https://developers.cloudflare.com/workers/wrangler/
+- **Wrangler**: https://developers.cloudflare.com/workers/wrangler/
 
 # 🤖 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+| Command                       | Action                                                                |
+| :---------------------------- | :-------------------------------------------------------------------- |
+| `npm install`                 | Installs dependencies                                                 |
+| `npm run dev`                 | Starts local dev server at `localhost:3000`                           |
+| `npm run build`               | Build your production site to `./dist/`                               |
+| `npm run preview`             | Preview your build locally, before deploying                          |
+| `npm run astro ...`           | Run CLI commands like `astro add`, `astro preview`                    |
+| `npm run astro --help`        | Get help using the Astro CLI                                          |
+| `wrangler login`              | Used to login your cloudflare credentials for deploying with wrangler |
+| `wrangler pages publish dist` | Deploy the build project to the cloudflare pages using wrangler CLI   |
 
 # 👀 Want to learn more?
 
