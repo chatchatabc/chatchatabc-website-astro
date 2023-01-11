@@ -1,37 +1,67 @@
-# Welcome to [Astro](https://astro.build)
+# Welcome to [ChatChatABC Website!](https://jobs.davao.page)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+## Tech Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
 
-## 🚀 Project Structure
+## Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+In this section you'll see the most important information that will help you understand most parts of the project.
 
 ```
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+├───.vscode
+├───public
+│   ├───images
+│   │   └───...
+│   ├───logo
+│   │   └───...
+│   └───_headers
+└───src
+    ├───components
+    │   ├───home
+    │   │   └───...
+    │   ├───navbar
+    │   │   └───...
+    │   ├───widgets
+    │   │   └───...
+    │   └───...
+    ├───helpers
+    │   └───commonUtils.ts
+    ├───layouts
+    │   ├───Layout.astro
+    │   └───NewsLayout.astro
+    ├───pages
+    │   ├───blogs
+    │   │   └───...
+    │   └───index.astro
+    └───styles
+        └───markdown.css
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**public**
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **`images:`** Used to store all the images that will be used for the development of Davao Page.
+- **`logo:`** Used to store the logo of the Davao Page, so that it will be separated from the main image folder.
+- **`_headers:`** Used to configure custom headers for the responses of Cloudflare Pages to the user's browser.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**src**
 
-## 🧞 Commands
+- **components**
+  - **`home:`** Used to store small components that are used in homepage.
+  - **`navbar:`** Used to store small components that are used in navbar.
+  - **`widgets:`** Used to store small reusable components such as cards, modal, etc.
+- **helpers**
+  - **`commonUtils.ts:`** Used to store reusable functions / utilities to help with the development.
+- **layouts**
+  - **`Layout.astro:`** Used as the main foundation template for generating the pages in ChatChatABC Website.
+  - **`NewsLayout.astro:`** Used as the layout template for the blogs page in ChatChatABC Website.
+- **pages**
+  - **`blogs:`** Contains all pages for the blogs, such as blogs page and blogs list.
+  - **`index.astro:`** Homepage of ChatChatABC Website.
+- **`styles:`** Utilize to store independent css styles for a specific use case or component.
+
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -46,6 +76,6 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to contact [BoJoNVi](https://github.com/BoJoNVi) (me) through DingTalk or visit me at the workplace to have a thorough discussion about this project.
 
 https://github.com/bndp/beautiful-markdown/blob/master/src/beautiful-markdown.css
