@@ -1,6 +1,8 @@
 <script>
+  // Value is null when none is selected
   let selected = null;
 
+  // List of items
   const positions = [
     "java developer",
     "web developer",
@@ -28,11 +30,14 @@
         id={selected === index + 1 ? "card-focus" : ""}
         tabIndex={selected === index + 1 ? -1 : index + 1}
         class={`text-center duration-500 ${
-          selected && index + 1 !== selected
-            ? "md:w-0 md:h-0 md:opacity-0"
+          index + 1 === selected
+            ? // Show item design if it is selected
+              "w-full"
             : selected
-            ? "w-full"
-            : "opacity-100 w-full md:w-[45%]"
+            ? // Hide item if other was already selected
+              "md:w-0 md:h-0 md:opacity-0"
+            : // Show item while none is selected
+              "opacity-100 w-full md:w-[45%]"
         } mb-8`}
       >
         <!-- Title -->
@@ -45,16 +50,20 @@
         <div
           class={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
             selected === index + 1
-              ? "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row lg:min-h-[unset] lg:h-[350px]"
-              : "shadow-xl min-h-[18rem]"
+              ? // if the current item is selected
+                "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row lg:min-h-[unset] lg:h-[350px]"
+              : // if the current item is not selected
+                "shadow-xl min-h-[18rem]"
           } duration-500 relative`}
         >
           <!-- Image || Avatar -->
           <div
             class={`mx-auto border duration-300 overflow-hidden ${
               selected === index + 1
-                ? "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
-                : "w-[40%] aspect-1 rounded-full mt-2"
+                ? // if the current item is selected
+                  "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
+                : // if the current items is no selected
+                  "w-[40%] aspect-1 rounded-full mt-2"
             }`}
           >
             <img
@@ -76,8 +85,10 @@
             on:click={() => handleBtn(index + 1)}
             class={`hidden pointer-events-none from-transparent py-4 to-[#6750A4] ${
               selected
-                ? "absolute top-0 h-full bg-gradient-to-r px-2"
-                : "bg-gradient-to-b"
+                ? // if there's a selected item
+                  "absolute top-0 h-full bg-gradient-to-r px-2"
+                : // if there's not yet a selected item
+                  "bg-gradient-to-b"
             } mt-auto duration-1000 right-0 lg:block lg:pointer-events-auto 
             lg:opacity-0 group-hover:opacity-100`}
           >
