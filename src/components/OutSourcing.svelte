@@ -1,6 +1,6 @@
 <script>
   let selected = null;
-  
+
   const positions = [
     "java developer",
     "web developer",
@@ -54,7 +54,7 @@
             class={`mx-auto border duration-300 overflow-hidden ${
               selected === index + 1
                 ? "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
-                : "h-28 aspect-1 rounded-full mt-2"
+                : "h-20 aspect-1 rounded-full mt-2 md:h-28"
             }`}
           >
             <img
