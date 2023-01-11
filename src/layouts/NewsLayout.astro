@@ -17,7 +17,7 @@ const { title, author_image, date, author, tags, image } = frontmatter;
           author_image ? (
             <Img src={author_image} alt={author} />
           ) : (
-            <Icon name="mdi:user" />
+            <Icon class="w-full h-full" name="mdi:user" />
           )
         }
       </div>
@@ -42,11 +42,3 @@ const { title, author_image, date, author, tags, image } = frontmatter;
     </Markdown>
   </div>
 </Layout>
-
-<style is:global>
-  [astro-icon="mdi:user"] {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-</style>

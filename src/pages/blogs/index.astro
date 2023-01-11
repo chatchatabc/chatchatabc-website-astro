@@ -43,7 +43,7 @@ const blogs = await Astro.glob("./*.mdx");
                             alt="author"
                           />
                         ) : (
-                          <Icon name="mdi:user" />
+                          <Icon class="w-full h-full" name="mdi:user" />
                         )}
                       </div>
                       <div class="text-xs w-full">
@@ -68,11 +68,3 @@ const blogs = await Astro.glob("./*.mdx");
     }
   </Section>
 </Layout>
-
-<style is:global>
-  [astro-icon="mdi:user"] {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-</style>
