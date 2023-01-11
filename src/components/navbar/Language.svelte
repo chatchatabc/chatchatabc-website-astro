@@ -1,5 +1,5 @@
 <script>
-  import { fixUrl } from "../helpers/commonUtils";
+  import { fixUrl } from "../../helpers/commonUtils";
 
   export let url;
 
