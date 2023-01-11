@@ -1,11 +1,13 @@
 <script>
   let selected = null;
+  
   const positions = [
     "java developer",
     "web developer",
     "backend engineer",
     "designer",
   ];
+
   const handleBtn = (index) => {
     if (selected) selected = null;
     else selected = index;
@@ -18,7 +20,7 @@
   <!-- Card Container -->
   <ul
     class={`flex px-8 relative justify-center flex-wrap ${
-      selected ? "lg:space-x-0" : "lg:space-x-8"
+      selected ? "lg:space-x-0" : "md:gap-8 lg:gap-0 lg:space-x-8"
     } lg:flex-nowrap lg:px-16`}
   >
     {#each positions as position, index}
@@ -51,11 +53,15 @@
           <div
             class={`mx-auto border duration-300 overflow-hidden ${
               selected === index + 1
-                ? "w-full h-32 lg:h-full lg:w-1/3"
-                : "w-24 h-24 rounded-full mt-2"
+                ? "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
+                : "h-28 aspect-1 rounded-full mt-2"
             }`}
           >
-            <img src="?" class="w-full h-full object-cover" alt={position} />
+            <img
+              src="/images/no-image.png"
+              class="w-full h-full object-cover"
+              alt={position}
+            />
           </div>
 
           <!-- Description -->
