@@ -37,3 +37,5 @@ pnpm-debug.log*
 # Ignore all local history of files
 .history
 .ionide
+
+# TODO: Must remove .vscoode dir from git tracking after merging dev branch to main (https://stackoverflow.com/questions/1274057/how-do-i-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore)
