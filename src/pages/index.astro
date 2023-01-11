@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/widgets/Section.astro";
-import { Picture } from "astro-imagetools/components";
+import { Img, Picture } from "astro-imagetools/components";
 import OutSourcing from "../components/home/OutSourcing.svelte";
 import AboutUs from "../components/home/AboutUs.svelte";
 
@@ -16,58 +16,75 @@ const positions = [
 <Layout title="ChatChatABC">
   <!-- Hero Section -->
   <Section>
-    <div class="relative grid grid-cols-2 md:min-h-[250px]">
-      <!-- Background -->
-      <div class="absolute top-0 left-0 h-full w-full">
-        <img src="/images/tailwind.png" class="h-full w-full object-contain" />
+    <div class="relative">
+      <!-- Background image -->
+      <div
+        class="absolute -z-10 left-0 top-0 w-full h-full overflow-hidden rounded-xl"
+      >
+        <Img src="/images/hero-bg.png" alt="" />
       </div>
 
-      <!-- Left Side -->
-      <ul
-        class="relative w-2/4 mx-auto flex flex-col-reverse justify-start items-center -rotate-[30deg] scale-105 lg:justify-center lg:pt-28"
-      >
-        {
-          positions.reverse().map((position) => {
-            return (
-              <li
-                class="text-xs bg-[#6750A4] py-4 duration-1000 text-white flex items-end w-full
-              rounded-3xl border-2 border-white px-2 capitalize hero-position -mt-12 h-20
-              md:h-28 md:-mt-16 md:text-xl lg:-mt-28 lg:h-48 lg:text-4xl lg:shadow-2xl lg:px-4"
-              >
-                {position}
-              </li>
-            );
-          })
-        }
-      </ul>
-
-      <!-- Right Sides -->
-      <div class="relative flex flex-col w-full justify-between space-x-4">
-        <h2
-          class="flex-1 flex items-center text-[#6750A4] md:text-3xl lg:text-5xl"
-        >
-          "It's not about ideas, It's about making ideas happen!"
-        </h2>
+      <!-- Content -->
+      <div class="relative grid grid-cols-4">
+        <div class="col-span-1 flex items-center">
+          <div class="pl-[30%] font-bold text-2xl">
+            <p>Your Idea</p>
+            <p>We Design</p>
+            <p>We Develop</p>
+          </div>
+        </div>
         <div
-          class="grid grid-cols-3 gap-2 w-full justify-around md:grid-cols-6"
+          class="col-span-3 flex flex-col gap-8 justify-center items-center p-8 font-medium"
         >
-          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
-            <Picture src="/images/astro.png" alt="astro" />
+          <!-- Top -->
+          <div class="flex gap-12 justify-center w-full">
+            <div
+              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-gray-400"
+            >
+              <div
+                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+              >
+                Java Developer
+              </div>
+            </div>
+            <div
+              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
+            >
+              <div
+                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+              >
+                Web Developer
+              </div>
+            </div>
           </div>
-          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
-            <Picture src="/images/kotlin.png" alt="astro" />
+
+          <!-- Middle -->
+          <div
+            class="z-10 w-max text-lg px-8 py-2 rounded-xl border bg-[#F9DEDC]"
+          >
+            we focus on
           </div>
-          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
-            <Picture src="/images/java.png" alt="astro" />
-          </div>
-          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
-            <Picture src="/images/ts.png" alt="astro" />
-          </div>
-          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
-            <Picture src="/images/js.png" alt="astro" />
-          </div>
-          <div class="max-w-[45px] w-3/4 aspect-square md:max-w-[unset]">
-            <Picture src="/images/rust.png" alt="astro" />
+
+          <!-- Bottom -->
+          <div class="-ml-8 flex gap-16 justify-center w-full">
+            <div
+              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
+            >
+              <div
+                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+              >
+                Backend Engineer
+              </div>
+            </div>
+            <div
+              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-gray-400"
+            >
+              <div
+                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+              >
+                Designer
+              </div>
+            </div>
           </div>
         </div>
       </div>
