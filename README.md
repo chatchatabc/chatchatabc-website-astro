@@ -1,6 +1,6 @@
 # Welcome to [ChatChatABC Website!](https://jobs.davao.page)
 
-Description
+This is project is built with Astro jamstack as its foundation. Purpose of this project is develop a website for ChatChatABC, providing fast and great experience for the users around the globe!
 
 # 🤓 Tech Stack
 
