@@ -78,9 +78,11 @@ Within this part, you'll be able to see more details of the project structure th
 
 In this section you'll know the important information that is used for the deployment of this project.
 
-- [**`Cloudflare`**](https://developers.cloudflare.com): asd
-- [**`Pages`**](https://developers.cloudflare.com/pages/): asd
-- [**`Wrangler`**](https://developers.cloudflare.com/workers/wrangler/): asd
+We used the services of Cloudflare, such as Cloudflare Pages and Wrangler, to deploy our production build on the internet. To know more about their functionalities, you can visit their respective documentation on the link provided below.
+
+- **Cloudflare**: https://developers.cloudflare.com
+- **Cloudflare Pages**: https://developers.cloudflare.com/pages/
+- **Wrangler**:https://developers.cloudflare.com/workers/wrangler/
 
 # 🤖 Commands
 
