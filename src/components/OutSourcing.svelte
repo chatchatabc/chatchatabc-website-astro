@@ -65,9 +65,10 @@
           </div>
 
           <!-- Description -->
-          <p class="text-left text-sm px-4 py-2 md:text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
-            repudiandae similique porro aut.
+          <p
+            class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
+          >
+            {"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore\nrepudiandae similique porro aut."}
           </p>
 
           <!-- Button for Desktop -->
