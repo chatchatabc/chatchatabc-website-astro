@@ -1,16 +1,24 @@
 # Welcome to [ChatChatABC Website!](https://jobs.davao.page)
 
-## Tech Stack
+Description
 
+# 🤓 Tech Stack
 
+In this section you'll see the list of tools and technologies that was used to develop this project.
 
-## Project Structure
+- [**`Astro`**](https://docs.astro.build/en/getting-started/): Main jamstack that is used to develop the website
+- MDX ([**`@astro/mdx`**](https://docs.astro.build/en/guides/integrations-guide/mdx/)): This tool is used to utilize .mdx files within this project.
+- Svelte ([**`@astro/svelte`**](https://docs.astro.build/en/guides/integrations-guide/svelte/)): This framework is used to develop some reactive components instead of using ReactJS. The resources of this framework is much more lighter and is able to run on older browsers.
+- TailwindCSS ([**`@astro/tailwind`**](https://docs.astro.build/en/guides/integrations-guide/tailwind/)): asd
+- [**`astro-icon`**](https://github.com/natemoo-re/astro-icon#readme): This CSS framework is used to assist with the styling of the website on the frontend.
+- [**`astro-imagetools`**](https://github.com/RafidMuhymin/astro-imagetools#readme): This tool is used to optimize the loading performance of images within the project.
+
+# 👾 Project Structure
 
 In this section you'll see the most important information that will help you understand most parts of the project.
 
 ```
 /
-├───.vscode
 ├───public
 │   ├───images
 │   │   └───...
@@ -39,6 +47,10 @@ In this section you'll see the most important information that will help you und
         └───markdown.css
 ```
 
+## Definitions
+
+Within this part, you'll be able to see more details of the project structure that is shown above.
+
 **public**
 
 - **`images:`** Used to store all the images that will be used for the development of Davao Page.
@@ -59,9 +71,18 @@ In this section you'll see the most important information that will help you und
 - **pages**
   - **`blogs:`** Contains all pages for the blogs, such as blogs page and blogs list.
   - **`index.astro:`** Homepage of ChatChatABC Website.
-- **`styles:`** Utilize to store independent css styles for a specific use case or component.
+- **styles:** Utilize to store independent css styles for a specific use case or component.
+  - **`markdown.css:`** this is used to style the rendered contents that comes from the markdown files. The css style is based from the [beautiful-markdown.css](https://github.com/bndp/beautiful-markdown/blob/master/src/beautiful-markdown.css).
 
-## Commands
+# 😎 Deployment
+
+In this section you'll know the important information that is used for the deployment of this project.
+
+- [**`Cloudflare`**](https://developers.cloudflare.com): asd
+- [**`Pages`**](https://developers.cloudflare.com/pages/): asd
+- [**`Wrangler`**](https://developers.cloudflare.com/workers/wrangler/): asd
+
+# 🤖 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -74,8 +95,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `npm run astro --help` | Get help using the Astro CLI                       |
 
-## 👀 Want to learn more?
+# 👀 Want to learn more?
 
 Feel free to contact [BoJoNVi](https://github.com/BoJoNVi) (me) through DingTalk or visit me at the workplace to have a thorough discussion about this project.
-
-https://github.com/bndp/beautiful-markdown/blob/master/src/beautiful-markdown.css
