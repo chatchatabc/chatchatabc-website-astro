@@ -5,26 +5,57 @@ import Layout from "./Layout.astro";
 import Markdown from "../components/widgets/Markdown.astro";
 
 const { frontmatter } = Astro.props;
-const { title, author_image, date, author, tags, image } = frontmatter;
+const {
+  title,
+  author_image,
+  date,
+  author_name,
+  author_link,
+  tags,
+  featured_image,
+} = frontmatter;
 ---
 
 <Layout title={title}>
   <div class="mx-auto pb-16 px-4 md:px-32 lg:px-2 lg:max-w-3xl">
     <!-- Author Information for Tablet and Laptop -->
-    <section class="hidden pt-8 pb-4 gap-4 md:gap-8 md:flex lg:gap-12">
+    <section class="hidden pt-8 pb-4 gap-4 md:gap-8 md:flex">
+      <!-- Author's image -->
       <div class="aspect-square w-16 rounded-full border overflow-hidden">
         {
-          author_image ? (
+          author_link ? (
+            <a href={author_link} target="_blank">
+              {author_image ? (
+                // Display author image if available
+                <Img src={author_image} alt={author_name ?? "Anonymous"} />
+              ) : (
+                // Display placeholder image if author image not available
+                <Icon class="w-full h-full" name="mdi:user" />
+              )}
+            </a>
+          ) : author_image ? (
             // Display author image if available
-            <Img src={author_image} alt={author} />
+            <Img src={author_image} alt={author_name ?? "Anonymous"} />
           ) : (
             // Display placeholder image if author image not available
             <Icon class="w-full h-full" name="mdi:user" />
           )
         }
       </div>
+
+      <!-- Author's Name -->
       <div class="flex flex-col justify-center">
-        <p>{author ?? "Anonymous"}</p>
+        <p>
+          {
+            author_link ? (
+              <a href={author_link} target="_blank">
+                {author_name ?? "Anonymous"}
+              </a>
+            ) : (
+              author_name ?? "Anonymous"
+            )
+          }
+        </p>
         <p class="text-neutral-500">test test test</p>
       </div>
     </section>
@@ -37,13 +68,16 @@ const { title, author_image, date, author, tags, image } = frontmatter;
           {title ?? "No Title"}
         </h1>
         <p class="text-xs text-neutral-500 md:text-sm lg:py-4">
+          <span class="font-bold">Date:</span>
           {date ?? "No Date"}
+          <span class="ml-4 font-bold">Tags:</span>
+          {tags ?? "No tags"}
         </p>
       </div>
 
       <!-- Blog Image -->
       <div class="aspect-1 overflow-hidden border max-h-[500px]">
-        <Img alt={title} src={image ?? "/images/no-image.png"} />
+        <Img alt={title} src={featured_image ?? "/images/no-image.png"} />
       </div>
     </section>
 
@@ -56,19 +90,42 @@ const { title, author_image, date, author, tags, image } = frontmatter;
     <section
       class="pt-8 flex flex-col items-center pb-4 gap-4 md:gap-8 md:hidden lg:gap-12"
     >
+      <!-- Author's Image mobile -->
       <div class="aspect-square w-16 rounded-full border overflow-hidden">
         {
-          author_image ? (
+          author_link ? (
+            <a href={author_link} target="_blank">
+              {author_image ? (
+                // Display author image if available
+                <Img src={author_image} alt={author_name ?? "Anonymous"} />
+              ) : (
+                // Display placeholder image if author image not available
+                <Icon class="w-full h-full" name="mdi:user" />
+              )}
+            </a>
+          ) : author_image ? (
             // Display author image if available
-            <Img src={author_image} alt={author} />
+            <Img src={author_image} alt={author_name ?? "Anonymous"} />
           ) : (
             // Display placeholder image if author image not available
             <Icon class="w-full h-full" name="mdi:user" />
           )
         }
       </div>
+
+      <!-- Author's Name Mobile -->
       <div class="flex flex-col justify-center">
-        <p>{author ?? "Anonymous"}</p>
+        <p>
+          {
+            author_link ? (
+              <a href={author_link} target="_blank">
+                {author_name ?? "Anonymous"}
+              </a>
+            ) : (
+              author_name ?? "Anonymous"
+            )
+          }
+        </p>
         <p class="text-neutral-500">test test test</p>
       </div>
     </section>
