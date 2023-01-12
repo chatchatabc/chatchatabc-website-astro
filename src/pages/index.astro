@@ -26,6 +26,7 @@ const positions = [
 
       <!-- Content -->
       <div class="relative grid grid-cols-4">
+        <!-- Left -->
         <div
           class="absolute h-full col-span-1 items-center w-full flex lg:static"
         >
@@ -37,25 +38,27 @@ const positions = [
             <p>We Develop</p>
           </div>
         </div>
+
+        <!-- Right (Cards) -->
         <div
           class="relative col-span-4 flex flex-col gap-8 justify-center items-center py-12 px-8 font-medium lg:col-span-3"
         >
           <!-- Top -->
           <div class="flex gap-8 justify-center w-full -z-10">
             <div
-              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-gray-400"
+              class="hero-cards-start hero-cards duration-1000 shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-gray-400"
             >
               <div
-                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+                class="duration-1000 text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
               >
                 Java Developer
               </div>
             </div>
             <div
-              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
+              class="hero-cards-start hero-cards duration-1000 shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
             >
               <div
-                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+                class="duration-1000 text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
               >
                 Web Developer
               </div>
@@ -65,19 +68,19 @@ const positions = [
           <!-- Bottom -->
           <div class="flex gap-8 justify-center w-full -z-10 md:-ml-16">
             <div
-              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
+              class="hero-cards-start hero-cards duration-1000 shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
             >
               <div
-                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+                class="duration-1000 text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
               >
                 Backend Engineer
               </div>
             </div>
             <div
-              class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-gray-400"
+              class="hero-cards-start hero-cards duration-1000 shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-gray-400"
             >
               <div
-                class="text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
+                class="duration-1000 text-lg bg-white px-4 rounded-xl py-2 w-32 -rotate-[30deg]"
               >
                 Designer
               </div>
@@ -127,13 +130,35 @@ const positions = [
   html {
     scroll-behavior: smooth;
   }
-  .hero-position {
-    transform: rotateX(60deg) rotateZ(325deg);
+
+  .hero-cards-start {
+    transform: translateY(600px) translateX(600px);
+  }
+
+  .hero-cards-rotate {
+    transition-duration: 300ms;
+    transform: rotateZ(-30deg);
+  }
+
+  .hero-cards-rotate div {
+    transform: rotateZ(30deg);
+  }
+
+  .hero-cards-reset {
+    transform: rotateZ(-330deg);
   }
 
   #fade-bg {
     opacity: 8%;
     box-shadow: 0 0 100px 100px white inset;
+  }
+
+  /* .hero-position {
+    transform: rotateX(60deg) rotateZ(325deg);
+  }
+
+  .hero-cards-end {
+    transform: translateY(-600px) translateX(-600px);
   }
 
   @media (min-width: 1024px) {
@@ -142,12 +167,43 @@ const positions = [
       scale: 80%;
       z-index: 1;
     }
+  } */
+</style>
+
+<script>
+  const cards = document.getElementsByClassName("hero-cards");
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].classList.remove("hero-cards-start");
   }
 
-  .outsourcing-cards-hide {
-    background-color: aqua;
-    opacity: 0;
-    display: none;
-    pointer-events: none;
-  }
-</style>
+  setInterval(() => {
+    for (let i = 0; i < cards.length; i++) {
+      setTimeout(() => {
+        if (cards[i].classList.contains("hero-cards-rotate")) {
+          cards[i].classList.toggle("hero-cards-reset");
+          setTimeout(() => {
+            cards[i].classList.toggle("hero-cards-reset");
+          }, 1000);
+        }
+        cards[i].classList.toggle("hero-cards-rotate");
+      }, 200 * i);
+    }
+
+    // setTimeout(() => {
+    //   for (let i = 0; i < cards.length; i++) {
+    //     cards[i].classList.add("hero-cards-end");
+    //     setTimeout(() => {
+    //       cards[i].classList.remove("duration-1000");
+    //       cards[i].classList.remove("hero-cards-end");
+    //       cards[i].classList.add("hero-cards-start");
+    //     }, 300);
+    //     setTimeout(() => {
+    //       cards[i].classList.add("duration-1000");
+    //       cards[i].classList.remove("hero-cards-start");
+    //     }, 600);
+    //   }
+    // }, 2000);
+
+    // const rand = Math.floor(Math.random() * (cards.length - 1 + 1)) + 0;
+  }, 3500);
+</script>
