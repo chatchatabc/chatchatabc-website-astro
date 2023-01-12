@@ -30,7 +30,7 @@ const positions = [
           class="absolute h-full col-span-1 items-center w-full flex lg:static"
         >
           <div
-            class="flex justify-center h-full flex-col items-center w-full font-bold text-2xl lg:pl-[30%] lg:items-start"
+            class="hidden justify-center h-full flex-col items-center w-full font-bold text-2xl lg:flex lg:pl-[30%] lg:items-start"
           >
             <p>Your Idea</p>
             <p>We Design</p>
@@ -38,7 +38,7 @@ const positions = [
           </div>
         </div>
         <div
-          class="col-span-4 flex flex-col gap-8 justify-center items-center py-12 px-8 font-medium lg:col-span-3"
+          class="relative col-span-4 flex flex-col gap-8 justify-center items-center py-12 px-8 font-medium lg:col-span-3"
         >
           <!-- Top -->
           <div class="flex gap-8 justify-center w-full -z-10">
@@ -83,6 +83,14 @@ const positions = [
               </div>
             </div>
           </div>
+
+          <!-- Background -->
+          <div
+            id="fade-bg"
+            class="mix-blend-overlay absolute h-full mx-auto right-0 left-0 top-0 lg:w-2/3"
+          >
+            <Img src="/images/hero-card-bg.jpg" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -122,6 +130,12 @@ const positions = [
   .hero-position {
     transform: rotateX(60deg) rotateZ(325deg);
   }
+
+  #fade-bg {
+    opacity: 8%;
+    box-shadow: 0 0 100px 100px white inset;
+  }
+
   @media (min-width: 1024px) {
     .hero-position:hover {
       transform: rotateX(0deg) rotateZ(30deg);
