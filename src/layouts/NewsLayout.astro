@@ -9,13 +9,16 @@ const { title, author_image, date, author, tags, image } = frontmatter;
 ---
 
 <Layout title={title}>
-  <div class="max-w-3xl mx-auto pb-16 px-2">
-    <section class="py-2 flex gap-4">
+  <div class="mx-auto pb-16 px-4 md:px-32 lg:px-2 lg:max-w-3xl">
+    <!-- Author Information -->
+    <section class="hidden pt-8 pb-4 gap-4 md:gap-8 md:flex lg:gap-12">
       <div class="aspect-square w-16 rounded-full border overflow-hidden">
         {
           author_image ? (
+            // Display author image if available
             <Img src={author_image} alt={author} />
           ) : (
+            // Display placeholder image if author image not available
             <Icon class="w-full h-full" name="mdi:user" />
           )
         }
@@ -25,19 +28,46 @@ const { title, author_image, date, author, tags, image } = frontmatter;
         <p class="text-neutral-500">test test test</p>
       </div>
     </section>
-    <section class="flex flex-col py-2 gap-4">
+
+    <!-- Blog Info -->
+    <section class="flex flex-col py-4 gap-4">
+      <!-- Blog Title -->
       <div>
-        <h1 class="text-xl font-medium md:text-3xl lg:text-5xl">
+        <h1 class="text-xl font-medium md:text-3xl lg:text-4xl xl:text-5xl">
           {title ?? "No Title"}
         </h1>
-        <p class="text-sm text-neutral-500">{date ?? "No Date"}</p>
+        <p class="text-sm text-neutral-500 py-4">{date ?? "No Date"}</p>
       </div>
+
+      <!-- Blog Image -->
       <div class="aspect-1 overflow-hidden border max-h-[500px]">
         <Img alt={title} src={image ?? "/images/no-image.png"} />
       </div>
     </section>
+
+    <!-- Markdown Content -->
     <Markdown>
       <slot />
     </Markdown>
+
+    <section
+      class="pt-8 flex flex-col items-center pb-4 gap-4 md:gap-8 md:hidden lg:gap-12"
+    >
+      <div class="aspect-square w-16 rounded-full border overflow-hidden">
+        {
+          author_image ? (
+            // Display author image if available
+            <Img src={author_image} alt={author} />
+          ) : (
+            // Display placeholder image if author image not available
+            <Icon class="w-full h-full" name="mdi:user" />
+          )
+        }
+      </div>
+      <div class="flex flex-col justify-center">
+        <p>{author ?? "Anonymous"}</p>
+        <p class="text-neutral-500">test test test</p>
+      </div>
+    </section>
   </div>
 </Layout>
