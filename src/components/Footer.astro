@@ -7,18 +7,21 @@ import { Picture } from "astro-imagetools/components";
   <div class="border-y-2 py-4 text-sm md:text-base lg:py-16">
     <div class="container mx-auto grid lg:grid-cols-3">
       <div
-        class="flex flex-col gap-4 items-center w-screen py-4 lg:gap-8 lg:w-[unset]"
+        class="flex flex-col space-y-4 gap-4 items-center w-screen py-4 md:space-y-0 lg:gap-8 lg:w-[unset]"
       >
         <div class="w-52 object-contain">
           <Picture src="/images/ChatChat.png" alt="logo" />
         </div>
         <div>
-          <ul class="flex gap-4">
+          <ul class="flex space-x-4">
             <li>
               <Icon class="w-8 aspect-1 lg:w-12" name="ic:baseline-facebook" />
             </li>
             <li>
-              <Icon class="w-8 aspect-1 lg:w-12" name="ph:instagram-logo-fill" />
+              <Icon
+                class="w-8 aspect-1 lg:w-12"
+                name="ph:instagram-logo-fill"
+              />
             </li>
             <li>
               <Icon class="w-8 aspect-1 lg:w-12" name="mdi:telephone" />
@@ -26,7 +29,9 @@ import { Picture } from "astro-imagetools/components";
           </ul>
         </div>
       </div>
-      <div class="px-4 col-span-2 grid gap-y-8 text-[#6750A4] md:grid-cols-3">
+      <div
+        class="px-4 col-span-2 grid gap-y-8 text-[#6750A4] space-y-8 md:space-y-0 md:grid-cols-3"
+      >
         <ul class="flex flex-col md:gap-4">
           <li>
             <a>Service</a>
