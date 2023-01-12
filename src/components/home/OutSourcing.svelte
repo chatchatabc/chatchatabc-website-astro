@@ -11,7 +11,7 @@
   ];
 
   const handleBtn = (index) => {
-    if (selected) selected = null;
+    if (selected && selected === index) selected = null;
     else selected = index;
     const card = document.getElementById("card-focus");
     if (card) card.focus();
@@ -101,7 +101,7 @@
             class="mt-auto p-2 bg-[#E8DEF8] text-[#6750A4] lg:hidden"
           >
             <span class="animate-pulse">
-              {selected ? "Close" : "Show more"}
+              {selected === index + 1 ? "Close" : "Show more"}
             </span>
           </button>
         </div>
