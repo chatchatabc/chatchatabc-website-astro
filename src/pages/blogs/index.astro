@@ -16,7 +16,7 @@ const blogs = await Astro.glob("./*.mdx");
             const {
               title,
               date,
-              excerpt,
+              summary,
               author_name,
               author_link,
               author_image,
@@ -36,7 +36,7 @@ const blogs = await Astro.glob("./*.mdx");
                       <a href={blog.url}>{title}</a>
                     </p>
                     <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1 min-h-[150px]">
-                      {excerpt}
+                      {summary}
                     </p>
                     <div class="mt-auto flex items-center space-x-2">
                       <div class="w-14 rounded-full aspect-square border overflow-hidden">
