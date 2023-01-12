@@ -15,22 +15,21 @@ const blogs = await Astro.glob("./*.mdx");
             const { title, author, tags, date, excerpt, author_image, image } =
               blog.frontmatter;
             return (
-              <li class="border rounded-sm overflow-hidden md:aspect-w-2 md:aspect-h-1">
-                <div class="grid md:grid-cols-5">
-                  <div class="h-32 md:h-full md:col-span-2">
+              <li class="border rounded-sm overflow-hidden">
+                <div class="grid lg:grid-cols-5">
+                  <div class="h-64 lg:h-full lg:col-span-2">
                     <img
                       class="w-full h-full object-cover"
                       src={image ?? "/images/no-image.png"}
                     />
                   </div>
-                  <div class="h-full p-4 flex flex-col md:col-span-3">
-                    <a
-                      href={blog.url}
-                      class="text-xl leading-[0.3rem] font-bold hover:text-neutral-600 max-w-max md:leading-3"
-                    >
-                      {title}
-                    </a>
-                    <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1">
+                  <div class="p-4 flex flex-col lg:col-span-3">
+                    <p class="text-xl leading-6 font-bold hover:text-neutral-600">
+                      <a href={blog.url}>
+                        {title} asdasd asdasdas asdadasd asdasdasda asdasd
+                      </a>
+                    </p>
+                    <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1 min-h-[150px]">
                       {excerpt} Lorem ipsum dolor sit amet, consectetur
                       adipisicing elit.
                     </p>
