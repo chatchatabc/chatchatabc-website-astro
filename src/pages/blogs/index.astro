@@ -2,6 +2,7 @@
 import Section from "../../components/widgets/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
+import { Img } from "astro-imagetools/components";
 
 const blogs = await Astro.glob("./*.mdx");
 ---
@@ -10,7 +11,7 @@ const blogs = await Astro.glob("./*.mdx");
   <Section sectionTitle={"Blogs"}>
     {
       blogs.length ? (
-        <ul class="grid md:grid-cols-2 gap-4 px-8">
+        <ul class="grid md:grid-cols-2 px-8 gap-4 space-y-2 md:space-y-0">
           {blogs.map((blog) => {
             const {
               title,
@@ -25,9 +26,9 @@ const blogs = await Astro.glob("./*.mdx");
               <li class="border rounded-sm overflow-hidden">
                 <div class="grid lg:grid-cols-5">
                   <div class="h-64 lg:h-full lg:col-span-2">
-                    <img
-                      class="w-full h-full object-cover"
+                    <Img
                       src={summary_image ?? "/images/no-image.png"}
+                      alt={title}
                     />
                   </div>
                   <div class="p-4 flex flex-col lg:col-span-3">
@@ -46,21 +47,13 @@ const blogs = await Astro.glob("./*.mdx");
                             target="_blank"
                           >
                             {author_image ? (
-                              <img
-                                class="w-full h-full object-cover"
-                                src={author_image}
-                                alt={author_name}
-                              />
+                              <Img src={author_image} alt={author_name} />
                             ) : (
                               <Icon class="w-full h-full" name="mdi:user" />
                             )}
                           </a>
                         ) : author_image ? (
-                          <img
-                            class="w-full h-full object-cover"
-                            src={author_image}
-                            alt={author_name}
-                          />
+                          <Img src={author_image} alt={author_name} />
                         ) : (
                           <Icon class="w-full h-full" name="mdi:user" />
                         )}
