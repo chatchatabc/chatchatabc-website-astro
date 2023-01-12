@@ -24,7 +24,7 @@ const blogs = await Astro.glob("./*.mdx");
             } = blog.frontmatter;
             return (
               <li class="border rounded-sm overflow-hidden">
-                <div class="grid lg:grid-cols-5">
+                <div class="h-full grid lg:grid-cols-5">
                   <div class="h-64 lg:h-full lg:col-span-2">
                     <Img
                       src={summary_image ?? "/images/no-image.png"}
