@@ -19,7 +19,7 @@ const blogs = await Astro.glob("./*.mdx");
               author_name,
               author_link,
               author_image,
-              featured_image,
+              summary_image,
             } = blog.frontmatter;
             return (
               <li class="border rounded-sm overflow-hidden">
@@ -27,7 +27,7 @@ const blogs = await Astro.glob("./*.mdx");
                   <div class="h-64 lg:h-full lg:col-span-2">
                     <img
                       class="w-full h-full object-cover"
-                      src={featured_image ?? "/images/no-image.png"}
+                      src={summary_image ?? "/images/no-image.png"}
                     />
                   </div>
                   <div class="p-4 flex flex-col lg:col-span-3">
@@ -40,7 +40,11 @@ const blogs = await Astro.glob("./*.mdx");
                     <div class="mt-auto flex items-center gap-2">
                       <div class="w-14 rounded-full aspect-square border overflow-hidden">
                         {author_link ? (
-                          <a href={author_link} target="_blank">
+                          <a
+                            class="hover:opacity-75"
+                            href={author_link}
+                            target="_blank"
+                          >
                             {author_image ? (
                               <img
                                 class="w-full h-full object-cover"
@@ -64,7 +68,11 @@ const blogs = await Astro.glob("./*.mdx");
                       <div class="text-xs w-full">
                         <p class="font-medium">
                           {author_link ? (
-                            <a href={author_link} target="_blank">
+                            <a
+                              class="hover:opacity-75"
+                              href={author_link}
+                              target="_blank"
+                            >
                               {author_name ?? "Anonymous"}
                             </a>
                           ) : (
