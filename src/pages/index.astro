@@ -19,7 +19,7 @@ const positions = [
     <div class="relative overflow-hidden">
       <!-- Background image -->
       <div
-        class="absolute -z-10 left-0 top-0 w-full h-full overflow-hidden rounded-xl"
+        class="absolute -z-10 left-0 top-0 w-full h-full overflow-hidden lg:rounded-xl"
       >
         <Img src="/images/hero-bg.png" alt="" />
       </div>
@@ -63,7 +63,7 @@ const positions = [
           </div>
 
           <!-- Bottom -->
-          <div class="-ml-8 flex gap-8 justify-center w-full -z-10">
+          <div class="flex gap-8 justify-center w-full -z-10 md:-ml-16">
             <div
               class="shadow-2xl shadow-gray-500 w-56 h-36 rounded-3xl flex justify-center items-center border rotate-[30deg] bg-[#EADDFF]"
             >
@@ -87,7 +87,7 @@ const positions = [
           <!-- Background -->
           <div
             id="fade-bg"
-            class="mix-blend-overlay absolute h-full mx-auto right-0 left-0 top-0 lg:w-2/3"
+            class="mix-blend-overlay pointer-events-none absolute h-full mx-auto right-0 left-0 top-0 lg:w-2/3"
           >
             <Img src="/images/hero-card-bg.jpg" alt="" />
           </div>
