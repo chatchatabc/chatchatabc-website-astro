@@ -1,5 +1,6 @@
 <div
   id="modal-bg"
+  style="display:none"
   class="opacity-0 pointer-events-none flex duration-500 fixed top-0 left-0 w-screen h-screen justify-center bg-neutral-700 bg-opacity-50 items-center z-10"
 >
   <div
@@ -41,6 +42,7 @@
   const openButton = document.getElementById("modal-open-btn");
   if (openButton) openButton.addEventListener("click", toggleModal);
   const modalBackground = document.getElementById("modal-bg");
+  if (modalBackground) modalBackground.style.display = "flex";
   if (modalBackground)
     modalBackground.addEventListener("click", (event) =>
       toggleModal(event, modalBackground)
