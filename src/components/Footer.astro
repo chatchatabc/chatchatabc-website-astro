@@ -4,16 +4,16 @@ import { Picture } from "astro-imagetools/components";
 ---
 
 <footer>
-  <div class="border-y-2 py-4 text-sm md:text-base lg:py-16">
-    <div class="container mx-auto grid lg:grid-cols-3">
+  <div class="border-y-2 w-full py-4 text-sm md:text-base lg:py-16">
+    <div class="container mx-auto lg:grid lg:grid-cols-3">
       <div
-        class="flex flex-col space-y-4 gap-4 items-center w-screen py-4 md:space-y-0 lg:gap-8 lg:w-[unset]"
+        class="flex flex-col space-y-4 w-full gap-4 items-center py-4 md:space-y-0 lg:gap-8"
       >
         <div class="w-52 object-contain">
           <Picture src="/images/ChatChat.png" alt="logo" />
         </div>
         <div>
-          <ul class="flex space-x-4">
+          <ul class="flex">
             <li>
               <Icon class="w-8 aspect-1 lg:w-12" name="ic:baseline-facebook" />
             </li>
