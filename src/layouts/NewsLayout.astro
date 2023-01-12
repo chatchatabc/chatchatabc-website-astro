@@ -21,7 +21,7 @@ const {
     <!-- Author Information for Tablet and Laptop -->
     <section class="hidden pt-8 pb-4 gap-4 md:gap-8 md:flex">
       <!-- Author's image -->
-      <div class="aspect-square w-16 rounded-full border overflow-hidden">
+      <div class="h-16 w-16 rounded-full border overflow-hidden">
         {
           author_link ? (
             <a class="hover:opacity-75" href={author_link} target="_blank">
@@ -77,7 +77,7 @@ const {
       </div>
 
       <!-- Blog Image -->
-      <div class="aspect-1 overflow-hidden border max-h-[500px]">
+      <div class="overflow-hidden border max-h-[500px]">
         <Img alt={title} src={summary_image ?? "/images/no-image.png"} />
       </div>
     </section>
@@ -90,7 +90,7 @@ const {
     <!-- Author Info for mobile -->
     <section class="pt-8 flex flex-col items-center pb-4 space-y-4 md:hidden">
       <!-- Author's Image mobile -->
-      <div class="aspect-square w-16 rounded-full border overflow-hidden">
+      <div class="h-16 w-16 rounded-full border overflow-hidden">
         {
           author_link ? (
             <a class="hover:opacity-75" href={author_link} target="_blank">

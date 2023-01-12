@@ -63,7 +63,7 @@
                 ? // if the current item is selected
                   "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
                 : // if the current items is no selected
-                  "w-[40%] aspect-1 rounded-full mt-2"
+                  "w-24 h-24 rounded-full mt-2"
             }`}
           >
             <img
