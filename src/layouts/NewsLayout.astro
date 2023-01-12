@@ -10,7 +10,7 @@ const { title, author_image, date, author, tags, image } = frontmatter;
 
 <Layout title={title}>
   <div class="mx-auto pb-16 px-4 md:px-32 lg:px-2 lg:max-w-3xl">
-    <!-- Author Information -->
+    <!-- Author Information for Tablet and Laptop -->
     <section class="hidden pt-8 pb-4 gap-4 md:gap-8 md:flex lg:gap-12">
       <div class="aspect-square w-16 rounded-full border overflow-hidden">
         {
@@ -36,7 +36,9 @@ const { title, author_image, date, author, tags, image } = frontmatter;
         <h1 class="text-xl font-medium md:text-3xl lg:text-4xl xl:text-5xl">
           {title ?? "No Title"}
         </h1>
-        <p class="text-sm text-neutral-500 py-4">{date ?? "No Date"}</p>
+        <p class="text-xs text-neutral-500 md:text-sm lg:py-4">
+          {date ?? "No Date"}
+        </p>
       </div>
 
       <!-- Blog Image -->
@@ -50,6 +52,7 @@ const { title, author_image, date, author, tags, image } = frontmatter;
       <slot />
     </Markdown>
 
+    <!-- Author Info for mobile -->
     <section
       class="pt-8 flex flex-col items-center pb-4 gap-4 md:gap-8 md:hidden lg:gap-12"
     >
