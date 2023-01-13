@@ -1,0 +1,70 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+  src: string;
+  className?: string;
+}
+
+const { src, className } = Astro.props as Props;
+---
+
+<!-- <div class="relative object-contain">
+  <Img src={src} alt="test" />
+  <div id="image-container" class="absolute top-0 left-0 w-full h-full">
+    <div
+      id="magnifying-glass"
+      class="absolute z-10 w-24 h-24 border overflow-hidden border-black"
+    >
+      <div
+        id="magnified-image"
+        class="absolute left-0 top-0 w-[1000px] h-[1000px] object-contain"
+      >
+        <Img src={src} alt="test" />
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="flex w-full h-[calc(100vh-100px)]">
+  <div class="flex-1 overflow-auto">
+    <div style="width: 100%;" class="object-contain">
+      <Img src={src} alt="test" />
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <button id="zoom-in-image-btn">+</button>
+    <button id="zoom-out-image-btn">-</button>
+    <button id="zoom-reset-image-btn">=</button>
+  </div>
+</div>
+
+<script>
+  const zoomIn = document.getElementById("zoom-in-image-btn");
+  const zoomOut = document.getElementById("zoom-out-image-btn");
+  const zoomReset = document.getElementById("zoom-reset-image-btn");
+
+  if (zoomIn && zoomOut && zoomReset) {
+    zoomIn.addEventListener("click", () => {});
+  }
+
+  // const imageContainer = document.getElementById("image-container");
+  // const magnifyingGlass = document.getElementById("magnifying-glass");
+  // const magnifiedImage = document.getElementById("magnified-image");
+  // if (imageContainer && magnifyingGlass && magnifiedImage) {
+  //   imageContainer.addEventListener("mousemove", (event) => {
+  //     console.log(event.offsetX, event.offsetY);
+  //     const { offsetX: x, offsetY: y } = event;
+
+  //     magnifyingGlass.style.display = "block";
+  //     magnifyingGlass.style.left = `${x - 48}px`;
+  //     magnifyingGlass.style.top = `${y - 100}px`;
+
+  //     magnifiedImage.style.left = `-${x}px`;
+  //     magnifiedImage.style.top = `-${y}px`;
+
+  //     // imageContainer.addEventListener("mouseleave", () => {
+  //     //   magnifyingGlass.style.display = "none";
+  //     // });
+  //   });
+  // }
+</script>

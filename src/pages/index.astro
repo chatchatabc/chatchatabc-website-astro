@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/widgets/Section.astro";
-import { Img, Picture } from "astro-imagetools/components";
+import { Img } from "astro-imagetools/components";
 import OutSourcing from "../components/home/OutSourcing.svelte";
+import ImageViewer from "../components/widgets/ImageViewer.astro";
+import ImageViewerSvelte from "../components/widgets/ImageViewerSvelte.svelte";
 import AboutUs from "../components/home/AboutUs.svelte";
 
 const positions = [
@@ -115,10 +117,17 @@ const positions = [
         <div class="h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl">
         </div>
       </div>
-      <Picture
+      <!-- <div class="object-contain">
+        <Img
+          src="/images/tech-stack.png"
+          alt="tech stack"
+          sizes="(min-width: 480px) 1920px, 100vw"
+        />
+      </div> -->
+      <ImageViewerSvelte
+        client:load
+        className={""}
         src="/images/tech-stack.png"
-        alt="tech stack"
-        layout="constrained"
       />
     </div>
   </Section>
