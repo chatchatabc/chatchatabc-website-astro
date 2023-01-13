@@ -5,15 +5,24 @@
   const dataList = [
     {
       title: "Priority",
-      desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
+      summary:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
+      details:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
     },
     {
       title: "PTEriority",
-      desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
+      summary:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
+      details:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
     },
     {
       title: "Priasdsority",
-      desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
+      summary:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
+      details:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
     },
   ];
 </script>
@@ -44,7 +53,7 @@
       <p
         class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
       >
-        {data.desc}
+        {selected === index + 1 ? data.details : data.summary}
       </p>
 
       <!-- Item button; button only shows up if user hovers on the card -->
