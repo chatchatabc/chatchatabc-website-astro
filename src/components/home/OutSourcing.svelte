@@ -4,10 +4,38 @@
 
   // List of items
   const positions = [
-    "java developer",
-    "web developer",
-    "backend engineer",
-    "designer",
+    {
+      title: "java developer",
+      imageUrl: "https://avatars.githubusercontent.com/u/60991513",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+    },
+    {
+      title: "web developer",
+      imageUrl: "",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+    },
+    {
+      title: "backend engineer",
+      imageUrl: "",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+    },
+    {
+      title: "designer",
+      imageUrl: "",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+    },
   ];
 
   const handleBtn = (index) => {
@@ -43,7 +71,7 @@
         <!-- Title -->
         <div class="relative">
           <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
-          <h4 class="text-xl capitalize">{position}</h4>
+          <h4 class="text-xl capitalize">{position.title}</h4>
         </div>
 
         <!-- Card -->
@@ -66,18 +94,26 @@
                   "w-24 h-24 rounded-full mt-2"
             }`}
           >
-            <img
-              src="/images/no-image.png"
-              class="w-full h-full object-cover"
-              alt={position}
-            />
+            {#if position.imageUrl.length}
+              <img
+                src={position.imageUrl}
+                class="w-full h-full object-cover"
+                alt={position.title}
+              />
+            {:else}
+              <img
+                src="/images/no-image.png"
+                class="w-full h-full object-cover"
+                alt={position.title}
+              />
+            {/if}
           </div>
 
           <!-- Description -->
           <p
             class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
           >
-            {"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore\nrepudiandae similique porro aut."}
+            {selected === index + 1 ? position.details : position.summary}
           </p>
 
           <!-- Button for Desktop -->
