@@ -4,29 +4,37 @@ import { Picture } from "astro-imagetools/components";
 ---
 
 <footer>
-  <div class="border-y-2 py-4 text-sm md:text-base lg:py-16">
-    <div class="container mx-auto grid lg:grid-cols-3">
+  <div class="border-y-2 w-full py-4 text-sm md:text-base lg:py-16">
+    <div class="container mx-auto lg:grid lg:grid-cols-3">
       <div
-        class="flex flex-col gap-4 items-center w-screen py-4 lg:gap-8 lg:w-[unset]"
+        class="flex flex-col space-y-4 w-full gap-4 items-center py-4 md:space-y-0 lg:gap-8"
       >
         <div class="w-52 object-contain">
           <Picture src="/images/ChatChat.png" alt="logo" />
         </div>
         <div>
-          <ul class="flex gap-4">
+          <ul class="flex">
             <li>
-              <Icon name="ic:baseline-facebook" />
+              <Icon
+                class="w-8 h-8 lg:w-12 lg:h-12"
+                name="ic:baseline-facebook"
+              />
             </li>
             <li>
-              <Icon name="ph:instagram-logo-fill" />
+              <Icon
+                class="w-8 h-8 lg:h-12 lg:w-12"
+                name="ph:instagram-logo-fill"
+              />
             </li>
             <li>
-              <Icon name="mdi:telephone" />
+              <Icon class="w-8 h-8 lg:h-12 lg:w-12" name="mdi:telephone" />
             </li>
           </ul>
         </div>
       </div>
-      <div class="px-4 col-span-2 grid gap-y-8 text-[#6750A4] md:grid-cols-3">
+      <div
+        class="px-4 col-span-2 grid gap-y-8 text-[#6750A4] space-y-8 md:space-y-0 md:grid-cols-3"
+      >
         <ul class="flex flex-col md:gap-4">
           <li>
             <a>Service</a>
@@ -63,19 +71,7 @@ import { Picture } from "astro-imagetools/components";
       </div>
     </div>
   </div>
-  <p class="text-center py-1 text-xs text-[#6750A4] md:text-base">Copyright by ChatChatABC (2023)</p>
+  <p class="text-center py-1 text-xs text-[#6750A4] md:text-base">
+    Copyright by ChatChatABC (2023)
+  </p>
 </footer>
-
-<style is:global>
-  [astro-icon] {
-    height: 2rem;
-    width: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    [astro-icon] {
-      height: 3rem;
-      width: 3rem;
-    }
-  }
-</style>

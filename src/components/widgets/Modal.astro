@@ -1,0 +1,52 @@
+<div
+  id="modal-bg"
+  style="display:none"
+  class="opacity-0 pointer-events-none flex duration-500 fixed top-0 left-0 w-screen h-screen justify-center bg-neutral-700 bg-opacity-50 items-center z-10"
+>
+  <div
+    id="modal-content"
+    class="duration-500 max-w-2xl w-full px-2 mx-auto translate-y-full"
+  >
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  .modal-show {
+    animation-name: modalFadeIn;
+    animation-duration: 1s;
+  }
+  @keyframes modalFadeIn {
+    from {
+      background-color: transparent;
+    }
+    to {
+      background-color: rgb(64 64 64 / 0.5);
+    }
+  }
+</style>
+
+<script>
+  function toggleModal(event: Event, element?: HTMLElement) {
+    if (event.target === element || !element) {
+      const modalBackground = document.getElementById("modal-bg");
+      const modalContent = document.getElementById("modal-content");
+      if (modalBackground && modalContent) {
+        modalBackground.classList.toggle("opacity-0");
+        modalBackground.classList.toggle("opacity-100");
+        modalBackground.classList.toggle("pointer-events-none");
+        modalContent.classList.toggle("translate-y-full");
+      }
+    }
+  }
+  const openButton = document.getElementById("modal-open-btn");
+  if (openButton) openButton.addEventListener("click", toggleModal);
+  const modalBackground = document.getElementById("modal-bg");
+  if (modalBackground) modalBackground.style.display = "flex";
+  if (modalBackground)
+    modalBackground.addEventListener("click", (event) =>
+      toggleModal(event, modalBackground)
+    );
+  const closeButton = document.getElementById("modal-close-btn");
+  if (closeButton) closeButton.addEventListener("click", toggleModal);
+</script>

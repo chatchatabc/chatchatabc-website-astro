@@ -1,8 +1,9 @@
 ---
 import { changeLanguage } from "i18next";
-import Section from "../../components/Section.astro";
+import Section from "../../components/widgets/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
+import { Img } from "astro-imagetools/components";
 
 changeLanguage("en");
 
@@ -13,44 +14,67 @@ const blogs = await Astro.glob("./*.mdx");
   <Section sectionTitle={"Blogs"}>
     {
       blogs.length ? (
-        <ul class="grid md:grid-cols-2 gap-4 px-8">
+        <ul class="grid md:grid-cols-2 px-8 gap-4 space-y-2 md:space-y-0">
           {blogs.map((blog) => {
-            const { title, author, tags, date, excerpt, author_image, image } =
-              blog.frontmatter;
+            const {
+              title,
+              date,
+              summary,
+              author_name,
+              author_link,
+              author_image,
+              summary_image,
+            } = blog.frontmatter;
             return (
-              <li class="border rounded-sm overflow-hidden md:aspect-w-2 md:aspect-h-1">
-                <div class="grid md:grid-cols-5">
-                  <div class="h-32 md:h-full md:col-span-2">
-                    <img
-                      class="w-full h-full object-cover"
-                      src={image ?? "/images/no-image.png"}
+              <li class="border rounded-sm overflow-hidden">
+                <div class="h-full grid lg:grid-cols-5">
+                  <div class="h-64 lg:h-full lg:col-span-2">
+                    <Img
+                      src={summary_image ?? "/images/no-image.png"}
+                      alt={title}
                     />
                   </div>
-                  <div class="h-full p-4 flex flex-col md:col-span-3">
-                    <a
-                      href={blog.url}
-                      class="text-xl leading-[0.3rem] font-bold hover:text-neutral-600 max-w-max md:leading-3"
-                    >
-                      {title}
-                    </a>
-                    <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1">
-                      {excerpt} Lorem ipsum dolor sit amet, consectetur
-                      adipisicing elit.
+                  <div class="p-4 flex flex-col lg:col-span-3">
+                    <p class="text-xl leading-6 font-bold hover:text-neutral-600">
+                      <a href={blog.url}>{title}</a>
                     </p>
-                    <div class="mt-auto flex items-center gap-2">
-                      <div class="w-14 rounded-full aspect-square border overflow-hidden">
-                        {author_image ? (
-                          <img
-                            class="w-full h-full object-cover"
-                            src="?"
-                            alt="author"
-                          />
+                    <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1 min-h-[150px]">
+                      {summary}
+                    </p>
+                    <div class="mt-auto flex items-center space-x-2">
+                      <div class="w-12 rounded-full h-12 border overflow-hidden">
+                        {author_link ? (
+                          <a
+                            class="hover:opacity-75"
+                            href={author_link}
+                            target="_blank"
+                          >
+                            {author_image ? (
+                              <Img src={author_image} alt={author_name} />
+                            ) : (
+                              <Icon class="w-full h-full" name="mdi:user" />
+                            )}
+                          </a>
+                        ) : author_image ? (
+                          <Img src={author_image} alt={author_name} />
                         ) : (
-                          <Icon name="mdi:user" />
+                          <Icon class="w-full h-full" name="mdi:user" />
                         )}
                       </div>
-                      <div class="text-xs w-full">
-                        <p class="font-medium">{author ?? "Anonymous"}</p>
+                      <div class="text-xs">
+                        <p class="font-medium">
+                          {author_link ? (
+                            <a
+                              class="hover:opacity-75"
+                              href={author_link}
+                              target="_blank"
+                            >
+                              {author_name ?? "Anonymous"}
+                            </a>
+                          ) : (
+                            author_name ?? "Anonymous"
+                          )}
+                        </p>
                         <p class="text-neutral-500">
                           <span class="text-neutral-600 font-medium">
                             Date:
@@ -71,11 +95,3 @@ const blogs = await Astro.glob("./*.mdx");
     }
   </Section>
 </Layout>
-
-<style is:global>
-  [astro-icon="mdi:user"] {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-</style>
