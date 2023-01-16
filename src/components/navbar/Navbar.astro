@@ -3,33 +3,35 @@ import { Picture } from "astro-imagetools/components";
 import Modal from "../widgets/Modal.astro";
 import ContactUs from "./ContactUs.astro";
 import Language from "./Language.svelte";
-import {
-  utilUrlWithLocale,
-  utilUrlFix,
-  utilRemoveSpaces,
-} from "../../helpers/commonUtils";
+import { utilUrlWithLocale, utilRemoveSpaces } from "../../helpers/commonUtils";
 import { t } from "i18next";
 
 const { pathname } = Astro.url;
 
 const navItems = [
   {
-    url: utilUrlFix(pathname, `/#${utilRemoveSpaces(t("navbar.outsourcing"))}`),
+    url: utilUrlWithLocale(
+      pathname,
+      `/#${utilRemoveSpaces(t("navbar.outsourcing"))}`
+    ),
     name: t("navbar.outsourcing"),
   },
   {
-    url: utilUrlFix(
+    url: utilUrlWithLocale(
       pathname,
       `/#${utilRemoveSpaces(t("navbar.software-development"))}`
     ),
     name: t("navbar.software-development"),
   },
   {
-    url: utilUrlFix(pathname, `/#${utilRemoveSpaces(t("navbar.about-us"))}`),
+    url: utilUrlWithLocale(
+      pathname,
+      `/#${utilRemoveSpaces(t("navbar.about-us"))}`
+    ),
     name: t("navbar.about-us"),
   },
   {
-    url: utilUrlFix(pathname, `/${utilRemoveSpaces(t("navbar.blogs"))}`),
+    url: utilUrlWithLocale(pathname, `/${utilRemoveSpaces(t("navbar.blogs"))}`),
     name: t("navbar.blogs"),
   },
 ];
