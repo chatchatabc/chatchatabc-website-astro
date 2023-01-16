@@ -6,10 +6,8 @@ export default {
     zh: {
       blogs: {
         index: "博客",
+        "[blog]": "[blog]",
       },
     },
-  },
-  i18nextServer: {
-    debug: true,
   },
 };
