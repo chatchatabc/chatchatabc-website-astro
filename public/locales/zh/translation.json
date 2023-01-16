@@ -14,9 +14,25 @@
   },
 
   "jobs": {
-    "java-developer": "开发人员",
-    "backend-engineer": "后端工程师",
-    "web-developer": "Web开发人员",
-    "designer": "设计师"
+    "java-developer": {
+      "title": "开发人员",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "backend-engineer": {
+      "title": "后端工程师",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "web-developer": {
+      "title": "Web开发人员",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "designer": {
+      "title": "设计师",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    }
   }
 }
