@@ -7,7 +7,7 @@ import { Img } from "astro-imagetools/components";
 
 changeLanguage("zh");
 
-const blogs = await Astro.glob("../*.mdx");
+const blogs = await Astro.glob("./*.mdx");
 ---
 
 <Layout title={t("navbar.blogs")}>
