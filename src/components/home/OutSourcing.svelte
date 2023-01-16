@@ -79,9 +79,9 @@
           class={`mt-2 rounded-xl flex-col bg-[#9A82DB] flex group overflow-hidden ${
             selected === index + 1
               ? // if the current item is selected
-                "min-h-[500px] shadow-2xl lg:shadow-neutral-700 lg:flex-row lg:min-h-[unset] lg:h-[350px]"
+                "min-h-[500px] shadow-2xl  md:h-[350px] lg:min-h-[unset] lg:shadow-neutral-700 lg:flex-row"
               : // if the current item is not selected
-                "shadow-xl min-h-[18rem]"
+                "shadow-xl min-h-[18rem] md:h-[18rem]"
           } duration-500 relative`}
         >
           <!-- Image || Avatar -->
