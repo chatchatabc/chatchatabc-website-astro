@@ -31,7 +31,7 @@ const blogs = await Astro.glob("./*.mdx");
                   <div class="h-64 lg:h-full lg:col-span-2">
                     <Img
                       src={summary_image ?? "/images/no-image.png"}
-                      alt={title}
+                      alt={title ?? "No title"}
                     />
                   </div>
                   <div class="p-4 flex flex-col lg:col-span-3">
@@ -50,13 +50,13 @@ const blogs = await Astro.glob("./*.mdx");
                             target="_blank"
                           >
                             {author_image ? (
-                              <Img src={author_image} alt={author_name} />
+                              <Img src={author_image} alt={author_name ?? "Anonymous"} />
                             ) : (
                               <Icon class="w-full h-full" name="mdi:user" />
                             )}
                           </a>
                         ) : author_image ? (
-                          <Img src={author_image} alt={author_name} />
+                          <Img src={author_image} alt={author_name ?? "Anonymous"} />
                         ) : (
                           <Icon class="w-full h-full" name="mdi:user" />
                         )}
