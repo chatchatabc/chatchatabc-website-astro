@@ -4,10 +4,13 @@ import Section from "../../components/widgets/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
+import { utilUrlFix, utilUrlWithLocale } from "../../helpers/commonUtils";
 
 changeLanguage("en");
 
-const blogs = await Astro.glob("./*.mdx");
+const blogs = await Astro.glob("../../../data/blogs/*.mdx");
+const { pathname } = Astro.url;
+console.log(pathname);
 ---
 
 <Layout title={t("navbar.blogs")}>
@@ -20,6 +23,7 @@ const blogs = await Astro.glob("./*.mdx");
               title,
               date,
               summary,
+              slug,
               author_name,
               author_link,
               author_image,
@@ -36,7 +40,7 @@ const blogs = await Astro.glob("./*.mdx");
                   </div>
                   <div class="p-4 flex flex-col lg:col-span-3">
                     <p class="text-xl leading-6 font-bold hover:text-neutral-600">
-                      <a href={blog.url}>{title}</a>
+                      <a href={utilUrlFix(pathname, `/${slug}`)}>{title}</a>
                     </p>
                     <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1 min-h-[150px]">
                       {summary}

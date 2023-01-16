@@ -9,7 +9,4 @@ export default {
       },
     },
   },
-  i18nextServer: {
-    debug: true,
-  },
 };
