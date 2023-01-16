@@ -6,6 +6,7 @@ export default {
     zh: {
       blogs: {
         index: "博客",
+        "[blog]": "[blog]",
       },
     },
   },
