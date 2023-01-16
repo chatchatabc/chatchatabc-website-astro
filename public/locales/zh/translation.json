@@ -8,6 +8,15 @@
   },
 
   "home": {
-    "hero": "这不是关于想法，而是关于让想法成为现实！"
+    "hero": {
+      "title": "你的想法\n我们设计\n我们发展"
+    }
+  },
+
+  "jobs": {
+    "java-developer": "开发人员",
+    "backend-engineer": "后端工程师",
+    "web-developer": "Web开发人员",
+    "designer": "设计师"
   }
 }

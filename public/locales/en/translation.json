@@ -8,6 +8,15 @@
   },
 
   "home": {
-    "hero": "It's not about ideas, It's about making ideas happen!"
+    "hero": {
+      "title": "Your Idea\nWe Design\nWe Develop"
+    }
+  },
+
+  "jobs": {
+    "java-developer": "java developer",
+    "backend-engineer": "backend engineer",
+    "web-developer": "web developer",
+    "designer": "designer"
   }
 }
