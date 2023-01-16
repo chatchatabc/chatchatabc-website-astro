@@ -1,4 +1,12 @@
 {
+  "navbar": {
+    "outsourcing": "外包",
+    "software-development": "软件开发",
+    "about-us": "关于我们",
+    "blogs": "博客",
+    "contact-us": "联系我们"
+  },
+
   "home": {
     "hero": "这不是关于想法，而是关于让想法成为现实！"
   }

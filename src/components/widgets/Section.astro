@@ -1,4 +1,6 @@
 ---
+import { utilRemoveSpaces } from "../../helpers/commonUtils";
+
 interface Props {
   sectionTitle?: string;
 }
@@ -6,7 +8,10 @@ interface Props {
 const { sectionTitle } = Astro.props as Props;
 ---
 
-<section id={sectionTitle?.replaceAll(" ", "-") ?? ""} class="py-2 md:py-8">
+<section
+  id={sectionTitle ? utilRemoveSpaces(sectionTitle) : ""}
+  class="py-2 md:py-8"
+>
   <div class="container mx-auto lg:px-8">
     {
       sectionTitle ? (

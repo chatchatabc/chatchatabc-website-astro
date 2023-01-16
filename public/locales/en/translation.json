@@ -1,4 +1,12 @@
 {
+  "navbar": {
+    "outsourcing": "outsourcing",
+    "software-development": "software-development",
+    "about-us": "about-us",
+    "blogs": "blogs",
+    "contact-us": "contact-us"
+  },
+
   "home": {
     "hero": "It's not about ideas, It's about making ideas happen!"
   }

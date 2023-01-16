@@ -6,3 +6,5 @@ export const fixUrl = (baseUrl: string, nextUrl: string) => {
   });
   return (currentLanguage + nextUrl).replace(/([^:]\/)\/+/g, "$1");
 };
+
+export const utilRemoveSpaces = (text: string) => text.replaceAll(" ", "-");

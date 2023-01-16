@@ -2,6 +2,13 @@
 export default {
   defaultLocale: "en",
   locales: ["en", "zh"],
+  routes: {
+    zh: {
+      blogs: {
+        index: "博客",
+      },
+    },
+  },
   i18nextServer: {
     debug: true,
   },

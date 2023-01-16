@@ -4,17 +4,27 @@ import Modal from "../widgets/Modal.astro";
 import ContactUs from "./ContactUs.astro";
 import Language from "./Language.svelte";
 import { fixUrl } from "../../helpers/commonUtils";
+import { t } from "i18next";
 
 const { pathname } = Astro.url;
 
 const navItems = [
-  { url: fixUrl(pathname, "/#outsourcing"), name: "outsourcing" },
   {
-    url: fixUrl(pathname, "/#software-development"),
-    name: "software development",
+    url: fixUrl(pathname, `/#${t("navbar.outsourcing")}`),
+    name: t("navbar.outsourcing"),
   },
-  { url: fixUrl(pathname, "/#about-us"), name: "about us" },
-  { url: fixUrl(pathname, "/blogs"), name: "blogs" },
+  {
+    url: fixUrl(pathname, `/#${t("navbar.software-development")}`),
+    name: t("navbar.software-development"),
+  },
+  {
+    url: fixUrl(pathname, `/#${t("navbar.about-us")}`),
+    name: t("navbar.about-us"),
+  },
+  {
+    url: fixUrl(pathname, `/${t("navbar.blogs")}`),
+    name: t("navbar.blogs"),
+  },
 ];
 ---
 
@@ -60,7 +70,7 @@ const navItems = [
             id="modal-open-btn"
             class="w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"
           >
-            contact us
+            {t("navbar.contact-us")}
           </button>
         </li>
         <li>

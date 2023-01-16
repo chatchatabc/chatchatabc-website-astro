@@ -5,17 +5,9 @@ import { Img } from "astro-imagetools/components";
 import OutSourcing from "../components/home/OutSourcing.svelte";
 import AboutUs from "../components/home/AboutUs.svelte";
 import ImageViewer from "../components/widgets/ImageViewer.svelte";
-import i18next, { t, changeLanguage } from "i18next";
-import { Trans } from "astro-i18next/components";
+import { t, changeLanguage } from "i18next";
 
 changeLanguage("en");
-
-const positions = [
-    "java developer",
-    "web developer",
-    "backend engineer",
-    "designer",
-];
 ---
 
 <Layout title="ChatChatABC">
@@ -109,12 +101,14 @@ const positions = [
   </section>
 
   <!-- Outsourcing Section -->
-  <Section sectionTitle="outsourcing">
+  <Section sectionTitle={t("navbar.outsourcing") ?? "outsourcing"}>
     <OutSourcing client:load />
   </Section>
 
   <!-- Software Development Section -->
-  <Section sectionTitle="software development">
+  <Section
+    sectionTitle={t("navbar.software-development") ?? "software development"}
+  >
     <div class="grid lg:grid-cols-2">
       <div class="hidden items-center w-full lg:flex">
         <div class="h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl">
@@ -131,7 +125,7 @@ const positions = [
   </Section>
 
   <!-- About Us Section -->
-  <Section sectionTitle="about us">
+  <Section sectionTitle={t("navbar.about-us") ?? "about us"}>
     <AboutUs client:visible />
   </Section>
 </Layout>
