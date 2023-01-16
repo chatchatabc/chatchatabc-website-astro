@@ -5,9 +5,9 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
 
-changeLanguage("en");
+changeLanguage("zh");
 
-const blogs = await Astro.glob("./*.mdx");
+const blogs = await Astro.glob("../blogs/*.mdx");
 ---
 
 <Layout title={t("navbar.blogs")}>
