@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "i18next": "npx astro-i18next generate"
+    "i18next": "npx astro-i18next generate",
+    "deploy": "wrangler pages publish dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.14.0",
