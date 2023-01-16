@@ -1,6 +1,4 @@
 <script>
-  import { fixUrl } from "../../helpers/commonUtils";
-
   export let url;
 
   let currentLang = "EN";
@@ -19,10 +17,10 @@
     } duration-500 rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
   >
     <li>
-      <a href="/">ENG-EN</a>
+      <a href={"/"}>ENG-EN</a>
     </li>
     <li>
-      <a href={fixUrl("/zh/", url)}>CHI-ZH</a>
+      <a href={"/zh/"}>CHI-ZH</a>
     </li>
   </ul>
 </div>
