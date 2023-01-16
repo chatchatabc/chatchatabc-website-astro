@@ -3,26 +3,29 @@ import { Picture } from "astro-imagetools/components";
 import Modal from "../widgets/Modal.astro";
 import ContactUs from "./ContactUs.astro";
 import Language from "./Language.svelte";
-import { fixUrl } from "../../helpers/commonUtils";
+import { fixUrl, utilRemoveSpaces } from "../../helpers/commonUtils";
 import { t } from "i18next";
 
 const { pathname } = Astro.url;
 
 const navItems = [
   {
-    url: fixUrl(pathname, `/#${t("navbar.outsourcing")}`),
+    url: fixUrl(pathname, `/#${utilRemoveSpaces(t("navbar.outsourcing"))}`),
     name: t("navbar.outsourcing"),
   },
   {
-    url: fixUrl(pathname, `/#${t("navbar.software-development")}`),
+    url: fixUrl(
+      pathname,
+      `/#${utilRemoveSpaces(t("navbar.software-development"))}`
+    ),
     name: t("navbar.software-development"),
   },
   {
-    url: fixUrl(pathname, `/#${t("navbar.about-us")}`),
+    url: fixUrl(pathname, `/#${utilRemoveSpaces(t("navbar.about-us"))}`),
     name: t("navbar.about-us"),
   },
   {
-    url: fixUrl(pathname, `/${t("navbar.blogs")}`),
+    url: fixUrl(pathname, `/${utilRemoveSpaces(t("navbar.blogs"))}`),
     name: t("navbar.blogs"),
   },
 ];
