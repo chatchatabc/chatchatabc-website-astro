@@ -1,40 +1,33 @@
 <script>
+  import { t } from "i18next";
   // Value is null when none is selected
   let selected = null;
 
   // List of items
   const positions = [
     {
-      title: "java developer",
+      title: t("jobs.java-developer.title"),
       imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+      summary: t("jobs.java-developer.summary"),
+      details: t("jobs.java-developer.details"),
     },
     {
-      title: "web developer",
+      title: t("jobs.web-developer.title"),
       imageUrl: "",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+      summary: t("jobs.web-developer.summary"),
+      details: t("jobs.web-developer.details"),
     },
     {
-      title: "backend engineer",
+      title: t("jobs.backend-engineer.title"),
       imageUrl: "",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+      summary: t("jobs.backend-engineer.summary"),
+      details: t("jobs.backend-engineer.details"),
     },
     {
-      title: "designer",
+      title: t("jobs.designer.title"),
       imageUrl: "",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae.",
+      summary: t("jobs.designer.summary"),
+      details: t("jobs.designer.details"),
     },
   ];
 

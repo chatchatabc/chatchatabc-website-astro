@@ -2,6 +2,7 @@
 export default {
   defaultLocale: "en",
   locales: ["en", "zh"],
+  load: ["server", "client"],
   routes: {
     zh: {
       blogs: {
