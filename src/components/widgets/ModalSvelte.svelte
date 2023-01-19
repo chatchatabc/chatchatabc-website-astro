@@ -18,7 +18,7 @@
         ? "opacity-100 pointers-event-auto"
         : "opacity-0 pointer-events-none"
     } flex duration-500 fixed top-0 left-0 w-screen h-screen justify-center bg-neutral-700 bg-opacity-50 items-center z-10`}
-    on:click={() => (showModal = !showModal)}
+    on:click|self={() => (showModal = !showModal)}
   >
     <!-- Modal Container -->
     <div
