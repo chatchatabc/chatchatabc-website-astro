@@ -7,7 +7,7 @@
 <div>
   <!-- Button to open the modal -->
   <button class={btnClass} on:click={() => (showModal = !showModal)}>
-    {btnName}
+    {@html btnName}
   </button>
 
   <!-- Modal background -->
@@ -27,7 +27,7 @@
       } duration-500 max-w-2xl w-full px-2 mx-auto`}
     >
       <!-- Modal Content -->
-      <slot name="content" />
+      <slot />
     </div>
   </div>
 </div>
