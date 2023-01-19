@@ -129,7 +129,7 @@
             on:click={() => handleBtn(index + 1)}
             class="mt-auto p-2 bg-[#E8DEF8] text-[#6750A4] lg:hidden"
           >
-            <span class="animate-pulse">
+            <span>
               {selected === index + 1 ? "Close" : "Show more"}
             </span>
           </button>
