@@ -100,7 +100,7 @@ changeLanguage("en");
 
   <!-- Outsourcing Section -->
   <Section sectionTitle={t("navbar.outsourcing") ?? "outsourcing"}>
-    <OutSourcing client:load />
+    <OutSourcing client:visible />
   </Section>
 
   <!-- Software Development Section -->
@@ -112,7 +112,7 @@ changeLanguage("en");
         <div class="h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl">
         </div>
       </div>
-      <ImageViewer className="" client:load>
+      <ImageViewer className="" client:visible>
         <Img
           src="/images/tech-stack.png"
           alt="tech stack"
