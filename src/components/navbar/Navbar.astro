@@ -44,21 +44,32 @@ const navItems = [
   </Modal>
 
   <!-- Navbar -->
-  <header class="p-2">
+  <header class="p-2 relative z-[2]">
     <nav
       class="container mx-auto flex flex-wrap justify-between items-center md:flex-nowrap md:gap-8 md:justify-around lg:px-8"
     >
-      <a href={utilUrlWithLocale(pathname, "/")}>
+      <!-- Background -->
+      <div
+        class="absolute z-[1] pointer-events-none bg-white top-0 left-0 w-full h-full md:hidden"
+      >
+      </div>
+
+      <!-- Logo -->
+      <a class="z-[2]" href={utilUrlWithLocale(pathname, "/")}>
         <div class="object-contain w-32 lg:w-44">
           <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
         </div>
       </a>
-      <button id="nav-menu-btn" class="md:hidden md:pointer-events-none">
+
+      <!-- Mobile menu button -->
+      <button id="nav-menu-btn" class="z-[2] md:hidden md:pointer-events-none">
         Menu
       </button>
+
+      <!-- Navigation Links -->
       <ul
         id="nav"
-        class="max-h-screen py-1 hide-nav flex flex-col w-full text-purple-700 font-medium ml-auto text-xs duration-500 md:items-center md:justify-end md:py-0 md:duration-[0s] md:flex-row md:gap-2 lg:text-base"
+        class="max-h-screen absolute bg-white left-0 px-2 top-full py-1 hide-nav flex flex-col w-full text-purple-700 font-medium ml-auto text-xs duration-500 md:px-0 md:static md:items-center md:justify-end md:py-0 md:duration-[0s] md:flex-row md:gap-2 lg:text-base"
       >
         {
           navItems.map((item) => {
@@ -74,6 +85,8 @@ const navItems = [
             );
           })
         }
+
+        <!-- Contact Us -->
         <li>
           <button
             id="modal-open-btn"
@@ -82,6 +95,8 @@ const navItems = [
             {t("navbar.contact-us")}
           </button>
         </li>
+
+        <!-- Language Selector -->
         <li>
           <Language url={pathname} client:load />
         </li>
@@ -92,14 +107,12 @@ const navItems = [
 
 <style is:global>
   .hide-nav {
-    max-height: 0px;
-    opacity: 0;
+    transform: translateY(-100%);
     pointer-events: none;
   }
   @media (min-width: 768px) {
     .hide-nav {
-      max-height: 1000px;
-      opacity: 1;
+      transform: translateY(0);
       pointer-events: auto;
     }
   }
@@ -108,8 +121,13 @@ const navItems = [
 <script>
   const nav = document.getElementById("nav");
   const openMenu = document.getElementById("nav-menu-btn");
+  const menuBg = document.getElementById("nav-menu-bg");
   if (openMenu)
     openMenu.addEventListener("click", () => {
-      if (nav) nav.classList.toggle("hide-nav");
+      if (nav) {
+        nav.classList.toggle("hide-nav");
+        if (nav.classList.contains("hide-nav")) openMenu.innerHTML = "Menu";
+        else openMenu.innerHTML = "Close";
+      }
     });
 </script>
