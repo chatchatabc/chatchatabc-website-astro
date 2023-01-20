@@ -19,16 +19,16 @@ const navItems = [
   {
     url: utilUrlWithLocale(
       pathname,
-      `/#${utilRemoveSpaces(t("navbar.software-development"))}`
+      `/#${utilRemoveSpaces(t("navbar.software_development"))}`
     ),
-    name: t("navbar.software-development"),
+    name: t("navbar.software_development"),
   },
   {
     url: utilUrlWithLocale(
       pathname,
-      `/#${utilRemoveSpaces(t("navbar.about-us"))}`
+      `/#${utilRemoveSpaces(t("navbar.about_us"))}`
     ),
-    name: t("navbar.about-us"),
+    name: t("navbar.about_us"),
   },
   {
     url: utilUrlWithLocale(pathname, `/${utilRemoveSpaces(t("navbar.blogs"))}`),
@@ -72,7 +72,7 @@ const navItems = [
         <li>
           <!-- Contact Us Modal -->
           <ModalSvelte
-            btnName={t("navbar.contact-us") ?? "Contact Us"}
+            btnName={t("navbar.contact_us") ?? "Contact Us"}
             btnClass={"w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"}
             client:visible
           >
