@@ -1,35 +1,10 @@
 <script>
-  import { t } from "i18next";
+  import { onMount } from "svelte";
+  import { utilGetTranslations } from "../../helpers/commonUtils";
+
   // Value is null when none is selected
   let selected = null;
-
-  // List of items
-  const positions = [
-    {
-      title: t("jobs.java-developer.title"),
-      imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-      summary: t("jobs.java-developer.summary"),
-      details: t("jobs.java-developer.details"),
-    },
-    {
-      title: t("jobs.web-developer.title"),
-      imageUrl: "",
-      summary: t("jobs.web-developer.summary"),
-      details: t("jobs.web-developer.details"),
-    },
-    {
-      title: t("jobs.backend-engineer.title"),
-      imageUrl: "",
-      summary: t("jobs.backend-engineer.summary"),
-      details: t("jobs.backend-engineer.details"),
-    },
-    {
-      title: t("jobs.designer.title"),
-      imageUrl: "",
-      summary: t("jobs.designer.summary"),
-      details: t("jobs.designer.details"),
-    },
-  ];
+  let positions = [];
 
   const handleBtn = (index) => {
     if (selected && selected === index) selected = null;
@@ -37,6 +12,37 @@
     const card = document.getElementById("card-focus");
     if (card) card.focus();
   };
+
+  onMount(() => {
+    // Updates the positions based on the current language
+    const translation = utilGetTranslations(window.location.href);
+    positions = [
+      {
+        title: translation.jobs["java_developer"].title,
+        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
+        summary: translation.jobs["java_developer"].summary,
+        details: translation.jobs["java_developer"].details,
+      },
+      {
+        title: translation.jobs["web_developer"].title,
+        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
+        summary: translation.jobs["web_developer"].summary,
+        details: translation.jobs["web_developer"].details,
+      },
+      {
+        title: translation.jobs["backend_engineer"].title,
+        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
+        summary: translation.jobs["backend_engineer"].summary,
+        details: translation.jobs["backend_engineer"].details,
+      },
+      {
+        title: translation.jobs["designer"].title,
+        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
+        summary: translation.jobs["designer"].summary,
+        details: translation.jobs["designer"].details,
+      },
+    ];
+  });
 </script>
 
 <div>
