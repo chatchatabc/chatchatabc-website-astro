@@ -4,11 +4,12 @@
   export let url;
 
   let currentLang = "EN";
+  let nextLang = new String(currentLang).valueOf();
   if (url && url.includes("/zh/")) currentLang = "ZH";
   let open = false;
 
   function changeLanguage() {
-    if (currentLang === "CN") window.open("/zh/", "_self");
+    if (nextLang === "ZH") window.open("/zh/", "_self");
     else window.open("/", "_self");
   }
 </script>
@@ -22,10 +23,11 @@
       <p>Choose your language</p>
       <select
         class="w-full text-center"
-        on:change={(self) => (currentLang = self.target.value)}
+        on:change={(self) => (nextLang = self.target.value)}
+        value={currentLang}
       >
         <option value="EN">English</option>
-        <option value="CN">Chinese</option>
+        <option value="ZH">Chinese</option>
       </select>
       <button
         class="mx-auto block mt-2 py-1 px-4 border rounded-full text-white bg-[#6750A4]"
