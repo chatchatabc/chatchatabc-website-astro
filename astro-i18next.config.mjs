@@ -10,4 +10,9 @@ export default {
       },
     },
   },
+  i18nextServer: {
+    backend: {
+      loadPath: "./data/locales/{{lng}}/{{ns}}.json",
+    },
+  },
 };
