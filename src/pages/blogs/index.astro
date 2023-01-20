@@ -13,8 +13,8 @@ const { pathname } = Astro.url;
 console.log(pathname);
 ---
 
-<Layout title={t("navbar.blogs")}>
-  <Section sectionTitle={t("navbar.blogs") ?? "blogs"}>
+<Layout title={t("links.blogs")}>
+  <Section sectionTitle={t("links.blogs") ?? "blogs"}>
     {
       blogs.length ? (
         <ul class="grid md:grid-cols-2 px-8 gap-4 space-y-2 md:space-y-0">

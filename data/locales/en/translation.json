@@ -1,10 +1,13 @@
 {
   "navbar": {
+    "contact_us": "contact us"
+  },
+
+  "links": {
     "outsourcing": "outsourcing",
     "software_development": "software development",
     "about_us": "about us",
-    "blogs": "blogs",
-    "contact_us": "contact us"
+    "blogs": "blogs"
   },
 
   "home": {
