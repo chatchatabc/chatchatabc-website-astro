@@ -1,13 +1,18 @@
 {
-  "navbar": {
-    "contact_us": "contact us"
-  },
-
   "links": {
     "outsourcing": "outsourcing",
     "software_development": "software development",
     "about_us": "about us",
-    "blogs": "blogs"
+    "blogs": "blogs",
+    "contact_us": "contact us"
+  },
+
+  "misc": {
+    "telephone": "tel",
+    "email": "email",
+    "address": "address",
+    "visit": "Visit our websites",
+    "links": "links"
   },
 
   "home": {

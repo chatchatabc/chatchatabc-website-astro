@@ -1,6 +1,10 @@
 ---
 import { Icon } from "astro-icon";
 import { Picture } from "astro-imagetools/components";
+import { t } from "i18next";
+import { utilRemoveSpaces, utilUrlWithLocale } from "../helpers/commonUtils";
+
+const { pathname } = Astro.url;
 ---
 
 <footer>
@@ -29,37 +33,76 @@ import { Picture } from "astro-imagetools/components";
       <div
         class="px-4 col-span-2 grid gap-y-8 text-[#6750A4] space-y-8 md:space-y-0 md:grid-cols-3"
       >
-        <ul class="flex flex-col md:gap-4">
-          <li>
-            <a>Service</a>
+        <ul class="flex flex-col capitalize">
+          <li class="mb-2">
+            <span class="font-bold">{t("misc.links")}</span>
           </li>
           <li>
-            <a>Outsourcing</a>
+            <a
+              href={utilUrlWithLocale(
+                pathname,
+                utilRemoveSpaces(`#${t("links.outsourcing")}`)
+              )}
+            >
+              {t("links.outsourcing")}
+            </a>
           </li>
           <li>
-            <a>Software Development</a>
+            <a
+              href={utilUrlWithLocale(
+                pathname,
+                utilRemoveSpaces(`#${t("links.software_development")}`)
+              )}
+            >
+              {t("links.software_development")}
+            </a>
+          </li>
+          <li>
+            <a
+              href={utilUrlWithLocale(
+                pathname,
+                utilRemoveSpaces(`#${t("links.about_us")}`)
+              )}
+            >
+              {t("links.about_us")}
+            </a>
           </li>
         </ul>
-        <ul class="flex flex-col md:gap-4">
-          <li>
-            <a>We're Hiring</a>
+        <ul class="flex flex-col">
+          <li class="mb-2">
+            <span class="font-bold">{t("misc.visit")}</span>
           </li>
           <li>
-            <a>davao.jobs.page</a>
+            <a href={utilUrlWithLocale(pathname, "/")}>ChatChatABC Website</a>
+          </li>
+          <li>
+            <a href="https://jobs.davao.page" target="_blank">
+              Jobs Davao Page
+            </a>
           </li>
         </ul>
-        <ul class="flex flex-col md:gap-4">
-          <li>
-            <a>Contact Us</a>
+        <ul class="flex flex-col capitalize">
+          <li class="mb-2">
+            <span class="font-bold">{t("links.contact_us")}</span>
           </li>
           <li>
-            <a>Tel: 09123456789</a>
+            <a>{t("misc.telephone")}: 09123456789</a>
           </li>
           <li>
-            <a>Email: ChatChatABC@gmail.com</a>
+            <a href="mailto: chatchatabc@gmail.com">
+              {t("misc.email")}: ChatChatABC@gmail.com
+            </a>
           </li>
           <li>
-            <a>Address: aiujsa diad amam doiam admomd s</a>
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURI(
+                "km 6, near Fairlane Subd Road, Brgy Alfonso Angliongto red gate Lanang, Davao City, 8000 Davao del Sur"
+              )}`}
+              target="_blank"
+            >
+              {t("misc.address")}: Dona P. Ramos St. (near Fairlane Subd. Road)
+              Brgy. Alfonso Angliongto, Km. 6, Lanang Davao City
+            </a>
           </li>
         </ul>
       </div>
