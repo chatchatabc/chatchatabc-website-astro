@@ -1,10 +1,10 @@
 ---
 import { Picture } from "astro-imagetools/components";
-import Modal from "../widgets/Modal.astro";
 import ContactUs from "./ContactUs.astro";
 import Language from "./Language.svelte";
 import { utilUrlWithLocale, utilRemoveSpaces } from "../../helpers/commonUtils";
 import { t } from "i18next";
+import ModalSvelte from "../widgets/ModalSvelte.svelte";
 
 const { pathname } = Astro.url;
 
@@ -38,11 +38,6 @@ const navItems = [
 ---
 
 <>
-  <!-- Modal -->
-  <Modal>
-    <ContactUs />
-  </Modal>
-
   <!-- Navbar -->
   <header class="p-2">
     <nav
@@ -75,12 +70,14 @@ const navItems = [
           })
         }
         <li>
-          <button
-            id="modal-open-btn"
-            class="w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"
+          <!-- Contact Us Modal -->
+          <ModalSvelte
+            btnName={t("navbar.contact-us") ?? "Contact Us"}
+            btnClass={"w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"}
+            client:visible
           >
-            {t("navbar.contact-us")}
-          </button>
+            <ContactUs />
+          </ModalSvelte>
         </li>
         <li>
           <Language url={pathname} client:visible />
