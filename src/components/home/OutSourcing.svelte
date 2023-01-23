@@ -9,8 +9,6 @@
   const handleBtn = (index) => {
     if (selected && selected === index) selected = null;
     else selected = index;
-    const card = document.getElementById("card-focus");
-    if (card) card.focus();
   };
 
   onMount(() => {
@@ -54,7 +52,6 @@
   >
     {#each positions as position, index}
       <li
-        id={selected === index + 1 ? "card-focus" : ""}
         tabIndex={selected === index + 1 ? -1 : index + 1}
         class={`text-center duration-500 ${
           index + 1 === selected
