@@ -1,0 +1,46 @@
+{
+  "links": {
+    "outsourcing": "outsourcing",
+    "software_development": "software development",
+    "about_us": "about us",
+    "blogs": "blogs",
+    "contact_us": "contact us"
+  },
+
+  "misc": {
+    "telephone": "tel",
+    "email": "email",
+    "address": "address",
+    "visit": "Visit our websites",
+    "links": "links"
+  },
+
+  "home": {
+    "hero": {
+      "title": "Your Idea\nWe Design\nWe Develop"
+    }
+  },
+
+  "jobs": {
+    "java_developer": {
+      "title": "java developer",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "backend_engineer": {
+      "title": "backend engineer",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "web_developer": {
+      "title": "web developer",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "designer": {
+      "title": "designer",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    }
+  }
+}

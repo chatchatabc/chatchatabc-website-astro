@@ -1,50 +1,116 @@
-# Welcome to [Astro](https://astro.build)
+# Welcome to [ChatChatABC Website!](https://jobs.davao.page)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+This is project is built with Astro jamstack as its foundation. Purpose of this project is develop a website for ChatChatABC, providing fast and great experience for the users around the globe!
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# 🤓 Tech Stack
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+In this section you'll see the list of tools and technologies that was used to develop this project.
 
+- [**`Astro`**](https://docs.astro.build/en/getting-started/): Main jamstack that is used to develop the website
+- MDX ([**`@astro/mdx`**](https://docs.astro.build/en/guides/integrations-guide/mdx/)): This tool is used to utilize .mdx files within this project.
+- Svelte ([**`@astro/svelte`**](https://docs.astro.build/en/guides/integrations-guide/svelte/)): This framework is used to develop some reactive components instead of using ReactJS. The resources of this framework is much more lighter and is able to run on older browsers.
+- TailwindCSS ([**`@astro/tailwind`**](https://docs.astro.build/en/guides/integrations-guide/tailwind/)): This CSS framework is used to assist with the styling of the website on the frontend.
+- [**`astro-icon`**](https://github.com/natemoo-re/astro-icon#readme): This library is used to implement wide variety of icons that could be found within [`iconify`](https://iconify.design) website.
+- [**`astro-imagetools`**](https://github.com/RafidMuhymin/astro-imagetools#readme): This tool is used to optimize the loading performance of images within the project.
 
-## 🚀 Project Structure
+# 👾 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+In this section you'll see the most important information that will help you understand most parts of the project.
 
 ```
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+├───data
+│   ├───blogs
+│   │   └───...
+│   └───locales
+│       └───...
+├───public
+│   ├───images
+│   │   └───...
+│   ├───logo
+│   │   └───...
+│   └───_headers
+└───src
+    ├───components
+    │   ├───home
+    │   │   └───...
+    │   ├───navbar
+    │   │   └───...
+    │   ├───widgets
+    │   │   └───...
+    │   └───...
+    ├───helpers
+    │   └───commonUtils.ts
+    ├───layouts
+    │   ├───Layout.astro
+    │   └───NewsLayout.astro
+    ├───pages
+    │   ├───blogs
+    │   │   └───...
+    │   └───index.astro
+    └───styles
+        └───markdown.css
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Definitions
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Within this part, you'll be able to see more details of the project structure that is shown above.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**data**
 
-## 🧞 Commands
+- **`blogs:`** Used to store all the blogs that will be used for the blogs page.
+- **`locales:`** Used to store all the translation of each locales listed within the folder.
+
+**public**
+
+- **`images:`** Used to store all the images that will be used for the development of Davao Page.
+- **`logo:`** Used to store the logo of the Davao Page, so that it will be separated from the main image folder.
+- **`_headers:`** Used to configure custom headers for the responses of Cloudflare Pages to the user's browser.
+
+**src**
+
+- **components**
+  - **`home:`** Used to store components that are used in homepage.
+  - **`navbar:`** Used to store components that are used in navbar.
+  - **`widgets:`** Used to store reusable components that would be used in many scenarios such as modal, cards, etc.
+- **helpers**
+  - **`commonUtils.ts:`** Used to store reusable functions / utilities to help with the development.
+- **layouts**
+  - **`Layout.astro:`** Used as the main foundation template for generating the pages in ChatChatABC Website.
+- **pages**
+  - **blogs**
+    - **`index.astro:`** Displays a list of all the blogs content that are found from this directory `~/data/blogs`.
+    - **`[blog]:`** Used to generate the blog pages based from this directory `~/data/blogs`.
+  - **`index.astro:`** Homepage of ChatChatABC Website.
+  - **`zh:`** Generated folder that would be used for viewing the website in Chinese language.
+- **styles:** Utilize to store independent css styles for a specific use case or component.
+  - **`markdown.css:`** this is used to style the rendered contents that comes from the markdown files. The css style is based from the [beautiful-markdown.css](https://github.com/bndp/beautiful-markdown/blob/master/src/beautiful-markdown.css).
+
+# 😎 Deployment
+
+In this section you'll know the important information that is used for the deployment of this project.
+
+We used the services of Cloudflare, such as Cloudflare Pages and Wrangler, to deploy our production build on the internet. To know more about their functionalities, you can visit their respective documentation on the link provided below.
+
+- **Cloudflare**: https://developers.cloudflare.com
+- **Cloudflare Pages**: https://developers.cloudflare.com/pages/
+- **Wrangler**: https://developers.cloudflare.com/workers/wrangler/
+
+# 🤖 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+| Command                       | Action                                                                |
+| :---------------------------- | :-------------------------------------------------------------------- |
+| `npm install`                 | Installs dependencies                                                 |
+| `npm run dev`                 | Starts local dev server at `localhost:3000`                           |
+| `npm run build`               | Build your production site to `./dist/`                               |
+| `npm run preview`             | Preview your build locally, before deploying                          |
+| `npm run astro ...`           | Run CLI commands like `astro add`, `astro preview`                    |
+| `npm run astro --help`        | Get help using the Astro CLI                                          |
+| `wrangler login`              | Used to login your cloudflare credentials for deploying with wrangler |
+| `wrangler pages publish dist` | Deploy the build project to the cloudflare pages using wrangler CLI   |
 
-## 👀 Want to learn more?
+# 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to contact [BoJoNVi](https://github.com/BoJoNVi) (me) through DingTalk or visit me at the workplace to have a thorough discussion about this project.

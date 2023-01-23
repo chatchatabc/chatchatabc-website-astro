@@ -1,0 +1,46 @@
+{
+  "links": {
+    "outsourcing": "外包",
+    "software_development": "软件开发",
+    "about_us": "关于我们",
+    "blogs": "博客",
+    "contact_us": "联系我们"
+  },
+
+  "misc": {
+    "telephone": "电话",
+    "email": "电子邮件",
+    "address": "地址",
+    "visit": "访问我们的网站",
+    "links": "链接"
+  },
+
+  "home": {
+    "hero": {
+      "title": "你的想法\n我们设计\n我们发展"
+    }
+  },
+
+  "jobs": {
+    "java_developer": {
+      "title": "开发人员",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "backend_engineer": {
+      "title": "后端工程师",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "web_developer": {
+      "title": "Web开发人员",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    },
+    "designer": {
+      "title": "设计师",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+    }
+  }
+}
