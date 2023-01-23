@@ -4,7 +4,7 @@ import Section from "../../../components/widgets/Section.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
-import { utilUrlFix, utilUrlWithLocale } from "../../../helpers/commonUtils";
+import { utilUrlFix } from "../../../helpers/commonUtils";
 
 changeLanguage("zh");
 
@@ -32,10 +32,12 @@ const { pathname } = Astro.url;
               <li class="border rounded-sm overflow-hidden">
                 <div class="h-full grid lg:grid-cols-5">
                   <div class="h-64 lg:h-full lg:col-span-2">
-                    <Img
-                      src={summary_image ?? "/images/no-image.png"}
-                      alt={title ?? "No title"}
-                    />
+                    <a href={utilUrlFix(pathname, `/${slug}`)}>
+                      <Img
+                        src={summary_image ?? "/images/no-image.png"}
+                        alt={title ?? "No title"}
+                      />
+                    </a>
                   </div>
                   <div class="p-4 flex flex-col lg:col-span-3">
                     <p class="text-xl leading-6 font-bold hover:text-neutral-600">
