@@ -10,7 +10,7 @@ changeLanguage("en");
 
 const blogs = await Astro.glob("../../../data/blogs/*.mdx");
 const { pathname } = Astro.url;
-console.log(pathname);
+
 ---
 
 <Layout title={t("links.blogs")}>
