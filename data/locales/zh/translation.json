@@ -17,13 +17,13 @@
 
   "home": {
     "hero": {
-      "title": "你的想法\n我们设计\n我们发展"
+      "title": "你的想法\n我们设计\n我们开发\n我们部署\n我们维护"
     }
   },
 
   "jobs": {
     "java_developer": {
-      "title": "开发人员",
+      "title": "Java开发人员",
       "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
       "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
     },
@@ -38,7 +38,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
     },
     "designer": {
-      "title": "设计师",
+      "title": "Web设计师",
       "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
       "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
     }
