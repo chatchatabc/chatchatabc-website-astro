@@ -4,13 +4,12 @@ import Section from "../../components/widgets/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
-import { utilUrlFix, utilUrlWithLocale } from "../../helpers/commonUtils";
+import { utilUrlFix } from "../../helpers/commonUtils";
 
 changeLanguage("en");
 
 const blogs = await Astro.glob("../../../data/blogs/*.mdx");
 const { pathname } = Astro.url;
-
 ---
 
 <Layout title={t("links.blogs")}>
