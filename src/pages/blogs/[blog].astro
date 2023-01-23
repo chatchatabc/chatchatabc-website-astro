@@ -8,19 +8,27 @@ import { Img } from "astro-imagetools/components";
 changeLanguage("en");
 
 export async function getStaticPaths() {
-    const blogs = await Astro.glob("../../../data/blogs/*.mdx");
-    return blogs.map((blog) => ({
-        params: {
-            blog: blog.frontmatter.slug,
-        },
-        props: {
-            blog,
-        },
-    }));
+  const blogs = await Astro.glob("../../../data/blogs/*.mdx");
+  return blogs.map((blog) => ({
+    params: {
+      blog: blog.frontmatter.slug,
+    },
+    props: {
+      blog,
+    },
+  }));
 }
 const { blog } = Astro.props;
 const { frontmatter, Content } = blog;
-const { title, author_image, date, author_name, author_link, tags, summary_image, } = frontmatter;
+const {
+  title,
+  author_image,
+  date,
+  author_name,
+  author_link,
+  tags,
+  summary_image,
+} = frontmatter;
 ---
 
 <Layout title={title}>
@@ -69,7 +77,7 @@ const { title, author_image, date, author_name, author_link, tags, summary_image
     </section>
 
     <!-- Blog Info -->
-    <section class="flex flex-col py-4 space-y-4">
+    <section class="flex flex-col pt-4 px-3 space-y-4">
       <!-- Blog Title -->
       <div>
         <h1 class="text-xl font-medium md:text-3xl lg:text-4xl xl:text-5xl">
@@ -84,9 +92,13 @@ const { title, author_image, date, author_name, author_link, tags, summary_image
       </div>
 
       <!-- Blog Image -->
-      <div class="overflow-hidden border max-h-[500px]">
-        <Img alt={title} src={summary_image ?? "/images/no-image.png"} />
-      </div>
+      {
+        summary_image ? (
+          <div class="overflow-hidden border max-h-[500px]">
+            <Img alt={title} src={summary_image ?? "/images/no-image.png"} />
+          </div>
+        ) : null
+      }
     </section>
 
     <!-- Markdown Content -->
