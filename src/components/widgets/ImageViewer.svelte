@@ -30,9 +30,9 @@
     }`}
   >
     <div style={`width:${currentZoom}%`} class="object-contain relative group">
-      {#if imgUrl}
+      {#if imgUrl && currentZoom === 100}
         <div
-          class="opacity-0 duration-500 bg-gray-600 bg-opacity-50 absolute top-0 left-0 h-full w-full flex justify-center items-center group-hover:opacity-100"
+          class={`opacity-0 duration-500 bg-gray-600 bg-opacity-50 absolute top-0 left-0 h-full w-full flex justify-center items-center group-hover:opacity-100`}
         >
           <a
             href={imgUrl}
