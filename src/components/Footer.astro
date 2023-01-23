@@ -86,12 +86,17 @@ const { pathname } = Astro.url;
             <span class="font-bold">{t("links.contact_us")}</span>
           </li>
           <li>
-            <a>{t("misc.telephone")}: 09123456789</a>
+            <span>
+              {t("misc.telephone")}: <a href="tel: 09123456789">09123456789</a>
+            </span>
           </li>
           <li>
-            <a href="mailto: chatchatabc@gmail.com">
-              {t("misc.email")}: ChatChatABC@gmail.com
-            </a>
+            <span>
+              {t("misc.email")}:
+              <a class="normal-case" href="mailto: chatchatabc@gmail.com">
+                ChatChatABC@gmail.com
+              </a>
+            </span>
           </li>
           <li>
             <a
