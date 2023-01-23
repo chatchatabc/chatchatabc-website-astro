@@ -19,6 +19,11 @@ In this section you'll see the most important information that will help you und
 
 ```
 /
+├───data
+│   ├───blogs
+│   │   └───...
+│   └───locales
+│       └───...
 ├───public
 │   ├───images
 │   │   └───...
@@ -51,6 +56,11 @@ In this section you'll see the most important information that will help you und
 
 Within this part, you'll be able to see more details of the project structure that is shown above.
 
+**data**
+
+- **`blogs:`** Used to store all the blogs that will be used for the blogs page.
+- **`locales:`** Used to store all the translation of each locales listed within the folder.
+
 **public**
 
 - **`images:`** Used to store all the images that will be used for the development of Davao Page.
@@ -60,17 +70,19 @@ Within this part, you'll be able to see more details of the project structure th
 **src**
 
 - **components**
-  - **`home:`** Used to store small components that are used in homepage.
-  - **`navbar:`** Used to store small components that are used in navbar.
-  - **`widgets:`** Used to store small reusable components such as cards, modal, etc.
+  - **`home:`** Used to store components that are used in homepage.
+  - **`navbar:`** Used to store components that are used in navbar.
+  - **`widgets:`** Used to store reusable components that would be used in many scenarios such as modal, cards, etc.
 - **helpers**
   - **`commonUtils.ts:`** Used to store reusable functions / utilities to help with the development.
 - **layouts**
   - **`Layout.astro:`** Used as the main foundation template for generating the pages in ChatChatABC Website.
-  - **`NewsLayout.astro:`** Used as the layout template for the blogs page in ChatChatABC Website.
 - **pages**
-  - **`blogs:`** Contains all pages for the blogs, such as blogs page and blogs list.
+  - **blogs**
+    - **`index.astro:`** Displays a list of all the blogs content that are found from this directory `~/data/blogs`.
+    - **`[blog]:`** Used to generate the blog pages based from this directory `~/data/blogs`.
   - **`index.astro:`** Homepage of ChatChatABC Website.
+  - **`zh:`** Generated folder that would be used for viewing the website in Chinese language.
 - **styles:** Utilize to store independent css styles for a specific use case or component.
   - **`markdown.css:`** this is used to style the rendered contents that comes from the markdown files. The css style is based from the [beautiful-markdown.css](https://github.com/bndp/beautiful-markdown/blob/master/src/beautiful-markdown.css).
 
