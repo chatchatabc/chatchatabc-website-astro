@@ -8,27 +8,19 @@ import { Img } from "astro-imagetools/components";
 changeLanguage("en");
 
 export async function getStaticPaths() {
-  const blogs = await Astro.glob("../../../data/blogs/*.mdx");
-  return blogs.map((blog) => ({
-    params: {
-      blog: blog.frontmatter.slug,
-    },
-    props: {
-      blog,
-    },
-  }));
+    const blogs = await Astro.glob("../../../data/blogs/*.mdx");
+    return blogs.map((blog) => ({
+        params: {
+            blog: blog.frontmatter.slug,
+        },
+        props: {
+            blog,
+        },
+    }));
 }
 const { blog } = Astro.props;
 const { frontmatter, Content } = blog;
-const {
-  title,
-  author_image,
-  date,
-  author_name,
-  author_link,
-  tags,
-  summary_image,
-} = frontmatter;
+const { title, author_image, date, author_name, author_link, tags, summary_image, } = frontmatter;
 ---
 
 <Layout title={title}>
