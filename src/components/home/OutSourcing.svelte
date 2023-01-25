@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import { utilGetTranslations } from "../../helpers/commonUtils";
+  import { utilGetCurrentLangauge } from "../../helpers/commonUtils";
+  import { getCollection } from "astro:content";
 
   // Value is null when none is selected
   let selected = null;
@@ -13,33 +14,12 @@
 
   onMount(() => {
     // Updates the positions based on the current language
-    const translation = utilGetTranslations(window.location.href);
-    positions = [
-      {
-        title: translation.jobs["java_developer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["java_developer"].summary,
-        details: translation.jobs["java_developer"].details,
-      },
-      {
-        title: translation.jobs["web_developer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["web_developer"].summary,
-        details: translation.jobs["web_developer"].details,
-      },
-      {
-        title: translation.jobs["backend_engineer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["backend_engineer"].summary,
-        details: translation.jobs["backend_engineer"].details,
-      },
-      {
-        title: translation.jobs["designer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["designer"].summary,
-        details: translation.jobs["designer"].details,
-      },
-    ];
+    const currentLanguage = utilGetCurrentLangauge(window.location.href);
+    getCollection(`jobs`, (data) =>
+      data.id.startsWith(`${currentLanguage}/`)
+    ).then((jobs) => {
+      positions = jobs;
+    });
   });
 </script>
 
@@ -67,7 +47,7 @@
         <!-- Title -->
         <div class="relative">
           <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
-          <h4 class="text-xl capitalize">{position.title}</h4>
+          <h4 class="text-xl capitalize">{position.data.title}</h4>
         </div>
 
         <!-- Card -->
@@ -90,27 +70,35 @@
                   "w-24 h-24 rounded-full mt-2"
             }`}
           >
-            {#if position.imageUrl.length}
+            {#if position.data.imageUrl.length}
               <img
-                src={position.imageUrl}
+                src={position.data.imageUrl}
                 class="w-full h-full object-cover"
-                alt={position.title}
+                alt={position.data.title}
               />
             {:else}
               <img
                 src="/images/no-image.png"
                 class="w-full h-full object-cover"
-                alt={position.title}
+                alt={position.data.title}
               />
             {/if}
           </div>
 
           <!-- Description -->
-          <p
-            class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
-          >
-            {selected === index + 1 ? position.details : position.summary}
-          </p>
+          {#if selected === index + 1}
+            <div
+              class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
+            >
+              Test
+            </div>
+          {:else}
+            <p
+              class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
+            >
+              {position.data.summary}
+            </p>
+          {/if}
 
           <!-- Button for Desktop -->
           <button
