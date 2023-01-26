@@ -5,10 +5,11 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
 import { utilUrlFix } from "../../helpers/commonUtils";
+import { getCollection } from "astro:content";
 
 changeLanguage("en");
 
-const blogs = await Astro.glob("../../../data/blogs/*.mdx");
+const blogs = await getCollection("blogs");
 const { pathname } = Astro.url;
 ---
 
@@ -18,16 +19,16 @@ const { pathname } = Astro.url;
       blogs.length ? (
         <ul class="grid md:grid-cols-2 px-8 gap-4 space-y-2 md:space-y-0">
           {blogs.map((blog) => {
+            const { data, slug } = blog;
             const {
               title,
               date,
               summary,
-              slug,
               author_name,
               author_link,
               author_image,
               summary_image,
-            } = blog.frontmatter;
+            } = data;
             return (
               <li class="border rounded-sm overflow-hidden">
                 <div class="h-full grid lg:grid-cols-5">
