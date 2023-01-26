@@ -1,0 +1,32 @@
+{
+  "title": "ChatChatABC Website",
+  "description": "ChatChatABC is your go-to web application solution provider. We are dedicated to offering high-quality software development, software platform, and cutting-edge technology services.",
+  "keywords": "Software development, Software platform, Technology services, Web application solution provider, ChatChatABC, Web Development, Java Developer, Web Designer, Backend Engineer",
+  "author": "Developer from ChatChatABC",
+  "icons": [
+    {
+      "rel": "apple-touch-icon",
+      "type": null,
+      "sizes": "180x180",
+      "href": "/logo/apple-touch-icon.png"
+    },
+    {
+      "rel": "icon",
+      "type": "image/png",
+      "sizes": "32x32",
+      "href": "/logo/favicon-32x32.png"
+    },
+    {
+      "rel": "icon",
+      "type": "image/png",
+      "sizes": "16x16",
+      "href": "/logo/favicon-16x16.png"
+    },
+    {
+      "rel": "manifest",
+      "type": null,
+      "sizes": null,
+      "href": "/logo/site.webmanifest"
+    }
+  ]
+}
