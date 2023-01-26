@@ -4,5 +4,6 @@ export const aboutSchema = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
+    id: z.string(),
   }),
 });

@@ -32,25 +32,25 @@
       <!-- Item Description -->
 
       {#if selected === index + 1}
-        {#if about.data.slug === "about-1"}
+        {#if about.data.id === "about-1"}
           <div
             class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
           >
             <slot name="about-1" />
           </div>
         {/if}
-        {#if about.data.slug === "about-2"}
+        {#if about.data.id === "about-2"}
           <div
             class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
           >
-            <slot name="about-1" />
+            <slot name="about-2" />
           </div>
         {/if}
-        {#if about.data.slug === "about-3"}
+        {#if about.data.id === "about-3"}
           <div
             class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
           >
-            <slot name="about-1" />
+            <slot name="about-3" />
           </div>
         {/if}
       {:else}
