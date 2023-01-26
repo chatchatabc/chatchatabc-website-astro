@@ -58,7 +58,9 @@
 
       <!-- Item button; button only shows up if user hovers on the card -->
       <button
-        class="block mt-4 underline underline-offset-4 duration-500 lg:opacity-0 group-hover:duration-700 group-hover:opacity-100"
+        class={`block mt-4 underline underline-offset-4 duration-500 ${
+          selected === index + 1 ? "lg:opacity-100" : "lg:opacity-0"
+        } group-hover:duration-700 group-hover:opacity-100`}
         on:click={() => (selected = selected === index + 1 ? null : index + 1)}
       >
         {selected === index + 1 ? "Close" : "Read more >"}
