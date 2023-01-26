@@ -15,8 +15,8 @@ changeLanguage("en");
 const { pathname } = Astro.url;
 // Get md files based on the current language
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const jobs = await getCollection(`jobs`, (data) => data.id.startsWith(`${currentLanguage}/`));
-const aboutList = await getCollection(`about`, (data) => data.id.startsWith(`${currentLanguage}/`));
+const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
+const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
     .find((job) => job.slug === "java-developer")!
