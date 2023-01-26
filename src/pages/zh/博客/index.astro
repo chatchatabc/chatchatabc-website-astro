@@ -13,7 +13,7 @@ const blogs = await getCollection("blogs");
 const { pathname } = Astro.url;
 ---
 
-<Layout title={t("links.blogs")}>
+<Layout title={t("links.blogs") ?? "blogs"}>
   <Section sectionTitle={t("links.blogs") ?? "blogs"}>
     {
       blogs.length ? (
