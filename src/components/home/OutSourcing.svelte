@@ -1,26 +1,13 @@
 <script>
-  import { onMount } from "svelte";
-  import { utilGetCurrentLangauge } from "../../helpers/commonUtils";
-  import { getCollection } from "astro:content";
+  export let jobs;
 
   // Value is null when none is selected
   let selected = null;
-  let positions = [];
 
   const handleBtn = (index) => {
     if (selected && selected === index) selected = null;
     else selected = index;
   };
-
-  onMount(() => {
-    // Updates the positions based on the current language
-    const currentLanguage = utilGetCurrentLangauge(window.location.href);
-    getCollection(`jobs`, (data) =>
-      data.id.startsWith(`${currentLanguage}/`)
-    ).then((jobs) => {
-      positions = jobs;
-    });
-  });
 </script>
 
 <div>
@@ -30,7 +17,7 @@
       selected ? "lg:space-x-0" : "md:gap-8 lg:gap-0 lg:space-x-8"
     } lg:flex-nowrap lg:px-16`}
   >
-    {#each positions as position, index}
+    {#each jobs as position, index}
       <li
         tabIndex={selected === index + 1 ? -1 : index + 1}
         class={`text-center duration-500 ${
@@ -90,7 +77,18 @@
             <div
               class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
             >
-              Test
+              {#if position.data.id === "java-developer"}
+                <slot name="java-developer" />
+              {/if}
+              {#if position.data.id === "web-developer"}
+                <slot name="web-developer" />
+              {/if}
+              {#if position.data.id === "web-designer"}
+                <slot name="web-designer" />
+              {/if}
+              {#if position.data.id === "backend-engineer"}
+                <slot name="backend-engineer" />
+              {/if}
             </div>
           {:else}
             <p
