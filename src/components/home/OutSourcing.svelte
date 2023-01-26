@@ -75,7 +75,7 @@
           <!-- Description -->
           {#if selected === index + 1}
             <div
-              class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
+              class="text-left text-sm px-4 py-2 flex-1 overflow-auto md:text-base"
             >
               {#if position.data.id === "java-developer"}
                 <slot name="java-developer" />
