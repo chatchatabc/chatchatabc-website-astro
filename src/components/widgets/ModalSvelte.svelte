@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let btnClass = "",
     btnName = "button";
   let showModal = false;
