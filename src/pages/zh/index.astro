@@ -13,8 +13,11 @@ import { utilGetCurrentLangauge } from "../../helpers/commonUtils";
 changeLanguage("zh");
 
 const { pathname } = Astro.url;
+// Get md files based on the current language
 const currentLanguage = utilGetCurrentLangauge(pathname);
 const jobs = await getCollection(`jobs`, (data) => data.id.startsWith(`${currentLanguage}/`));
+const aboutList = await getCollection(`about`, (data) => data.id.startsWith(`${currentLanguage}/`));
+// Render Jobs MD Contents
 const javaDeveloper = await jobs
     .find((job) => job.slug === "java-developer")!
     .render();
@@ -26,6 +29,16 @@ const webDesigner = await jobs
     .render();
 const backendEngineer = await jobs
     .find((job) => job.slug === "backend-engineer")!
+    .render();
+// Render About MD Contents
+const about1 = await aboutList
+    .find((about) => about.slug === "about-1")!
+    .render();
+const about2 = await aboutList
+    .find((about) => about.slug === "about-1")!
+    .render();
+const about3 = await aboutList
+    .find((about) => about.slug === "about-1")!
     .render();
 ---
 
@@ -156,7 +169,11 @@ const backendEngineer = await jobs
 
   <!-- About Us Section -->
   <Section sectionTitle={t("links.about_us") ?? "about us"}>
-    <AboutUs client:visible />
+    <AboutUs aboutList={aboutList} client:visible>
+      <about1.Content slot="about-1" />
+      <about2.Content slot="about-2" />
+      <about3.Content slot="about-3" />
+    </AboutUs>
   </Section>
 </Layout>
 

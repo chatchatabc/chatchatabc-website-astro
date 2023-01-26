@@ -1,30 +1,10 @@
-<script>
-  // value is null when none is selected
-  let selected = null;
+<script lang="ts">
+  import type { CollectionEntry } from "astro:content";
 
-  const dataList = [
-    {
-      title: "Priority",
-      summary:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
-      details:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
-    },
-    {
-      title: "PTEriority",
-      summary:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
-      details:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
-    },
-    {
-      title: "Priasdsority",
-      summary:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
-      details:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit voluptatum delectus doloremque nesciunt optio, nobis neque perferendis aliquam dignissimos dolores voluptate provident! Facilis alias ad dolorem nisi velit dicta eum.",
-    },
-  ];
+  export let aboutList: CollectionEntry<"about">[] = [];
+
+  // value is null when none is selected
+  let selected: number | null = null;
 </script>
 
 <ul
@@ -32,7 +12,7 @@
     selected ? "" : "space-y-4 md:-space-y-32"
   }`}
 >
-  {#each dataList as data, index}
+  {#each aboutList as about, index}
     <!-- Item container -->
     <li
       class={`bg-[#c4b8e6] border-2 shadow-xl delay-75 group overflow-hidden ${
@@ -47,14 +27,39 @@
       } duration-500 rounded-t-[4rem] rounded-b-xl lg:hover:z-10 even:mx-auto last:ml-auto`}
     >
       <!-- Item Title -->
-      <h4 class="text-4xl pb-2">{data.title}</h4>
+      <h4 class="text-4xl pb-2">{about.data.title}</h4>
 
       <!-- Item Description -->
-      <p
-        class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
-      >
-        {selected === index + 1 ? data.details : data.summary}
-      </p>
+
+      {#if selected === index + 1}
+        {#if about.data.slug === "about-1"}
+          <div
+            class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
+          >
+            <slot name="about-1" />
+          </div>
+        {/if}
+        {#if about.data.slug === "about-2"}
+          <div
+            class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
+          >
+            <slot name="about-1" />
+          </div>
+        {/if}
+        {#if about.data.slug === "about-3"}
+          <div
+            class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
+          >
+            <slot name="about-1" />
+          </div>
+        {/if}
+      {:else}
+        <div
+          class={`overflow-hidden max-h-[100px] duration-500 delay-75 w-full group-hover:w-full`}
+        >
+          {about.data.summary}
+        </div>
+      {/if}
 
       <!-- Item button; button only shows up if user hovers on the card -->
       <button
