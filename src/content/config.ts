@@ -1,7 +1,8 @@
-import { aboutSchema } from "../schemas/aboutSchema";
+import { miscSchema } from "../schemas/miscSchema";
 import { jobSchema } from "../schemas/jobSchema";
 
 export const collections = {
   jobs: jobSchema,
-  about: aboutSchema,
+  about: miscSchema,
+  misc: miscSchema,
 };

@@ -1,6 +1,6 @@
 import { z, defineCollection } from "astro:content";
 
-export const aboutSchema = defineCollection({
+export const miscSchema = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),

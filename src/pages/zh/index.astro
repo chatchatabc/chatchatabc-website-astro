@@ -30,16 +30,18 @@ const webDesigner = await jobs
 const backendEngineer = await jobs
     .find((job) => job.slug === "backend-engineer")!
     .render();
-// Render About MD Contents
+// Render docs MD Contents
 const about1 = await aboutList
     .find((about) => about.slug === "about-1")!
     .render();
 const about2 = await aboutList
-    .find((about) => about.slug === "about-1")!
+    .find((about) => about.slug === "about-2")!
     .render();
 const about3 = await aboutList
-    .find((about) => about.slug === "about-1")!
+    .find((about) => about.slug === "about-3")!
     .render();
+const developmentDoc = await getCollection(`misc`, (data) => data.id.startsWith(`${currentLanguage}/`)).then((list) => list.find((doc) => doc.slug === "software-development")!);
+const development = await developmentDoc.render();
 ---
 
 <Layout title="ChatChatABC">
@@ -154,7 +156,12 @@ const about3 = await aboutList
   >
     <div class="grid lg:grid-cols-2">
       <div class="hidden items-center w-full lg:flex">
-        <div class="h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl">
+        <div
+          class="min-h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl"
+        >
+          <Markdown>
+            <development.Content />
+          </Markdown>
         </div>
       </div>
       <ImageViewer imgUrl="/images/tech-stack.png" className="" client:visible>
