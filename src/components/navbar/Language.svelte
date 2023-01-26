@@ -15,7 +15,17 @@
 </script>
 
 <div class="relative">
-  <ModalSvelte
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div
+    on:click={() => (open = !open)}
+    class={`fixed h-full w-full bg-gray-500 bg-opacity-50 top-0 left-0 z-[1] ${
+      open ? "block" : "hidden"
+    }`}
+  />
+  <button class="p-2" on:click={() => (open = !open)}>
+    <span class="font-bold md:hidden">Language:</span>{currentLang}
+  </button>
+  <!-- <ModalSvelte
     btnName={`<span class="font-bold md:hidden">Language:</span>${currentLang}`}
     btnClass={"p-2"}
   >
@@ -36,17 +46,19 @@
         Confirm
       </button>
     </div>
-  </ModalSvelte>
+  </ModalSvelte> -->
   <ul
     class={`w-32 md:top-[110%] absolute overflow-hidden bg-[#E8DEF8] ${
       open ? "max-h-[500px] p-2" : "max-h-0"
-    } duration-500 rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
+    } transition-all rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
   >
     <li>
-      <a href={"/"}>ENG-EN</a>
+      <a class="block hover:bg-opacity-25 hover:bg-white" href={"/"}>ENG-EN</a>
     </li>
     <li>
-      <a href={"/zh/"}>CHI-ZH</a>
+      <a class="block hover:bg-opacity-25 hover:bg-white" href={"/zh/"}>
+        CHI-ZH
+      </a>
     </li>
   </ul>
 </div>
