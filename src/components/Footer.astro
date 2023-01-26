@@ -3,6 +3,7 @@ import { Icon } from "astro-icon";
 import { Picture } from "astro-imagetools/components";
 import { t } from "i18next";
 import { utilRemoveSpaces, utilUrlWithLocale } from "../helpers/commonUtils";
+import contact from "../../data/contact.json";
 
 const { pathname } = Astro.url;
 ---
@@ -87,26 +88,27 @@ const { pathname } = Astro.url;
           </li>
           <li>
             <span>
-              {t("misc.telephone")}: <a href="tel: 09123456789">09123456789</a>
+              {t("misc.telephone")}: <a href={`tel: ${contact.telephone}`}>
+                {contact.telephone}
+              </a>
             </span>
           </li>
           <li>
             <span>
               {t("misc.email")}:
-              <a class="normal-case" href="mailto: chatchatabc@gmail.com">
-                ChatChatABC@gmail.com
+              <a class="normal-case" href={`mailto: ${contact.email}`}>
+                {contact.email}
               </a>
             </span>
           </li>
           <li>
             <a
               href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURI(
-                "km 6, near Fairlane Subd Road, Brgy Alfonso Angliongto red gate Lanang, Davao City, 8000 Davao del Sur"
+                `${contact["google-map-location"] ?? contact.address}`
               )}`}
               target="_blank"
             >
-              {t("misc.address")}: Dona P. Ramos St. (near Fairlane Subd. Road)
-              Brgy. Alfonso Angliongto, Km. 6, Lanang Davao City
+              {t("misc.address")}: {contact.address}
             </a>
           </li>
         </ul>
