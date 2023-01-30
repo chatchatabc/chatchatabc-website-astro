@@ -14,6 +14,17 @@ export const utilUrlWithLocale = (baseUrl: string, nextUrl: string) => {
   return (currentLanguage + nextUrl).replace(/([^:]\/)\/+/g, "$1");
 };
 
+export const utilGetCurrentLangauge = (url: string) => {
+  // Determine current lang
+  const languages = ["zh"];
+  let currentLanguage = "en";
+  languages.forEach((language) => {
+    if (url.includes(`/${language}/`)) currentLanguage = language;
+  });
+
+  return currentLanguage;
+};
+
 export const utilGetTranslations = (url: string) => {
   // Initialize translations
   interface TranslationsInterface {
@@ -24,12 +35,7 @@ export const utilGetTranslations = (url: string) => {
     zh,
   };
 
-  // Determine current lang
-  const languages = ["zh"];
-  let currentLanguage = "en";
-  languages.forEach((language) => {
-    if (url.includes(`/${language}/`)) currentLanguage = language;
-  });
+  const currentLanguage = utilGetCurrentLangauge(url);
 
   // returns necessary translation
   return translations[currentLanguage];

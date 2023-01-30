@@ -1,46 +1,13 @@
 <script>
-  import { onMount } from "svelte";
-  import { utilGetTranslations } from "../../helpers/commonUtils";
+  export let jobs;
 
   // Value is null when none is selected
   let selected = null;
-  let positions = [];
 
   const handleBtn = (index) => {
     if (selected && selected === index) selected = null;
     else selected = index;
   };
-
-  onMount(() => {
-    // Updates the positions based on the current language
-    const translation = utilGetTranslations(window.location.href);
-    positions = [
-      {
-        title: translation.jobs["java_developer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["java_developer"].summary,
-        details: translation.jobs["java_developer"].details,
-      },
-      {
-        title: translation.jobs["web_developer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["web_developer"].summary,
-        details: translation.jobs["web_developer"].details,
-      },
-      {
-        title: translation.jobs["backend_engineer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["backend_engineer"].summary,
-        details: translation.jobs["backend_engineer"].details,
-      },
-      {
-        title: translation.jobs["designer"].title,
-        imageUrl: "https://avatars.githubusercontent.com/u/60991513",
-        summary: translation.jobs["designer"].summary,
-        details: translation.jobs["designer"].details,
-      },
-    ];
-  });
 </script>
 
 <div>
@@ -50,7 +17,7 @@
       selected ? "lg:space-x-0" : "md:gap-8 lg:gap-0 lg:space-x-8"
     } lg:flex-nowrap lg:px-16`}
   >
-    {#each positions as position, index}
+    {#each jobs as position, index}
       <li
         tabIndex={selected === index + 1 ? -1 : index + 1}
         class={`text-center duration-500 ${
@@ -67,7 +34,7 @@
         <!-- Title -->
         <div class="relative">
           <div class="h-8 w-1 bg-[#6750A4] absolute rounded-full bottom-1/4" />
-          <h4 class="text-xl capitalize">{position.title}</h4>
+          <h4 class="text-xl capitalize">{position.data.title}</h4>
         </div>
 
         <!-- Card -->
@@ -90,27 +57,48 @@
                   "w-24 h-24 rounded-full mt-2"
             }`}
           >
-            {#if position.imageUrl.length}
+            {#if position.data.imageUrl.length}
               <img
-                src={position.imageUrl}
+                src={position.data.imageUrl}
                 class="w-full h-full object-cover"
-                alt={position.title}
+                alt={position.data.title}
               />
             {:else}
               <img
                 src="/images/no-image.png"
                 class="w-full h-full object-cover"
-                alt={position.title}
+                alt={position.data.title}
               />
             {/if}
           </div>
 
           <!-- Description -->
-          <p
-            class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
-          >
-            {selected === index + 1 ? position.details : position.summary}
-          </p>
+          {#if selected === index + 1}
+            <div
+              class="text-left text-sm px-4 py-2 flex-1 scrollbar overflow-auto [direction:rtl] md:text-base"
+            >
+              <div class="h-max [direction:ltr]">
+                {#if position.data.id === "java-developer"}
+                  <slot name="java-developer" />
+                {/if}
+                {#if position.data.id === "web-developer"}
+                  <slot name="web-developer" />
+                {/if}
+                {#if position.data.id === "web-designer"}
+                  <slot name="web-designer" />
+                {/if}
+                {#if position.data.id === "backend-engineer"}
+                  <slot name="backend-engineer" />
+                {/if}
+              </div>
+            </div>
+          {:else}
+            <p
+              class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
+            >
+              {position.data.summary}
+            </p>
+          {/if}
 
           <!-- Button for Desktop -->
           <button
@@ -118,13 +106,17 @@
             class={`hidden pointer-events-none from-transparent py-4 to-[#6750A4] ${
               selected
                 ? // if there's a selected item
-                  "absolute top-0 h-full bg-gradient-to-r px-2"
+                  "absolute top-0 h-full bg-gradient-to-r px-2 to-transparent hover:-translate-y-2"
                 : // if there's not yet a selected item
-                  "bg-gradient-to-b"
-            } mt-auto duration-1000 right-0 lg:block lg:pointer-events-auto 
-            lg:opacity-0 group-hover:opacity-100`}
+                  "bg-gradient-to-b lg:opacity-0 group-hover:opacity-100"
+            } mt-auto duration-1000 right-0 lg:block lg:pointer-events-auto`}
           >
-            {selected ? "Close" : "Show more"}
+            <img
+              src="/images/back.png"
+              class={`w-8 h-8  ${selected === index + 1 ? "block" : "hidden"}`}
+              alt="back button"
+            />
+            {selected ? "" : "Show more"}
           </button>
 
           <!-- Button for Smaller Screens -->
