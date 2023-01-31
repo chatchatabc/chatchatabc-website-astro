@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { CollectionEntry } from "astro:content";
+  import { utilGetTranslations } from "@helpers/commonUtils";
+  import type { ObjectInterface } from "@helpers/commonInterface";
 
   export let jobs: CollectionEntry<"jobs">[];
 
@@ -10,6 +13,13 @@
     if (selected && selected === index) selected = null;
     else selected = index;
   };
+
+  let translation: ObjectInterface = {};
+
+  onMount(() => {
+    // Gets translation and put it to the variable
+    translation = utilGetTranslations(window.location.href);
+  });
 </script>
 
 <div>
@@ -120,7 +130,7 @@
               class={`w-8 h-8  ${selected === index + 1 ? "block" : "hidden"}`}
               alt="back button"
             />
-            {selected ? "" : "Show more"}
+            {selected ? "" : translation.misc?.show_more}
           </button>
 
           <!-- Button for Smaller Screens -->
@@ -129,7 +139,9 @@
             class="mt-auto p-2 bg-[#E8DEF8] text-[#6750A4] lg:hidden"
           >
             <span>
-              {selected === index + 1 ? "Close" : "Show more"}
+              {selected === index + 1
+                ? translation.misc?.close
+                : translation.misc?.show_more}
             </span>
           </button>
         </div>

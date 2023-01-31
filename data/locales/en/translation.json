@@ -11,7 +11,10 @@
     "email": "email",
     "address": "address",
     "visit": "Visit our websites",
-    "links": "links"
+    "links": "links",
+    "show_more": "Show more",
+    "read_more": "Read more",
+    "close": "Close"
   },
   "home": {
     "hero": {

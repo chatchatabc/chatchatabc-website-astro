@@ -11,7 +11,10 @@
     "email": "电子邮件",
     "address": "地址",
     "visit": "访问我们的网站",
-    "links": "链接"
+    "links": "链接",
+    "show_more": "展示更多",
+    "read_more": "阅读更多",
+    "close": "关闭"
   },
   "home": {
     "hero": {
