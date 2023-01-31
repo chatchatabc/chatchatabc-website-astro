@@ -9,27 +9,19 @@ import { getCollection } from "astro:content";
 changeLanguage("en");
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("blogs");
-  return blogs.map((blog) => ({
-    params: {
-      blog: blog.slug,
-    },
-    props: {
-      blog,
-    },
-  }));
+    const blogs = await getCollection("blogs");
+    return blogs.map((blog) => ({
+        params: {
+            blog: blog.slug,
+        },
+        props: {
+            blog,
+        },
+    }));
 }
 const { blog } = Astro.props;
 const { data, render } = blog;
-const {
-  title,
-  author_image,
-  date,
-  author_name,
-  author_link,
-  tags,
-  summary_image,
-} = data;
+const { title, author_image, date, author_name, author_link, tags, summary_image, } = data;
 const { Content } = await render();
 ---
 

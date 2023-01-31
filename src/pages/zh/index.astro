@@ -1,14 +1,14 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Section from "../../components/widgets/Section.astro";
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/widgets/Section.astro";
+import OutSourcing from "@components/home/OutSourcing.svelte";
+import AboutUs from "@components/home/AboutUs.svelte";
+import Markdown from "@components/widgets/Markdown.astro";
+import ImageViewer from "@components/widgets/ImageViewer.svelte";
+import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { Img } from "astro-imagetools/components";
-import OutSourcing from "../../components/home/OutSourcing.svelte";
-import AboutUs from "../../components/home/AboutUs.svelte";
-import Markdown from "../../components/widgets/Markdown.astro";
-import ImageViewer from "../../components/widgets/ImageViewer.svelte";
 import { t, changeLanguage } from "i18next";
 import { getCollection, getEntryBySlug } from "astro:content";
-import { utilGetCurrentLangauge } from "../../helpers/commonUtils";
 
 changeLanguage("zh");
 
