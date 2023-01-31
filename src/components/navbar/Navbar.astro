@@ -37,55 +37,53 @@ const navItems = [
 ];
 ---
 
-<>
-  <!-- Navbar -->
-  <header class="p-2">
-    <nav
-      class="container mx-auto flex flex-wrap justify-between items-center md:flex-nowrap md:gap-8 md:justify-around lg:px-8"
+<!-- Navbar -->
+<header class="p-2">
+  <nav
+    class="container mx-auto flex flex-wrap justify-between items-center md:flex-nowrap md:gap-8 md:justify-around lg:px-8"
+  >
+    <a href={utilUrlWithLocale(pathname, "/")}>
+      <div class="object-contain w-32 lg:w-44">
+        <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
+      </div>
+    </a>
+    <button id="nav-menu-btn" class="md:hidden md:pointer-events-none">
+      Menu
+    </button>
+    <ul
+      id="nav"
+      class="max-h-screen py-1 hide-nav flex flex-col w-full text-purple-700 font-medium ml-auto text-xs duration-500 md:items-center md:justify-end md:py-0 md:duration-[0s] md:flex-row md:gap-2 lg:text-base"
     >
-      <a href={utilUrlWithLocale(pathname, "/")}>
-        <div class="object-contain w-32 lg:w-44">
-          <Picture src="/images/ChatChat.png" layout="fill" alt="test" />
-        </div>
-      </a>
-      <button id="nav-menu-btn" class="md:hidden md:pointer-events-none">
-        Menu
-      </button>
-      <ul
-        id="nav"
-        class="max-h-screen py-1 hide-nav flex flex-col w-full text-purple-700 font-medium ml-auto text-xs duration-500 md:items-center md:justify-end md:py-0 md:duration-[0s] md:flex-row md:gap-2 lg:text-base"
-      >
-        {
-          navItems.map((item) => {
-            return (
-              <li>
-                <a
-                  href={item.url}
-                  class="border-[#79747E] text-[#6750A4] capitalize block px-1 py-2 md:border-2 md:rounded-full md:px-4 hover:bg-[#6750A414]"
-                >
-                  {item.name}
-                </a>
-              </li>
-            );
-          })
-        }
-        <li>
-          <!-- Contact Us Modal -->
-          <ModalSvelte
-            btnName={t("links.contact_us") ?? "Contact Us"}
-            btnClass={"w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"}
-            client:visible
-          >
-            <ContactUs />
-          </ModalSvelte>
-        </li>
-        <li>
-          <Language url={pathname} client:visible />
-        </li>
-      </ul>
-    </nav>
-  </header>
-</>
+      {
+        navItems.map((item) => {
+          return (
+            <li>
+              <a
+                href={item.url}
+                class="border-[#79747E] text-[#6750A4] capitalize block px-1 py-2 md:border-2 md:rounded-full md:px-4 hover:bg-[#6750A414]"
+              >
+                {item.name}
+              </a>
+            </li>
+          );
+        })
+      }
+      <li>
+        <!-- Contact Us Modal -->
+        <ModalSvelte
+          btnName={t("links.contact_us") ?? "Contact Us"}
+          btnClass={"w-full bg-[#E8DEF8] capitalize block px-1 py-2 md:rounded-full md:px-4 md:w-max hover:bg-[#e8d3f899]"}
+          client:visible
+        >
+          <ContactUs />
+        </ModalSvelte>
+      </li>
+      <li>
+        <Language url={pathname} client:visible />
+      </li>
+    </ul>
+  </nav>
+</header>
 
 <style is:global>
   .hide-nav {

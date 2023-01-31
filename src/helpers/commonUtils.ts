@@ -1,5 +1,5 @@
-import en from "../../data/locales/en/translation.json";
-import zh from "../../data/locales/zh/translation.json";
+import en from "@data/locales/en/translation.json";
+import zh from "@data/locales/zh/translation.json";
 
 export const utilUrlFix = (baseUrl: string, nextUrl: string) =>
   (baseUrl + nextUrl).replace(/([^:]\/)\/+/g, "$1");

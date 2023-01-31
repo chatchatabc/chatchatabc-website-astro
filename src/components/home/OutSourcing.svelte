@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { CollectionEntry } from "astro:content";
+  import { utilGetTranslations } from "@helpers/commonUtils";
+  import type { ObjectInterface } from "@helpers/commonInterface";
 
   export let jobs: CollectionEntry<"jobs">[];
 
@@ -10,6 +13,13 @@
     if (selected && selected === index) selected = null;
     else selected = index;
   };
+
+  let translation: ObjectInterface = {};
+
+  onMount(() => {
+    // Gets translation and put it to the variable
+    translation = utilGetTranslations(window.location.href);
+  });
 </script>
 
 <div>
@@ -51,18 +61,20 @@
         >
           <!-- Image || Avatar -->
           <div
-            class={`mx-auto border duration-300 overflow-hidden ${
+            class={`mx-auto duration-300 overflow-hidden ${
               selected === index + 1
                 ? // if the current item is selected
-                  "w-full h-48 md:h-56 lg:h-full lg:w-1/3"
+                  "w-full h-48 border-b lg:border-r md:h-56 lg:h-full lg:w-1/3"
                 : // if the current items is no selected
-                  "w-24 h-24 rounded-full mt-2"
-            }`}
+                  "w-24 h-24 rounded-full mt-2 border"
+            } flex-shrink-0`}
           >
             {#if position.data.imageUrl.length}
               <img
                 src={position.data.imageUrl}
-                class="w-full h-full object-cover"
+                class={`w-full h-full  ${
+                  selected === index + 1 ? "object-contain p-4" : "object-cover"
+                }`}
                 alt={position.data.title}
               />
             {:else}
@@ -96,7 +108,7 @@
             </div>
           {:else}
             <p
-              class="text-left text-sm px-4 py-2 flex-1 whitespace-pre-wrap md:text-base"
+              class="text-left text-sm px-4 py-2 overflow-hidden whitespace-pre-wrap md:text-base"
             >
               {position.data.summary}
             </p>
@@ -118,7 +130,7 @@
               class={`w-8 h-8  ${selected === index + 1 ? "block" : "hidden"}`}
               alt="back button"
             />
-            {selected ? "" : "Show more"}
+            {selected ? "" : translation.misc?.show_more}
           </button>
 
           <!-- Button for Smaller Screens -->
@@ -127,7 +139,9 @@
             class="mt-auto p-2 bg-[#E8DEF8] text-[#6750A4] lg:hidden"
           >
             <span>
-              {selected === index + 1 ? "Close" : "Show more"}
+              {selected === index + 1
+                ? translation.misc?.close
+                : translation.misc?.show_more}
             </span>
           </button>
         </div>

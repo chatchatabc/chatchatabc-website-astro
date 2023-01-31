@@ -1,10 +1,19 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { CollectionEntry } from "astro:content";
+  import { utilGetTranslations } from "@helpers/commonUtils";
+  import type { ObjectInterface } from "@helpers/commonInterface";
 
   export let aboutList: CollectionEntry<"about">[] = [];
 
   // value is null when none is selected
   let selected: number | null = null;
+
+  let translation: ObjectInterface = {};
+  onMount(() => {
+    // Gets translation and put it to the variable
+    translation = utilGetTranslations(window.location.href);
+  });
 </script>
 
 <ul
@@ -68,7 +77,9 @@
         } group-hover:duration-700 group-hover:opacity-100`}
         on:click={() => (selected = selected === index + 1 ? null : index + 1)}
       >
-        {selected === index + 1 ? "Close" : "Read more >"}
+        {selected === index + 1
+          ? translation.misc?.close
+          : `${translation.misc?.read_more} >`}
       </button>
     </li>
   {/each}
