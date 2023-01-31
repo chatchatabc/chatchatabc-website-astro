@@ -5,7 +5,6 @@ export default {
   routes: {
     zh: {
       blogs: {
-        index: "博客",
         "[blog]": "[blog]",
       },
     },
