@@ -6,7 +6,6 @@
     "blogs": "博客",
     "contact_us": "联系我们"
   },
-
   "misc": {
     "telephone": "电话",
     "email": "电子邮件",
@@ -14,33 +13,23 @@
     "visit": "访问我们的网站",
     "links": "链接"
   },
-
   "home": {
     "hero": {
       "title": "你的想法\n我们设计\n我们开发\n我们部署\n我们维护"
     }
   },
-
   "jobs": {
     "java_developer": {
-      "title": "Java开发人员",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+      "title": "Java开发人员"
     },
     "backend_engineer": {
-      "title": "后端工程师",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+      "title": "后端工程师"
     },
     "web_developer": {
-      "title": "Web开发人员",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+      "title": "Web开发人员"
     },
     "designer": {
-      "title": "Web设计师",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae.",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam alias ex soluta velit quo eaque repudiandae. Esse omnis natus quia dolor? Pariatur hic porro aspernatur officiis, facere odio nesciunt quae."
+      "title": "Web设计师"
     }
   }
 }
