@@ -1,33 +1,34 @@
 ---
-import { t, changeLanguage } from "i18next";
-import Section from "../../components/widgets/Section.astro";
-import Layout from "../../layouts/Layout.astro";
+import Section from "@components/widgets/Section.astro";
+import Layout from "@layouts/Layout.astro";
+import { utilUrlFix } from "@helpers/commonUtils";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
-import { utilUrlFix } from "../../helpers/commonUtils";
+import { t, changeLanguage } from "i18next";
+import { getCollection } from "astro:content";
 
 changeLanguage("en");
 
-const blogs = await Astro.glob("../../../data/blogs/*.mdx");
+const blogs = await getCollection("blogs");
 const { pathname } = Astro.url;
 ---
 
-<Layout title={t("links.blogs")}>
+<Layout title={t("links.blogs") ?? "blogs"}>
   <Section sectionTitle={t("links.blogs") ?? "blogs"}>
     {
       blogs.length ? (
         <ul class="grid md:grid-cols-2 px-8 gap-4 space-y-2 md:space-y-0">
           {blogs.map((blog) => {
+            const { data, slug } = blog;
             const {
               title,
               date,
               summary,
-              slug,
               author_name,
               author_link,
               author_image,
               summary_image,
-            } = blog.frontmatter;
+            } = data;
             return (
               <li class="border rounded-sm overflow-hidden">
                 <div class="h-full grid lg:grid-cols-5">

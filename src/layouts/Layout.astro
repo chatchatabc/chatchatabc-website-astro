@@ -3,12 +3,21 @@ import Footer from "../components/Footer.astro";
 import Navbar from "../components/navbar/Navbar.astro";
 import i18next from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
+import siteInfo from "../../data/site-info.json";
 
 export interface Props {
-  title: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
+  author?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title = siteInfo.title,
+  description = siteInfo.description,
+  keywords = siteInfo.keywords,
+  author = siteInfo.author,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,42 +26,24 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <!-- Website Icon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/logo/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/logo/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/logo/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/logo/site.webmanifest" />
-
     <!-- astro-i18next -->
     <HeadHrefLangs />
 
+    <!-- Website Icon -->
+    {
+      siteInfo.icons.map((icon) => {
+        const { rel, href, type, sizes } = icon;
+        return <link rel={rel} type={type} sizes={sizes} href={href} />;
+      })
+    }
+
     <!-- Additional Info -->
-    <meta
-      name="description"
-      content="ChatChatABC is your go-to web application solution provider. We are dedicated to offering high-quality software development, software platform, and cutting-edge technology services."
-    />
-    <meta
-      name="keywords"
-      content="Software development, Software platform, Technology services, Web application solution provider, ChatChatABC, Web Development, Java Developer, Web Designer, Backend Engineer"
-    />
-    <meta name="author" content="Developer from ChatChatABC" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
+    <title>{title ?? siteInfo.title}</title>
   </head>
   <body class="flex flex-col min-h-screen">
     <Navbar />
@@ -60,6 +51,7 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
+    
   </body>
 </html>
 

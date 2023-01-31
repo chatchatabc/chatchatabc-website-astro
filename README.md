@@ -12,6 +12,7 @@ In this section you'll see the list of tools and technologies that was used to d
 - TailwindCSS ([**`@astro/tailwind`**](https://docs.astro.build/en/guides/integrations-guide/tailwind/)): This CSS framework is used to assist with the styling of the website on the frontend.
 - [**`astro-icon`**](https://github.com/natemoo-re/astro-icon#readme): This library is used to implement wide variety of icons that could be found within [`iconify`](https://iconify.design) website.
 - [**`astro-imagetools`**](https://github.com/RafidMuhymin/astro-imagetools#readme): This tool is used to optimize the loading performance of images within the project.
+- [**`astro-i18next`**](https://github.com/yassinedoghri/astro-i18next): This tool is used to implement multi-language feature for the website.
 
 # 👾 Project Structure
 
@@ -20,8 +21,7 @@ In this section you'll see the most important information that will help you und
 ```
 /
 ├───data
-│   ├───blogs
-│   │   └───...
+│   ├───site-info.json
 │   └───locales
 │       └───...
 ├───public
@@ -39,15 +39,23 @@ In this section you'll see the most important information that will help you und
     │   ├───widgets
     │   │   └───...
     │   └───...
+    ├───content
+    │   ├───about
+    │   ├───blogs
+    │   ├───jobs
+    │   ├───misc
+    │   └───config.ts
     ├───helpers
     │   └───commonUtils.ts
     ├───layouts
-    │   ├───Layout.astro
-    │   └───NewsLayout.astro
+    │   └───Layout.astro
     ├───pages
+    │   ├───[locales]
     │   ├───blogs
     │   │   └───...
     │   └───index.astro
+    ├───schemas
+    │   └───...
     └───styles
         └───markdown.css
 ```
@@ -58,7 +66,7 @@ Within this part, you'll be able to see more details of the project structure th
 
 **data**
 
-- **`blogs:`** Used to store all the blogs that will be used for the blogs page.
+- **`site-info.json:`** Used to store all default information of the website, such as title, description, icons, etc.
 - **`locales:`** Used to store all the translation of each locales listed within the folder.
 
 **public**
@@ -70,19 +78,26 @@ Within this part, you'll be able to see more details of the project structure th
 **src**
 
 - **components**
-  - **`home:`** Used to store components that are used in homepage.
-  - **`navbar:`** Used to store components that are used in navbar.
+  - **`home:`** Used to store components that are used in [homepage](./src/pages/index.astro).
+  - **`navbar:`** Used to store components that are used in [navbar](./src/components/navbar/Navbar.astro).
   - **`widgets:`** Used to store reusable components that would be used in many scenarios such as modal, cards, etc.
+- **content**: Contains all the content collections for the new feature of Astro V2 ([reference](https://docs.astro.build/en/guides/content-collections/))
+  - **`about:`** Used to store collection of contents for the [about us section](./src/components/home/AboutUs.svelte).
+  - **`blogs:`** Used to store collection of contents for the [blogs page](./src/pages/blogs/index.astro).
+  - **`jobs:`** Used to store collection of contents for the [outsourcing section](./src/components/home/OutSourcing.svelte).
+  - **`misc:`** Used to store collection of contents that have _generic / common_ data values (`title, summary, id, Content`)
+  - **`config.ts:`** Used to configure and add [zod](https://zod.dev) schema type for the Astro Collection Feature
 - **helpers**
   - **`commonUtils.ts:`** Used to store reusable functions / utilities to help with the development.
 - **layouts**
   - **`Layout.astro:`** Used as the main foundation template for generating the pages in ChatChatABC Website.
 - **pages**
   - **blogs**
-    - **`index.astro:`** Displays a list of all the blogs content that are found from this directory `~/data/blogs`.
-    - **`[blog]:`** Used to generate the blog pages based from this directory `~/data/blogs`.
+    - **`index.astro:`** Displays a list of all the blog content that are found from the Astro collection `"blogs"`, located at [./src/content/blogs](./src/content/blogs/) directory
+    - **`[blog]:`** Used to generate the blog pages based from Astro collection `"blogs"`, located at [./src/content/blogs](./src/content/blogs/) directory
   - **`index.astro:`** Homepage of ChatChatABC Website.
-  - **`zh:`** Generated folder that would be used for viewing the website in Chinese language.
+  - **`[locales]`** Generated folder that would be used for viewing the website on a different language depending on the supported translation in [./data/locales/{...}](./data/locales/).
+- **`schemas:`** Contains all the schema files that would be used for defining the content collections of Astro in [./src/content/config.ts](./src/content/config.ts)
 - **styles:** Utilize to store independent css styles for a specific use case or component.
   - **`markdown.css:`** this is used to style the rendered contents that comes from the markdown files. The css style is based from the [beautiful-markdown.css](https://github.com/bndp/beautiful-markdown/blob/master/src/beautiful-markdown.css).
 

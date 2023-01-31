@@ -1,10 +1,12 @@
-<script>
-  export let jobs;
+<script lang="ts">
+  import type { CollectionEntry } from "astro:content";
+
+  export let jobs: CollectionEntry<"jobs">[];
 
   // Value is null when none is selected
-  let selected = null;
+  let selected: number | null = null;
 
-  const handleBtn = (index) => {
+  const handleBtn = (index: number) => {
     if (selected && selected === index) selected = null;
     else selected = index;
   };

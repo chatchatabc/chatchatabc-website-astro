@@ -4,14 +4,15 @@ import Markdown from "../../../components/widgets/Markdown.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import { Img } from "astro-imagetools/components";
+import { getCollection } from "astro:content";
 
 changeLanguage("zh");
 
 export async function getStaticPaths() {
-    const blogs = await Astro.glob("../../../../data/blogs/*.mdx");
+    const blogs = await getCollection("blogs");
     return blogs.map((blog) => ({
         params: {
-            blog: blog.frontmatter.slug,
+            blog: blog.slug,
         },
         props: {
             blog,
@@ -19,8 +20,9 @@ export async function getStaticPaths() {
     }));
 }
 const { blog } = Astro.props;
-const { frontmatter, Content } = blog;
-const { title, author_image, date, author_name, author_link, tags, summary_image, } = frontmatter;
+const { data, render } = blog;
+const { title, author_image, date, author_name, author_link, tags, summary_image, } = data;
+const { Content } = await render();
 ---
 
 <Layout title={title}>

@@ -1,6 +1,4 @@
-<script>
-  import ModalSvelte from "../widgets/ModalSvelte.svelte";
-
+<script lang="ts">
   export let url;
 
   let currentLang = "EN";

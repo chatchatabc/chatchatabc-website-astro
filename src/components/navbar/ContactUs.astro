@@ -1,4 +1,5 @@
 ---
+import contact from "@data/contact.json";
 import { Picture } from "astro-imagetools/components";
 import { Icon } from "astro-icon";
 ---
@@ -20,21 +21,20 @@ import { Icon } from "astro-icon";
             <span class="flex-shrink-0">
               <Icon class="w-6 h-6" name="mdi:telephone-outline" />
             </span>
-            <span>+63-945-826-2758</span>
+            <span>{contact.telephone}</span>
           </li>
           <li class="flex items-center space-x-2">
             <span class="flex-shrink-0">
               <Icon class="w-6 h-6" name="ic:outline-alternate-email" />
             </span>
-            <span>chatchatabc@gmail.com</span>
+            <span>{contact.email}</span>
           </li>
           <li class="flex items-center space-x-2">
             <span class="flex-shrink-0">
               <Icon class="w-6 h-6" name="mdi:address-marker-outline" />
             </span>
             <span>
-              Dona P. Ramos St. (near Fairlane Subd. Road) Brgy. Alfonso
-              Angliongto, Km. 6, Lanang Davao City, Philippines
+              {contact.address}
             </span>
           </li>
         </ul>
