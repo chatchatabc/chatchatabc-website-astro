@@ -18,18 +18,18 @@
   },
   "home": {
     "hero": {
-      "title": "您的想法\n我们设计\n我们开发\n我们部署\n我们维护"
+      "title": "您的想法\n\n我们出人出力\n我们设计开发\n我们部署运维\n\n花最少的钱把事办成！"
     }
   },
   "jobs": {
     "java_developer": {
-      "title": "Java开发人员"
+      "title": "Java工程师"
     },
     "backend_engineer": {
       "title": "后端工程师"
     },
     "web_developer": {
-      "title": "Web开发人员"
+      "title": "前端工程师"
     },
     "designer": {
       "title": "Web设计师"
