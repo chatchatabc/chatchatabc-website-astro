@@ -4,14 +4,16 @@
     "software_development": "software development",
     "about_us": "about us",
     "blogs": "blogs",
-    "contact_us": "contact us"
+    "contact_us": "contact us",
+    "davao_jobs": "Jobs Davao Page",
+    "chatchatabc": "ChatChatABC Website"
   },
   "misc": {
     "telephone": "tel",
     "email": "email",
     "address": "address",
     "visit": "Visit our websites",
-    "links": "links",
+    "links": "sitemap",
     "show_more": "Show more",
     "read_more": "Read more",
     "close": "Close"

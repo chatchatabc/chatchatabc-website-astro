@@ -4,6 +4,7 @@ import { Picture } from "astro-imagetools/components";
 import { t } from "i18next";
 import { utilRemoveSpaces, utilUrlWithLocale } from "@helpers/commonUtils";
 import contact from "@data/contact.json";
+import linksJson from "@data/links.json";
 
 const { pathname } = Astro.url;
 ---
@@ -73,14 +74,15 @@ const { pathname } = Astro.url;
           <li class="mb-2">
             <span class="font-bold">{t("misc.visit")}</span>
           </li>
-          <li>
-            <a href={utilUrlWithLocale(pathname, "/")}>ChatChatABC Website</a>
-          </li>
-          <li>
-            <a href="https://jobs.davao.page" target="_blank">
-              Jobs Davao Page
-            </a>
-          </li>
+          {
+            linksJson.data.map((link) => {
+              return (
+                <li>
+                  <a href={link.url}>{t(`links.${link.locale_name}`)}</a>
+                </li>
+              );
+            })
+          }
         </ul>
         <ul class="flex flex-col capitalize">
           <li class="mb-2">
