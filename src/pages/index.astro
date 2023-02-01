@@ -166,14 +166,10 @@ const development = await developmentDoc.render();
     id={"software-development"}
   >
     <div class="grid items-center [&>*]:px-4 [&>*]:pb-4 lg:grid-cols-2">
-      <div>
-        <div class="w-full h-fit rounded-t-3xl bg-[#9A82DB] shadow-xl">
-          <SoftwareDevelopment client:visible>
-            <Markdown>
-              <development.Content />
-            </Markdown>
-          </SoftwareDevelopment>
-        </div>
+      <div class="w-full h-fit rounded-t-3xl py-4 bg-[#9A82DB] shadow-xl">
+        <Markdown>
+          <development.Content />
+        </Markdown>
       </div>
       <div class="pt-4 lg:pt-0">
         <ImageViewer
