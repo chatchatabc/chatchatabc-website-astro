@@ -25,7 +25,7 @@
     </button>
   </div>
   <div
-    class={`flex-1 overflow-auto ${
+    class={`flex-1 overflow-auto scrollbar ${
       currentZoom !== 100 ? "max-h-[calc(100vh-20vh)]" : ""
     }`}
   >

@@ -14,7 +14,7 @@
     else selected = index;
   };
 
-  let translation: ObjectInterface = {};
+  let translation: ObjectInterface = { misc: {} };
 
   onMount(() => {
     // Gets translation and put it to the variable
@@ -130,7 +130,7 @@
               class={`w-8 h-8  ${selected === index + 1 ? "block" : "hidden"}`}
               alt="back button"
             />
-            {selected ? "" : translation.misc?.show_more}
+            {selected ? "" : translation.misc.show_more}
           </button>
 
           <!-- Button for Smaller Screens -->
@@ -140,8 +140,8 @@
           >
             <span>
               {selected === index + 1
-                ? translation.misc?.close
-                : translation.misc?.show_more}
+                ? translation.misc.close
+                : translation.misc.show_more}
             </span>
           </button>
         </div>

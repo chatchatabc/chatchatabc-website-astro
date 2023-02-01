@@ -9,7 +9,7 @@
   // value is null when none is selected
   let selected: number | null = null;
 
-  let translation: ObjectInterface = {};
+  let translation: ObjectInterface = { misc: {} };
   onMount(() => {
     // Gets translation and put it to the variable
     translation = utilGetTranslations(window.location.href);
@@ -78,8 +78,8 @@
         on:click={() => (selected = selected === index + 1 ? null : index + 1)}
       >
         {selected === index + 1
-          ? translation.misc?.close
-          : `${translation.misc?.read_more} >`}
+          ? translation.misc.close
+          : `${translation.misc.read_more} >`}
       </button>
     </li>
   {/each}
