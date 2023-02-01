@@ -1,0 +1,111 @@
+---
+title: Jakarta Validation and Zod
+summary: 数据校验一直都是软件开发中不可缺少的环节，如何简单且快速验证输入数据，同时能够快速模拟生成输入数据，这些都是要在软件开发中考虑的。这篇文章就着重介绍Java下的Jakarta Validation框架和TypeScript的Zod框架，对比它们的使用方法和相关特性，也更好地理解数据验证。
+slug: java-validation-zod
+tags: jakarta, validation, zod
+date: Feb 02, 2023
+author_name: linux_china
+author_link: https://github.com/linux-china
+author_image: https://avatars.githubusercontent.com/u/46711?v=4
+summary_image: /images/blog/java-validation-zod.png
+---
+
+### javax/jakarta Validation
+
+对Java同学来说，javax Validation或Jakarta Validation并不陌生，你只要在Java Bean上加上一些注解，就可以对Java Bean进行校验，样例代码如下：
+
+```java
+public class User {
+    @Positive
+    private Long id;
+    private UUID uuid;
+    @NotNull
+    @Size(max = 120)
+    private String name;
+    @Email
+    private String email;
+    @Pattern(regexp = "(https?)://example\\.com/avatars/[a-f0-9]{10,20}")
+    private String avatar;
+    @Pattern(regexp = "[a-f0-9]{40,120}")
+    private String passwordHash;
+    @NotNull
+    @Size(min = 8, max = 8)
+    private String salt;
+    @Pattern(regexp = "\\+?[0-9]{8,16}")
+    private String phone;
+    @NotNull
+    @PastOrPresent
+    private Date createdAt;
+    // ...
+}
+```
+
+接下来就是对User实例进行校验，也是非常简单，只要使用`Validator.validate()`进行验证即可，最后对返回值进行判断即可，如果没有错误，表示校验通过，否则校验失败。
+
+```java
+  final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+  Set<ConstraintViolation<User>> constraintViolations = validator.validate(user);
+  System.out.println(constraintViolations);
+```
+
+### Zod Schema Validation
+
+回到TypeScript，如果也需要对数据对象进行验证，你可以采用类似的机制，目前来说可能就是非常受欢迎的[Zod库](https://zod.dev/)了。
+
+Zod的使用方式也非常简单，但是还是有些不同。和定义class不同，你需要顶一个定义一个Schema，样例代码如下：
+
+```typescript
+import {z} from "zod";
+
+const UserSchema = z.object({
+    id: z.number(),
+    uuid: z.string().uuid(),
+    name: z.string().max(120),
+    email: z.string().email(),
+    avatar: z.string().url().max(120).optional(),
+    passwordHash: z.string().min(40).max(128),
+    salt: z.string().min(8).max(8),
+    phone: z.string().regex(/^(\+?)\d{8,16}$/),
+    createdAt: z.date()
+});
+
+type User = z.infer<typeof UserSchema>;
+```
+
+这里要注意一下，`UserSchema`并不是真正的TypeScript类型，你需要通过`z.infer`来获取真正的类型，这里的`User`就是真正的TS类型。
+你可以将Schema理解为元数据(metadata)，然后从元数据生成具体的数据类型。
+
+有了Schema，你就可以对数据进行校验了，只要调用Schema的`parse()`方法即可，如果校验失败，会抛出异常，你可以捕获异常，然后进行处理。
+
+```typescript
+try {
+    UserSchema.parse(user);
+} catch (error) {
+    //
+}
+```
+
+如果你不喜欢这种try-catch方式，还可以使用`UserSchema.safeParse()`，这个方法会返回一个`ParseResult`对象，你可以通过`success`属性来判断是否校验成功。
+
+
+### 数据验证的使用场景
+
+TypeScript和Java不太一样，并不能在运行期间获取到类型信息，这个也是为何我们要使用Zod定义Schema的原因，但是背后的出发点都是一致的，通过Annotation或者Schema这些元数据来完成数据的校验。
+
+除了能够校验数据以外，Jakarta Validation和Zod同时还可以提供测试数据自动生成，如Java你可以使用[Easy Random/Faker JUnit 5 extension](https://github.com/linux-china/easy-random-junit5-extension)
+就可以完成对象数据的自动生成，而Zod则可以使用[zod-mock](https://github.com/anatine/zod-plugins/tree/main/packages/zod-mock)来完成对象数据的自动生成。
+
+Jakarta Validation作为Java的规范已经被各种框架所支持，如Spring Boot，Hibernate Validator，Quarkus等。Zod虽然是一个独立的库，但是鉴于其优势，越来越多的框架开始支持Zod，
+最典型的就是[tRPC](https://trpc.io/)，它是一个基于Zod的API框架。最新的Astro 2.0也使用Zod定义Content的Schema，方便开发者更安全地使用Content。
+
+### 总结
+数据验证一直都是开发中不可缺的一个环节，无论是在前端还是后端，都需要对数据进行校验，以确保数据的正确性。Jakarta Validation和Zod都是非常优秀的数据验证库，它们都提供了非常丰富的功能，简化了开发者的工作。
+
+如果你要问这两者，哪个功能更强大，无疑就是Zod，可以说强大地超过你想象。Zod非常灵活，可以设定更多的自定义校验规则，transform, fallback, generic等支持，当然Java Validator框架也可以做，但是相对来说还是不如Zod更加灵活。
+写一个Zod介绍连载完全没有问题，目前我在做TypeScript + DDD + Zod的一些实践，后续会分享出来。
+
+不少同学可能觉得Zod这种通过Schema，然后推导出Type类型，看起来好像有点不太习惯，从代码量来说，Class + Annotation和Schema定义，差别几乎没有，但是考虑到Zod提供的众多功能，这些写法还是值得的，
+这也是Zod的优势所在，也是Zod越来越受欢迎的原因。
+
+
+**性能问题**： Jakarta Validation可以说非常轻量的，但是Zod并不是，如果你使用Zod，程序会增加100K左右，这个对JavaScript应用来说还是比较客观的，建议在有性能要求的场景，不要使用Zod。
