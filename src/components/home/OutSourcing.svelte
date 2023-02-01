@@ -64,7 +64,7 @@
             class={`mx-auto duration-300 overflow-hidden ${
               selected === index + 1
                 ? // if the current item is selected
-                  "w-full h-48 border-b lg:border-r md:h-56 lg:h-full lg:w-1/3"
+                  "w-full h-48 border-b md:h-56 lg:h-full lg:w-1/3 lg:border-r lg:border-b-0"
                 : // if the current items is no selected
                   "w-24 h-24 rounded-full mt-2 border"
             } flex-shrink-0`}
