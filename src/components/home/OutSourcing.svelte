@@ -117,7 +117,7 @@
           <!-- Button for Desktop -->
           <button
             on:click={() => handleBtn(index + 1)}
-            class={`hidden pointer-events-none from-transparent py-4 to-primaryContainer ${
+            class={`hidden pointer-events-none from-transparent py-4 to-secondary-95 ${
               selected
                 ? // if there's a selected item
                   "absolute top-0 h-full bg-gradient-to-r px-2 to-transparent hover:-translate-y-2"
