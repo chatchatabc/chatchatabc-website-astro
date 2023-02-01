@@ -6,14 +6,14 @@ import AboutUs from "@components/home/AboutUs.svelte";
 import Markdown from "@components/widgets/Markdown.astro";
 import ImageViewer from "@components/widgets/ImageViewer.svelte";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
-import { Img } from "astro-imagetools/components";
+import { Img, Picture } from "astro-imagetools/components";
 import { t, changeLanguage } from "i18next";
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
 
 changeLanguage("zh");
 
-const { pathname } = Astro.url;
 // Get md files based on the current language
+const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
 const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
 const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
@@ -55,22 +55,10 @@ const development = await developmentDoc.render();
         <Img src="/images/hero-bg.png" alt="background" />
       </div>
 
-      <!-- Content -->
-      <div class="relative grid grid-cols-4">
-        <!-- Left -->
+      <!-- Cards -->
+      <div class="relative flex">
         <div
-          class="absolute h-full col-span-1 items-center w-full flex lg:static"
-        >
-          <div
-            class="hidden justify-center h-full flex-col items-center w-full font-bold text-2xl lg:flex lg:pl-[30%] lg:items-start"
-          >
-            <p class="whitespace-pre-wrap">{t("home.hero.title")}</p>
-          </div>
-        </div>
-
-        <!-- Right (Cards) -->
-        <div
-          class="capitalize relative col-span-4 flex flex-col gap-8 justify-center items-center py-12 px-8 font-medium lg:col-span-3"
+          class="ml-auto capitalize relative col-span-4 flex flex-col gap-8 justify-center items-center py-12 px-8 font-medium w-full lg:w-[unset] lg:mr-[10%]"
         >
           <!-- Top -->
           <div class="flex space-x-8 justify-center w-full -z-10">
@@ -116,10 +104,10 @@ const development = await developmentDoc.render();
             </div>
           </div>
 
-          <!-- Background for the right side of the hero section -->
+          <!-- Background for cards -->
           <div
             id="fade-bg"
-            class="hidden mix-blend-overlay opacity-5 pointer-events-none absolute h-full mx-auto right-0 left-0 top-0 md:block lg:w-2/3"
+            class="hidden mix-blend-overlay opacity-5 pointer-events-none absolute h-full w-full mx-auto right-0 left-0 top-0 md:block"
           >
             <Img
               src="/images/hero-card-bg.jpg"
@@ -127,6 +115,20 @@ const development = await developmentDoc.render();
               sizes="(min-width: 480px) 480px, 100vw"
             />
           </div>
+        </div>
+      </div>
+
+      <!-- Notebook -->
+      <div class="absolute top-8 left-0 h-[95%] w-1/3 xl:w-96">
+        <img
+          class="absolute w-full h-full object-fill"
+          src="/images/hero-notebook.png"
+          alt=""
+        />
+        <div
+          class="hidden relative -translate-y-4 pr-20 rotate-3 h-full w-full items-center font-bold text-2xl lg:flex lg:pl-[30%]"
+        >
+          <p class="whitespace-pre-wrap">{t("home.hero.title")}</p>
         </div>
       </div>
     </div>
