@@ -23,7 +23,9 @@ const { pathname } = Astro.url;
         <div>
           <ul class="flex space-x-4">
             <li class="w-8 h-8 rounded-full lg:w-12 lg:h-12">
-              <a href="https://www.facebook.com/ChatChatABC/" target="_blank"><Picture src="/images/facebook.png" alt="facebook logo" /></a>
+              <a href="https://www.facebook.com/ChatChatABC/" target="_blank"
+                ><Picture src="/images/facebook.png" alt="facebook logo" /></a
+              >
             </li>
             <li class="w-8 h-8 rounded-full lg:w-12 lg:h-12">
               <Picture src="/images/instagram.png" alt="instagram logo" />
@@ -38,7 +40,7 @@ const { pathname } = Astro.url;
         class="px-4 col-span-2 grid gap-y-2 space-y-2 md:space-y-0 md:grid-cols-3"
       >
         <ul
-          class="flex flex-col capitalize text-tertiary [&>*>a:hover]:text-tertiaryContainer"
+          class="flex flex-col capitalize text-tertiary [&>*>a:hover]:text-primary"
         >
           <li class="mb-2">
             <span class="font-bold text-primary">{t("misc.links")}</span>
@@ -82,10 +84,7 @@ const { pathname } = Astro.url;
             linksJson.data.map((link) => {
               return (
                 <li>
-                  <a
-                    class="text-tertiary hover:text-tertiaryContainer"
-                    href={link.url}
-                  >
+                  <a class="text-tertiary hover:text-primary" href={link.url}>
                     {t(`links.${link.locale_name}`)}
                   </a>
                 </li>
@@ -94,7 +93,7 @@ const { pathname } = Astro.url;
           }
         </ul>
         <ul
-          class="flex flex-col capitalize text-tertiary [&>*>*>a:hover]:text-tertiaryContainer"
+          class="flex flex-col capitalize text-tertiary [&>*>*>a:hover]:text-primary"
         >
           <li class="mb-2">
             <span class="font-bold text-primary">{t("links.contact_us")}</span>

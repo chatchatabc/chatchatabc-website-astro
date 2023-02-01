@@ -46,7 +46,7 @@
     </div>
   </ModalSvelte> -->
   <ul
-    class={`w-32 md:top-[110%] absolute overflow-hidden bg-background ${
+    class={`w-32 md:top-[110%] absolute overflow-hidden bg-secondaryContainer ${
       open ? "max-h-[500px] p-2" : "max-h-0"
     } text-primary transition-all rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
   >
