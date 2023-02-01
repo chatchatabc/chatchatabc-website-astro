@@ -51,30 +51,33 @@ const {
       <slot />
     </main>
     <Footer />
-    
   </body>
 </html>
 
 <style is:global>
-  /* width */
-  .scrollbar::-webkit-scrollbar {
-    width: 10px;
+  /* Ellipsis */
+  .ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
   }
 
-  /* Track */
+  /* Scrollbar */
+  .scrollbar::-webkit-scrollbar {
+    /* width */
+    width: 10px;
+  }
   .scrollbar::-webkit-scrollbar-track {
+    /* Track */
     box-shadow: inset 0 0 5px #e8def8;
     border-radius: 10px;
   }
-
-  /* Handle */
   .scrollbar::-webkit-scrollbar-thumb {
+    /* Handle */
     background: #6750a4;
     border-radius: 10px;
   }
-
-  /* Handle on hover */
   .scrollbar::-webkit-scrollbar-thumb:hover {
+    /* Handle on hover */
     background: #503e80;
   }
 </style>

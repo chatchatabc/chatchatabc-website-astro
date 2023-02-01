@@ -10,24 +10,15 @@ const { pathname } = Astro.url;
 
 const navItems = [
   {
-    url: utilUrlWithLocale(
-      pathname,
-      `/#${utilRemoveSpaces(t("links.outsourcing"))}`
-    ),
+    url: utilUrlWithLocale(pathname, `/#outsourcing`),
     name: t("links.outsourcing"),
   },
   {
-    url: utilUrlWithLocale(
-      pathname,
-      `/#${utilRemoveSpaces(t("links.software_development"))}`
-    ),
+    url: utilUrlWithLocale(pathname, `/#software-development`),
     name: t("links.software_development"),
   },
   {
-    url: utilUrlWithLocale(
-      pathname,
-      `/#${utilRemoveSpaces(t("links.about_us"))}`
-    ),
+    url: utilUrlWithLocale(pathname, `/#about-us`),
     name: t("links.about_us"),
   },
   {

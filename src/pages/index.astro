@@ -5,8 +5,9 @@ import OutSourcing from "@components/home/OutSourcing.svelte";
 import AboutUs from "@components/home/AboutUs.svelte";
 import Markdown from "@components/widgets/Markdown.astro";
 import ImageViewer from "@components/widgets/ImageViewer.svelte";
+import SoftwareDevelopment from "@components/home/SoftwareDevelopment.svelte";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
-import { Img, Picture } from "astro-imagetools/components";
+import { Img } from "astro-imagetools/components";
 import { t, changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 
@@ -15,38 +16,32 @@ changeLanguage("en");
 // Get md files based on the current language
 const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const jobs = await getCollection(`jobs`, (job) =>
-  job.id.startsWith(`${currentLanguage}/`)
-);
-const aboutList = await getCollection(`about`, (about) =>
-  about.id.startsWith(`${currentLanguage}/`)
-);
+const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
+const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
-  .find((job) => job.slug === "java-developer")!
-  .render();
+    .find((job) => job.slug === "java-developer")!
+    .render();
 const webDeveloper = await jobs
-  .find((job) => job.slug === "web-developer")!
-  .render();
+    .find((job) => job.slug === "web-developer")!
+    .render();
 const webDesigner = await jobs
-  .find((job) => job.slug === "web-designer")!
-  .render();
+    .find((job) => job.slug === "web-designer")!
+    .render();
 const backendEngineer = await jobs
-  .find((job) => job.slug === "backend-engineer")!
-  .render();
+    .find((job) => job.slug === "backend-engineer")!
+    .render();
 // Render docs MD Contents
 const about1 = await aboutList
-  .find((about) => about.slug === "about-1")!
-  .render();
+    .find((about) => about.slug === "about-1")!
+    .render();
 const about2 = await aboutList
-  .find((about) => about.slug === "about-2")!
-  .render();
+    .find((about) => about.slug === "about-2")!
+    .render();
 const about3 = await aboutList
-  .find((about) => about.slug === "about-3")!
-  .render();
-const developmentDoc = await getCollection(`misc`, (data) =>
-  data.id.startsWith(`${currentLanguage}/`)
-).then((list) => list.find((doc) => doc.slug === "software-development")!);
+    .find((about) => about.slug === "about-3")!
+    .render();
+const developmentDoc = await getCollection(`misc`, (data) => data.id.startsWith(`${currentLanguage}/`)).then((list) => list.find((doc) => doc.slug === "software-development")!);
 const development = await developmentDoc.render();
 ---
 
@@ -125,8 +120,12 @@ const development = await developmentDoc.render();
       </div>
 
       <!-- Notebook -->
-      <div class="absolute top-8 left-0 h-[95%] w-1/3 xl:w-96">
+      <div
+        id="hero-notebook"
+        class="absolute top-8 left-0 h-[95%] w-1/3 xl:w-96"
+      >
         <img
+          loading="eager"
           class="absolute w-full h-full object-fill"
           src="/images/hero-notebook.png"
           alt=""
@@ -141,7 +140,10 @@ const development = await developmentDoc.render();
   </section>
 
   <!-- Outsourcing Section -->
-  <Section sectionTitle={t("links.outsourcing") ?? "outsourcing"}>
+  <Section
+    sectionTitle={t("links.outsourcing") ?? "outsourcing"}
+    id={"outsourcing"}
+  >
     <OutSourcing jobs={jobs} client:load>
       <Markdown slot="java-developer">
         <javaDeveloper.Content />
@@ -161,29 +163,36 @@ const development = await developmentDoc.render();
   <!-- Software Development Section -->
   <Section
     sectionTitle={t("links.software_development") ?? "software development"}
+    id={"software-development"}
   >
-    <div class="grid lg:grid-cols-2">
-      <div class="hidden items-center w-full lg:flex">
-        <div
-          class="min-h-[60%] mx-8 w-full rounded-t-3xl bg-[#9A82DB] shadow-xl"
-        >
-          <Markdown>
-            <development.Content />
-          </Markdown>
+    <div class="grid items-center [&>*]:px-4 [&>*]:pb-4 lg:grid-cols-2">
+      <div>
+        <div class="w-full h-fit rounded-t-3xl bg-[#9A82DB] shadow-xl">
+          <SoftwareDevelopment client:visible>
+            <Markdown>
+              <development.Content />
+            </Markdown>
+          </SoftwareDevelopment>
         </div>
       </div>
-      <ImageViewer imgUrl="/images/tech-stack.png" className="" client:visible>
-        <Img
-          src="/images/tech-stack.png"
-          alt="tech stack"
-          sizes="(min-width: 768px) 1024px, 100vw"
-        />
-      </ImageViewer>
+      <div>
+        <ImageViewer
+          imgUrl="/images/tech-stack.png"
+          className=""
+          client:visible
+        >
+          <Img
+            src="/images/tech-stack.png"
+            alt="tech stack"
+            sizes="(min-width: 768px) 1024px, 100vw"
+          />
+        </ImageViewer>
+      </div>
     </div>
   </Section>
 
   <!-- About Us Section -->
-  <Section sectionTitle={t("links.about_us") ?? "about us"}>
+  <Section sectionTitle={t("links.about_us") ?? "about us"} id={"about-us"}>
     <AboutUs aboutList={aboutList} client:visible>
       <about1.Content slot="about-1" />
       <about2.Content slot="about-2" />
@@ -238,6 +247,7 @@ const development = await developmentDoc.render();
 </style>
 
 <script>
+  const notebook = document.getElementById("notebook");
   const cards = document.getElementsByClassName("hero-cards");
   for (let i = 0; i < cards.length; i++) {
     cards[i].classList.remove("hero-cards-start");

@@ -3,13 +3,14 @@ import { utilRemoveSpaces } from "@helpers/commonUtils";
 
 interface Props {
   sectionTitle?: string;
+  id?: string;
 }
 
-const { sectionTitle } = Astro.props as Props;
+const { sectionTitle, id } = Astro.props as Props;
 ---
 
 <section
-  id={sectionTitle ? utilRemoveSpaces(sectionTitle) : ""}
+  id={id ? id : utilRemoveSpaces(sectionTitle ? sectionTitle : "")}
   class="py-2 md:py-8"
 >
   <div class="container mx-auto lg:px-8">
