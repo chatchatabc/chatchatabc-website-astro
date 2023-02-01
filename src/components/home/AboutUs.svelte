@@ -67,7 +67,11 @@
         class={`block mt-4 underline underline-offset-4 duration-500 ${
           selected === index + 1 ? "lg:opacity-100" : "lg:opacity-0"
         } group-hover:duration-700 group-hover:opacity-100`}
-        on:click={() => (selected = selected === index + 1 ? null : index + 1)}
+        on:click={() => {
+          selected = selected === index + 1 ? null : index + 1;
+          const element = document.querySelector("#about-us");
+          if (element && selected) element.scrollIntoView();
+        }}
       >
         {selected === index + 1
           ? translation.misc.close
