@@ -24,7 +24,7 @@
   {#each aboutList as about, index}
     <!-- Item container -->
     <li
-      class={`bg-secondaryContainer border-tertiary border-2 shadow-xl delay-75 group overflow-hidden ${
+      class={`bg-tertiaryContainer border-tertiary border-2 shadow-xl delay-75 group overflow-hidden ${
         selected === index + 1
           ? // Displays the selected item
             "shadow-gray-500 w-full p-12"

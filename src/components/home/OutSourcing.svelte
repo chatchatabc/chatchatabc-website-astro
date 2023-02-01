@@ -51,7 +51,7 @@
 
         <!-- Card -->
         <div
-          class={`mt-2 rounded-xl flex-col bg-secondaryContainer flex group overflow-hidden ${
+          class={`mt-2 rounded-xl flex-col bg-tertiaryContainer flex group overflow-hidden ${
             selected === index + 1
               ? // if the current item is selected
                 "min-h-[500px] shadow-2xl  md:h-[350px] lg:min-h-[unset] lg:shadow-neutral-700 lg:flex-row"
@@ -117,7 +117,7 @@
           <!-- Button for Desktop -->
           <button
             on:click={() => handleBtn(index + 1)}
-            class={`hidden pointer-events-none from-transparent py-4 to-secondary ${
+            class={`hidden pointer-events-none from-transparent py-4 to-tertiary ${
               selected
                 ? // if there's a selected item
                   "absolute top-0 h-full bg-gradient-to-r px-2 to-transparent hover:-translate-y-2"
