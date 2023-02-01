@@ -84,7 +84,11 @@ const { pathname } = Astro.url;
             linksJson.data.map((link) => {
               return (
                 <li>
-                  <a class="text-tertiary hover:text-primary" href={link.url}>
+                  <a
+                    target="_blank"
+                    class="text-tertiary hover:text-primary"
+                    href={link.url}
+                  >
                     {t(`links.${link.locale_name}`)}
                   </a>
                 </li>
