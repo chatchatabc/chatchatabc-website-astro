@@ -20,7 +20,7 @@
       open ? "block" : "hidden"
     }`}
   />
-  <button class="p-2" on:click={() => (open = !open)}>
+  <button class="p-2 text-primary" on:click={() => (open = !open)}>
     <span class="font-bold md:hidden">Language:</span>{currentLang}
   </button>
   <!-- <ModalSvelte
@@ -46,15 +46,17 @@
     </div>
   </ModalSvelte> -->
   <ul
-    class={`w-32 md:top-[110%] absolute overflow-hidden bg-[#E8DEF8] ${
+    class={`w-32 md:top-[110%] absolute overflow-hidden bg-background ${
       open ? "max-h-[500px] p-2" : "max-h-0"
-    } transition-all rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
+    } text-primary transition-all rounded-xl shadow-xl z-10 md:right-0 lg:top-[110%]`}
   >
     <li>
-      <a class="block hover:bg-opacity-25 hover:bg-white" href={"/"}>ENG-EN</a>
+      <a class="block hover:bg-opacity-25 hover:bg-secondary" href={"/"}
+        >ENG-EN</a
+      >
     </li>
     <li>
-      <a class="block hover:bg-opacity-25 hover:bg-white" href={"/zh/"}>
+      <a class="block hover:bg-opacity-25 hover:bg-secondary" href={"/zh/"}>
         CHI-ZH
       </a>
     </li>
