@@ -165,24 +165,24 @@ const development = await developmentDoc.render();
     sectionTitle={t("links.software_development") ?? "software development"}
     id={"software-development"}
   >
-    <div class="grid items-center [&>*]:px-4 [&>*]:pb-4 lg:grid-cols-2">
+    <div class="grid [&>*]:px-4 [&>*]:pb-4">
       <div class="w-full h-fit rounded-t-3xl py-4 bg-[#9A82DB] shadow-xl">
+        <div class="w-1/2 float-right px-8">
+          <ImageViewer
+            imgUrl="/images/tech-stack.png"
+            className=""
+            client:visible
+          >
+            <Img
+              src="/images/tech-stack.png"
+              alt="tech stack"
+              sizes="(min-width: 768px) 1024px, 100vw"
+            />
+          </ImageViewer>
+        </div>
         <Markdown>
           <development.Content />
         </Markdown>
-      </div>
-      <div class="pt-4 lg:pt-0">
-        <ImageViewer
-          imgUrl="/images/tech-stack.png"
-          className=""
-          client:visible
-        >
-          <Img
-            src="/images/tech-stack.png"
-            alt="tech stack"
-            sizes="(min-width: 768px) 1024px, 100vw"
-          />
-        </ImageViewer>
       </div>
     </div>
   </Section>
