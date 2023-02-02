@@ -25,7 +25,7 @@
 <div>
   <!-- Card Container -->
   <ul
-    class={`flex relative justify-center flex-wrap -mt-2 md:px-4 lg:px-8 lg:flex-nowrap`}
+    class={`flex relative justify-center flex-wrap md:px-4 lg:px-8 lg:flex-nowrap`}
   >
     {#each jobs as position, index}
       <li
@@ -38,8 +38,8 @@
             ? // Hide item if other was already selected
               "p-0 md:w-0 md:h-0 md:opacity-0"
             : // Show item while none is selected
-              "opacity-100 w-full p-2 md:w-[45%]"
-        } mb-8`}
+              "opacity-100 w-full py-4 p-2 md:w-[45%]"
+        }`}
       >
         <!-- Title -->
         <div class="relative text-center">
