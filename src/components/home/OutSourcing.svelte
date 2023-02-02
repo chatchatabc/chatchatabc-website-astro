@@ -52,7 +52,7 @@
           class={`mt-2 rounded-xl flex-col bg-surfaceVariant border-tertiary border-2 ${
             selected === index + 1
               ? // if the current item is selected
-                "shadow-2xl lg:max-h-[70vh] lg:shadow-neutral-700 lg:flex-row"
+                "shadow-2xl lg:shadow-neutral-700 lg:flex-row"
               : // if the current item is not selected
                 "shadow-xl overflow-hidden min-h-[300px]"
           } duration-500 relative flex group flex-1 overflow-hidden`}

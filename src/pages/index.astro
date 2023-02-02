@@ -15,32 +15,38 @@ changeLanguage("en");
 // Get md files based on the current language
 const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
-const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
+const jobs = await getCollection(`jobs`, (job) =>
+  job.id.startsWith(`${currentLanguage}/`)
+);
+const aboutList = await getCollection(`about`, (about) =>
+  about.id.startsWith(`${currentLanguage}/`)
+);
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
-    .find((job) => job.slug === "java-developer")!
-    .render();
+  .find((job) => job.slug === "java-developer")!
+  .render();
 const webDeveloper = await jobs
-    .find((job) => job.slug === "web-developer")!
-    .render();
+  .find((job) => job.slug === "web-developer")!
+  .render();
 const webDesigner = await jobs
-    .find((job) => job.slug === "web-designer")!
-    .render();
+  .find((job) => job.slug === "web-designer")!
+  .render();
 const backendEngineer = await jobs
-    .find((job) => job.slug === "backend-engineer")!
-    .render();
+  .find((job) => job.slug === "backend-engineer")!
+  .render();
 // Render docs MD Contents
 const about1 = await aboutList
-    .find((about) => about.slug === "about-1")!
-    .render();
+  .find((about) => about.slug === "about-1")!
+  .render();
 const about2 = await aboutList
-    .find((about) => about.slug === "about-2")!
-    .render();
+  .find((about) => about.slug === "about-2")!
+  .render();
 const about3 = await aboutList
-    .find((about) => about.slug === "about-3")!
-    .render();
-const developmentDoc = await getCollection(`misc`, (data) => data.id.startsWith(`${currentLanguage}/`)).then((list) => list.find((doc) => doc.slug === "software-development")!);
+  .find((about) => about.slug === "about-3")!
+  .render();
+const developmentDoc = await getCollection(`misc`, (data) =>
+  data.id.startsWith(`${currentLanguage}/`)
+).then((list) => list.find((doc) => doc.slug === "software-development")!);
 const development = await developmentDoc.render();
 ---
 
@@ -144,16 +150,16 @@ const development = await developmentDoc.render();
     id={"outsourcing"}
   >
     <OutSourcing jobs={jobs} client:load>
-      <Markdown slot="java-developer">
+      <Markdown slot="java-developer" className={"li-check"}>
         <javaDeveloper.Content />
       </Markdown>
-      <Markdown slot="web-developer">
+      <Markdown slot="web-developer" className={"li-check"}>
         <webDeveloper.Content />
       </Markdown>
-      <Markdown slot="web-designer">
+      <Markdown slot="web-designer" className={"li-check"}>
         <webDesigner.Content />
       </Markdown>
-      <Markdown slot="backend-engineer">
+      <Markdown slot="backend-engineer" className={"li-check"}>
         <backendEngineer.Content />
       </Markdown>
     </OutSourcing>

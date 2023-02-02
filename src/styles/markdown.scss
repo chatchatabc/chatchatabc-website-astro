@@ -277,3 +277,21 @@
     background-color: var(--bf-fill);
   }
 }
+
+.li-check {
+  li {
+    list-style: none;
+    position: relative;
+  }
+  li::before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    left: -1.5rem;
+    margin-top: 0.3rem;
+    background-size: cover;
+    background-image: url("/images/check.png");
+  }
+}

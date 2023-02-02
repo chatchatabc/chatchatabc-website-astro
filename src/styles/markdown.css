@@ -230,4 +230,20 @@
 .markdown-body table > tbody > tr:hover {
   background-color: rgba(0, 0, 0, 0.04);
   background-color: var(--bf-fill);
+}
+
+.li-check li {
+  list-style: none;
+  position: relative;
+}
+.li-check li::before {
+  content: "";
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  left: -1.5rem;
+  margin-top: 0.3rem;
+  background-size: cover;
+  background-image: url("/images/check.png");
 }/*# sourceMappingURL=markdown.css.map */
