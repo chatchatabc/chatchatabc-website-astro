@@ -89,7 +89,7 @@
           <!-- Description -->
           {#if selected === index + 1}
             <div
-              class="text-left text-sm px-4 py-2 flex-1 scrollbar overflow-auto [direction:rtl] md:text-base"
+              class="text-justify text-sm px-4 py-2 flex-1 scrollbar overflow-auto [direction:rtl] md:text-base"
             >
               <div class="h-max [direction:ltr]">
                 {#if position.data.id === "java-developer"}
@@ -108,7 +108,7 @@
             </div>
           {:else}
             <p
-              class="text-left text-sm px-4 py-2 overflow-hidden whitespace-pre-wrap md:text-base"
+              class="text-justify text-sm px-4 py-2 overflow-hidden whitespace-pre-wrap md:text-base"
             >
               {position.data.summary}
             </p>
