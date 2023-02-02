@@ -106,7 +106,7 @@
             </div>
           {:else}
             <p
-              class="text-justify text-sm px-4 -mb-6 py-2 overflow-hidden whitespace-pre-wrap md:text-base"
+              class="text-justify text-sm px-4 py-2 overflow-hidden whitespace-pre-wrap md:text-base lg:-mb-6"
             >
               {position.data.summary}
             </p>
