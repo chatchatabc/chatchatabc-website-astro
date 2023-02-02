@@ -54,7 +54,7 @@
               ? // if the current item is selected
                 "shadow-2xl lg:max-h-[70vh] lg:shadow-neutral-700 lg:flex-row"
               : // if the current item is not selected
-                "shadow-xl"
+                "shadow-xl overflow-hidden"
           } duration-500 relative flex group flex-1`}
         >
           <!-- Image || Avatar -->
@@ -106,7 +106,7 @@
             </div>
           {:else}
             <p
-              class="text-justify text-sm px-4 py-2 overflow-hidden whitespace-pre-wrap md:text-base lg:-mb-6"
+              class="text-justify text-sm px-4 py-2 whitespace-pre-wrap md:text-base lg:-mb-6"
             >
               {position.data.summary}
             </p>
