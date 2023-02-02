@@ -2,7 +2,7 @@
 title: Software Development
 summary: test
 id: software-development
-slug: architectural-design
+slug: architecture-design
 order: 5
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: Software Development
+title: Architecture Design
 summary: test
 id: software-development
-slug: architectural-design
+slug: architecture-design
 order: 5
 ---
 

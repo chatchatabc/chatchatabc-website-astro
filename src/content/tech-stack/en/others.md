@@ -1,5 +1,5 @@
 ---
-title: Software Development
+title: Others
 summary: test
 id: software-development
 slug: others

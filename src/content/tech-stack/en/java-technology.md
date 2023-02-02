@@ -1,5 +1,5 @@
 ---
-title: Software Development
+title: Java Technology Stack
 summary: test
 id: software-development
 slug: java-technology

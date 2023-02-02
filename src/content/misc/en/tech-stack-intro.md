@@ -2,8 +2,7 @@
 title: Software Development
 summary: test
 id: software-development
-slug: introduction
-order:
+slug: tech-stack-intro
 ---
 
 We uphold the principle of making everything transparent, and let customers understand our technology and our team, so that customers can make their final correct decisions.

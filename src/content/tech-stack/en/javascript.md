@@ -1,5 +1,5 @@
 ---
-title: Software Development
+title: JavaScript/TypeScript Full Stack
 summary: test
 id: software-development
 slug: javascript
