@@ -10,5 +10,6 @@ export const blogSchema = defineCollection({
     author_link: z.string(),
     author_image: z.string(),
     summary_image: z.string(),
+    draft: z.boolean().optional()
   }),
 });
