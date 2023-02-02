@@ -17,7 +17,9 @@ const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
 const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
 const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
-const techStack = await getCollection("tech-stack", (tech) => tech.id.startsWith(`${currentLanguage}/`));
+const techStack = [
+    ...(await getCollection("tech-stack", (tech) => tech.id.startsWith(`${currentLanguage}/`))).sort((tech1, tech2) => tech1.data.order - tech2.data.order),
+];
 const miscList = await getCollection("misc", (misc) => misc.id.startsWith(`${currentLanguage}/`));
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
