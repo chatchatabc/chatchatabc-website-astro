@@ -54,7 +54,7 @@
               ? // if the current item is selected
                 "shadow-2xl lg:max-h-[70vh] lg:shadow-neutral-700 lg:flex-row"
               : // if the current item is not selected
-                "shadow-xl overflow-hidden"
+                "shadow-xl overflow-hidden min-h-[300px]"
           } duration-500 relative flex group flex-1`}
         >
           <!-- Image || Avatar -->
@@ -65,12 +65,12 @@
                   "w-full h-48 border-b md:h-56 lg:h-full lg:w-1/3 lg:border-r lg:border-b-0"
                 : // if the current items is no selected
                   "w-24 h-24 rounded-full mt-2 border"
-            } flex-shrink-0 border-black`}
+            } flex-shrink-0 border-tertiary`}
           >
             {#if position.data.imageUrl.length}
               <img
                 src={position.data.imageUrl}
-                class={`w-full h-full  ${
+                class={`w-full h-full ${
                   selected === index + 1 ? "object-contain p-4" : "object-cover"
                 }`}
                 alt={position.data.title}
