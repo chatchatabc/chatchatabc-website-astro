@@ -5,6 +5,6 @@ export const techStackSchema = defineCollection({
     title: z.string(),
     summary: z.string(),
     id: z.string(),
-    order: z.number().nullish(),
+    order: z.number(),
   }),
 });
