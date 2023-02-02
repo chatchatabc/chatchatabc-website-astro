@@ -38,7 +38,7 @@
             href={imgUrl}
             target="_blank"
             rel="noreferrer"
-            class="bg-[#E8DEF8] text-[#6750A4] px-4 py-1 rounded-full duration-500 hover:bg-slate-100"
+            class="bg-primaryContainer text-primary px-4 py-1 rounded-full duration-500 hover:bg-secondaryContainer"
           >
             View image
           </a>

@@ -24,7 +24,7 @@
   {#each aboutList as about, index}
     <!-- Item container -->
     <li
-      class={`bg-[#c4b8e6] border-2 shadow-xl delay-75 group overflow-hidden ${
+      class={`bg-surfaceVariant border-tertiary text-justify border-2 shadow-xl delay-75 group overflow-hidden ${
         selected === index + 1
           ? // Displays the selected item
             "shadow-gray-500 w-full p-12"
@@ -36,7 +36,9 @@
       } duration-300 rounded-t-[4rem] rounded-b-xl lg:hover:z-10 even:mx-auto last:ml-auto`}
     >
       <!-- Item Title -->
-      <h4 class="text-4xl pb-2">{about.data.title}</h4>
+      <h4 class="text-xl font-medium text-left pb-2 md:text-2xl ">
+        {about.data.title}
+      </h4>
 
       <!-- Item Description -->
 

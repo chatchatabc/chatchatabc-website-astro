@@ -17,8 +17,10 @@ const { sectionTitle, id } = Astro.props as Props;
     {
       sectionTitle ? (
         <div class="flex items-center space-x-4 px-8 mb-8">
-          <div class="rounded-full h-1 bg-[#6750A4] w-8 md:w-12 lg:w-16" />
-          <h2 class="text-2xl capitalize md:text-3xl">{sectionTitle}</h2>
+          <div class="rounded-full h-1 bg-tertiary w-8 md:w-12 lg:w-16" />
+          <h2 class="text-2xl text-primary capitalize md:text-3xl">
+            {sectionTitle}
+          </h2>
         </div>
       ) : null
     }

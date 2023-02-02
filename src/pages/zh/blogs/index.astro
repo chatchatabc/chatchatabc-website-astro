@@ -30,7 +30,7 @@ const { pathname } = Astro.url;
               summary_image,
             } = data;
             return (
-              <li class="border rounded-sm overflow-hidden">
+              <li class="border-2 border-primary rounded-sm overflow-hidden">
                 <div class="h-full grid lg:grid-cols-5">
                   <div class="h-64 lg:h-full lg:col-span-2">
                     <a href={utilUrlFix(pathname, `/${slug}`)}>
@@ -44,7 +44,7 @@ const { pathname } = Astro.url;
                     <p class="text-xl leading-6 font-bold hover:text-neutral-600">
                       <a href={utilUrlFix(pathname, `/${slug}`)}>{title}</a>
                     </p>
-                    <p class="text-neutral-500 text-sm py-2 overflow-hidden flex-1 min-h-[150px]">
+                    <p class="text-secondary text-sm py-2 overflow-hidden flex-1 min-h-[150px]">
                       {summary}
                     </p>
                     <div class="mt-auto flex items-center space-x-2">
