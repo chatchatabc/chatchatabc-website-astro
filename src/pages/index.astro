@@ -268,26 +268,9 @@ const techIntro = await miscList
     opacity: 8%;
     box-shadow: 0 0 100px 100px white inset;
   }
-
-  /* .hero-position {
-    transform: rotateX(60deg) rotateZ(325deg);
-  }
-
-  .hero-cards-end {
-    transform: translateY(-600px) translateX(-600px);
-  }
-
-  @media (min-width: 1024px) {
-    .hero-position:hover {
-      transform: rotateX(0deg) rotateZ(30deg);
-      scale: 80%;
-      z-index: 1;
-    }
-  } */
 </style>
 
 <script>
-  // const notebook = document.getElementById("notebook");
   const cards = document.getElementsByClassName("hero-cards");
   for (let i = 0; i < cards.length; i++) {
     cards[i].classList.remove("hero-cards-start");
@@ -305,22 +288,5 @@ const techIntro = await miscList
         cards[i].classList.toggle("hero-cards-rotate");
       }, 200 * i);
     }
-
-    // setTimeout(() => {
-    //   for (let i = 0; i < cards.length; i++) {
-    //     cards[i].classList.add("hero-cards-end");
-    //     setTimeout(() => {
-    //       cards[i].classList.remove("duration-1000");
-    //       cards[i].classList.remove("hero-cards-end");
-    //       cards[i].classList.add("hero-cards-start");
-    //     }, 300);
-    //     setTimeout(() => {
-    //       cards[i].classList.add("duration-1000");
-    //       cards[i].classList.remove("hero-cards-start");
-    //     }, 600);
-    //   }
-    // }, 2000);
-
-    // const rand = Math.floor(Math.random() * (cards.length - 1 + 1)) + 0;
   }, 3500);
 </script>
