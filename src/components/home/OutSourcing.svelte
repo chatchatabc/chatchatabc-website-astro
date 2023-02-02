@@ -59,7 +59,7 @@
         >
           <!-- Image || Avatar -->
           <div
-            class={`mx-auto duration-300 overflow-hidden ${
+            class={`mx-auto duration-300 overflow-hidden bg-tertiary ${
               selected === index + 1
                 ? // if the current item is selected
                   "w-full h-48 border-b md:h-56 lg:h-full lg:w-1/3 lg:border-r lg:border-b-0"
@@ -106,7 +106,7 @@
             </div>
           {:else}
             <p
-              class="text-justify text-sm px-4 py-2 whitespace-pre-wrap md:text-base lg:-mb-6"
+              class="text-justify text-sm px-4 py-2 whitespace-pre-wrap md:text-base"
             >
               {position.data.summary}
             </p>
@@ -115,20 +115,29 @@
           <!-- Button for Desktop -->
           <button
             on:click={() => handleBtn(index + 1)}
-            class={`hidden pointer-events-none from-transparent py-4 to-secondary-95 ${
+            class={`hidden pointer-events-none relative p-2 text-onPrimary ${
               selected
                 ? // if there's a selected item
-                  "absolute top-0 h-full bg-gradient-to-r px-2 to-transparent hover:-translate-y-2"
+                  "absolute top-0 right-0 h-full hover:-translate-y-2"
                 : // if there's not yet a selected item
-                  "bg-gradient-to-b lg:opacity-0 group-hover:opacity-100"
-            } mt-auto duration-1000 right-0 lg:block lg:pointer-events-auto`}
+                  "lg:opacity-0 group-hover:opacity-100"
+            } mt-auto duration-1000 lg:block lg:pointer-events-auto`}
           >
+            <div
+              class={`left-0 top-0 h-full w-full absolute ${
+                selected ? "" : "translate-y-full bg-tertiary duration-500"
+              } group-hover:translate-y-0`}
+            />
             <img
               src="/images/back.png"
-              class={`w-8 h-8  ${selected === index + 1 ? "block" : "hidden"}`}
+              class={`relative w-8 h-8 ${
+                selected === index + 1 ? "block" : "hidden"
+              }`}
               alt="back button"
             />
-            {selected ? "" : translation.misc.show_more}
+            <span class="relative"
+              >{selected ? "" : translation.misc.show_more}</span
+            >
           </button>
 
           <!-- Button for Smaller Screens -->
