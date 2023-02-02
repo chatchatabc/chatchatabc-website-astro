@@ -1,7 +1,7 @@
 ---
 title: JavaScript/TypeScript Full Stack
 summary: test
-id: software-development
+id: javascript
 slug: javascript
 order: 4
 ---

@@ -1,10 +1,10 @@
 ---
-title: Software Development
+title: 架构设计
 summary: test
-id: software-development
+id: architecture-design
 slug: architecture-design
 order: 5
 ---
 
-At present, we mainly adopt Domain Driven Design, and of course we will also combine architectural patterns such as Hexagonal Architecture, Event Driven Architecture and CQRS. We use this pattern in both Java and TypeScript projects.
-We also hope that our accumulation in this area can help customers better design and develop software projects.
+目前我们主要采用领域驱动设计(Domain Driven Design)，当然还会结合 Hexagonal Architecture, Event Driven Architecture 和 CQRS 等架构模式，在 Java 和 TypeScript 项目中我们都采用这一模式，
+我们也希望我们在这方面的积累能够帮助到客户更好地设计和开发软件项目。

@@ -1,10 +1,10 @@
 ---
-title: Software Development
+title: 基于 JavaScript/TypeScript 全栈
 summary: test
-id: software-development
+id: javascript
 slug: javascript
 order: 4
 ---
 
-JavaScript/TypeScript is currently the most popular development language, and this trend will not change in a short time. For some start-ups or innovative projects, we recommend that customers adopt a JS/TS-based full-stack technology architecture, and in fact we do the same.
-On the one hand, the development efficiency is high. In addition, considering the better support of JS/WebAssembly on the serverless platform, the cost of hosting and operation and maintenance is also very low.
+JavaScript/TypeScript 是目前最流行的开发语言，这个趋势短时间也不会改变。对于一些创业企业或者创新项目，我们建议客户采用基于 JS/TS 的全栈技术架构，事实上我们自己也这么做的。
+一方面开发效率高，另外考虑到 Serverless 平台对 JS/WebAssembly 的更好支持，托管和运维的成本也低非常多。

@@ -1,7 +1,7 @@
 ---
 title: Others
 summary: test
-id: software-development
+id: others
 slug: others
 order: 6
 ---

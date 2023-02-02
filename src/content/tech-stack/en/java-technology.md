@@ -1,7 +1,7 @@
 ---
 title: Java Technology Stack
 summary: test
-id: software-development
+id: java-technology
 slug: java-technology
 order: 2
 ---

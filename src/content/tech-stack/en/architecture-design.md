@@ -1,7 +1,7 @@
 ---
 title: Architecture Design
 summary: test
-id: software-development
+id: architecture-design
 slug: architecture-design
 order: 5
 ---

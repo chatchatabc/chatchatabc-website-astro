@@ -1,7 +1,7 @@
 ---
 title: Cloud Technology
 summary: test
-id: software-development
+id: cloud-technology
 slug: cloud-technology
 order: 3
 ---

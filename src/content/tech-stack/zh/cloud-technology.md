@@ -1,9 +1,9 @@
 ---
-title: Software Development
+title: 云端技术
 summary: test
-id: software-development
+id: cloud-technology
 slug: cloud-technology
 order: 3
 ---
 
-At present, more projects adopt the cloud native (Cloud Native) architecture. We also believe that this is the trend of the future architecture. We have made preparations for this, and fully support the needs of customers in this regard from technical architecture to operation and maintenance deployment.
+目前更多的项目采用云原生(Cloud Native)架构，我们也相信这个是未来架构的趋势，我们已经为此做好了准备，从技术架构到运维部署，全面支持客户在这方面的需求。

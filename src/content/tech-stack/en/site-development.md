@@ -1,7 +1,7 @@
 ---
 title: Site Development
 summary: test
-id: software-development
+id: site-development
 slug: site-development
 order: 1
 ---
