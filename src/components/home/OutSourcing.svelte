@@ -25,39 +25,37 @@
 <div>
   <!-- Card Container -->
   <ul
-    class={`flex px-8 relative justify-center flex-wrap ${
-      selected ? "lg:space-x-0" : "md:gap-8 lg:gap-0 lg:space-x-8"
-    } lg:flex-nowrap lg:px-16`}
+    class={`flex relative justify-center flex-wrap -mt-2 md:px-4 lg:px-8 lg:flex-nowrap`}
   >
     {#each jobs as position, index}
       <li
         tabIndex={selected === index + 1 ? -1 : index + 1}
-        class={`text-center duration-500 ${
+        class={`duration-500 flex-col flex ${
           index + 1 === selected
             ? // Show item design if it is selected
               "w-full"
             : selected
             ? // Hide item if other was already selected
-              "md:w-0 md:h-0 md:opacity-0"
+              "p-0 md:w-0 md:h-0 md:opacity-0"
             : // Show item while none is selected
-              "opacity-100 w-full md:w-[45%]"
+              "opacity-100 w-full p-2 md:w-[45%]"
         } mb-8`}
       >
         <!-- Title -->
-        <div class="relative">
+        <div class="relative text-center">
           <div class="h-8 w-1 bg-tertiary  absolute rounded-full bottom-1/4" />
           <h4 class="text-xl capitalize">{position.data.title}</h4>
         </div>
 
         <!-- Card -->
         <div
-          class={`mt-2 rounded-xl flex-col bg-surfaceVariant border-tertiary border-2 flex group overflow-hidden ${
+          class={`mt-2 rounded-xl flex-col bg-surfaceVariant border-tertiary border-2 ${
             selected === index + 1
               ? // if the current item is selected
-                "min-h-[500px] shadow-2xl  md:h-[350px] lg:min-h-[unset] lg:shadow-neutral-700 lg:flex-row"
+                "shadow-2xl lg:max-h-[70vh] lg:shadow-neutral-700 lg:flex-row"
               : // if the current item is not selected
-                "shadow-xl min-h-[18rem] md:h-[18rem]"
-          } duration-500 relative`}
+                "shadow-xl"
+          } duration-500 relative flex group flex-1`}
         >
           <!-- Image || Avatar -->
           <div
@@ -89,7 +87,7 @@
           <!-- Description -->
           {#if selected === index + 1}
             <div
-              class="text-justify text-sm px-4 py-2 flex-1 scrollbar overflow-auto [direction:rtl] md:text-base"
+              class="text-justify text-sm px-4 pb-4 flex-1 scrollbar overflow-auto [direction:rtl] md:text-base"
             >
               <div class="h-max [direction:ltr]">
                 {#if position.data.id === "java-developer"}
@@ -108,7 +106,7 @@
             </div>
           {:else}
             <p
-              class="text-justify text-sm px-4 py-2 overflow-hidden whitespace-pre-wrap md:text-base"
+              class="text-justify text-sm px-4 -mb-6 py-2 overflow-hidden whitespace-pre-wrap md:text-base"
             >
               {position.data.summary}
             </p>
