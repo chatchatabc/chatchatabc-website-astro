@@ -121,7 +121,7 @@
                   "absolute top-0 right-0 h-full hover:-translate-y-2"
                 : // if there's not yet a selected item
                   "lg:opacity-0 group-hover:opacity-100"
-            } mt-auto duration-1000 lg:block lg:pointer-events-auto`}
+            } mt-auto duration-500 lg:block lg:pointer-events-auto`}
           >
             <div
               class={`left-0 top-0 h-full w-full absolute ${
@@ -135,9 +135,9 @@
               }`}
               alt="back button"
             />
-            <span class="relative"
-              >{selected ? "" : translation.misc.show_more}</span
-            >
+            <span class="relative">
+              {selected ? "" : translation.misc.show_more}
+            </span>
           </button>
 
           <!-- Button for Smaller Screens -->
