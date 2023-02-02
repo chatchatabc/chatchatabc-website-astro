@@ -9,7 +9,9 @@ import { getCollection } from "astro:content";
 
 changeLanguage("zh");
 
-const blogs = await getCollection("blogs");
+const blogs = (await getCollection("blogs")).filter((blog) => {
+    return blog.data.draft !== true;
+});
 const { pathname } = Astro.url;
 ---
 
@@ -30,7 +32,7 @@ const { pathname } = Astro.url;
               summary_image,
             } = data;
             return (
-              <li class="border-2 border-primary rounded-sm overflow-hidden">
+              <li class="border-2 border-primary rounded-xl overflow-hidden">
                 <div class="h-full grid lg:grid-cols-5">
                   <div class="h-64 lg:h-full lg:col-span-2">
                     <a href={utilUrlFix(pathname, `/${slug}`)}>
