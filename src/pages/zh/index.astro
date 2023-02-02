@@ -169,9 +169,11 @@ const techIntro = await miscList
     id={"software-development"}
   >
     <div class="px-2 grid">
+      <!-- Introduction -->
       <div
         class="flex px-4 flex-col-reverse w-full text-justify h-fit rounded-t-3xl py-4 bg-surfaceVariant border-2 border-tertiary shadow-xl md:block"
       >
+        <!-- Image Content -->
         <div class="pb-4 md:float-right md:ml-16 md:px-4 md:w-1/2">
           <ImageViewer
             imgUrl="/images/tech-stack.png"
@@ -185,6 +187,8 @@ const techIntro = await miscList
             />
           </ImageViewer>
         </div>
+
+        <!-- Text Content -->
         <div class="lg:px-16">
           <div
             class="text-capitalize text-2xl flex flex-wrap md:text-4xl lg:leading-[4rem] lg:text-5xl lg:w-min lg:py-4 xl:flex-col"
@@ -216,7 +220,7 @@ const techIntro = await miscList
                     <Content />
                   </Markdown>
                 </div>
-                <div class="mx-8 text-lg bg-tertiary text-onTertiary py-2 rounded-md px-4">
+                <div class="mx-8 text-xl bg-tertiary text-onTertiary py-2 rounded-md px-4">
                   {data.title}
                 </div>
               </div>

@@ -15,45 +15,37 @@ changeLanguage("en");
 // Get md files based on the current language
 const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const jobs = await getCollection(`jobs`, (job) =>
-  job.id.startsWith(`${currentLanguage}/`)
-);
-const aboutList = await getCollection(`about`, (about) =>
-  about.id.startsWith(`${currentLanguage}/`)
-);
-const techStack = await getCollection("tech-stack", (tech) =>
-  tech.id.startsWith(`${currentLanguage}/`)
-);
-const miscList = await getCollection("misc", (misc) =>
-  misc.id.startsWith(`${currentLanguage}/`)
-);
+const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
+const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
+const techStack = await getCollection("tech-stack", (tech) => tech.id.startsWith(`${currentLanguage}/`));
+const miscList = await getCollection("misc", (misc) => misc.id.startsWith(`${currentLanguage}/`));
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
-  .find((job) => job.slug === "java-developer")!
-  .render();
+    .find((job) => job.slug === "java-developer")!
+    .render();
 const webDeveloper = await jobs
-  .find((job) => job.slug === "web-developer")!
-  .render();
+    .find((job) => job.slug === "web-developer")!
+    .render();
 const webDesigner = await jobs
-  .find((job) => job.slug === "web-designer")!
-  .render();
+    .find((job) => job.slug === "web-designer")!
+    .render();
 const backendEngineer = await jobs
-  .find((job) => job.slug === "backend-engineer")!
-  .render();
+    .find((job) => job.slug === "backend-engineer")!
+    .render();
 // Render About MD Contents
 const about1 = await aboutList
-  .find((about) => about.slug === "about-1")!
-  .render();
+    .find((about) => about.slug === "about-1")!
+    .render();
 const about2 = await aboutList
-  .find((about) => about.slug === "about-2")!
-  .render();
+    .find((about) => about.slug === "about-2")!
+    .render();
 const about3 = await aboutList
-  .find((about) => about.slug === "about-3")!
-  .render();
+    .find((about) => about.slug === "about-3")!
+    .render();
 // Render tech stack intro MD
 const techIntro = await miscList
-  .find((misc) => misc.slug === "tech-stack-intro")!
-  .render();
+    .find((misc) => misc.slug === "tech-stack-intro")!
+    .render();
 ---
 
 <Layout title="ChatChatABC">
@@ -177,9 +169,11 @@ const techIntro = await miscList
     id={"software-development"}
   >
     <div class="px-2 grid">
+      <!-- Introduction -->
       <div
         class="flex px-4 flex-col-reverse w-full text-justify h-fit rounded-t-3xl py-4 bg-surfaceVariant border-2 border-tertiary shadow-xl md:block"
       >
+        <!-- Image Content -->
         <div class="pb-4 md:float-right md:ml-16 md:px-4 md:w-1/2">
           <ImageViewer
             imgUrl="/images/tech-stack.png"
@@ -193,6 +187,8 @@ const techIntro = await miscList
             />
           </ImageViewer>
         </div>
+
+        <!-- Text Content -->
         <div class="lg:px-16">
           <div
             class="text-capitalize text-2xl flex flex-wrap md:text-4xl lg:leading-[4rem] lg:text-5xl lg:w-min lg:py-4 xl:flex-col"
