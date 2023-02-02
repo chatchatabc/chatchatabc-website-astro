@@ -1,17 +1,42 @@
 ---
 title: Why we choose Astro to build website?
 summary: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-slug: why-asto
+slug: why-astro
 tags: astro, website
 date: January 25, 2023
 author_name: Raphael Dalangin
 author_link: https://github.com/BoJoNVi
 author_image: https://avatars.githubusercontent.com/u/60991513
 summary_image: /images/blog/astro-site-build.png
+draft: true
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+In ChatChatABC, almost we choose Astro to build website, and we will explain why we choose Astro to build website.
 
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+### Features
 
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+* Zero JavaScript Runtime
+* Island Architecture
+* Deploy to anywhere
+* Content Management
+
+### Island Architecture
+
+Astro Island: refers to an interactive UI component on an otherwise static page of HTML. Multiple islands can exist on a page, and an island always renders in isolation.
+Think of them as islands in a sea of static, non-interactive HTML.
+
+![island architecture](/images/blog/island-architecture.png)
+
+In short, you can use Astro to build a website that has a lot of interactive UI components, and these components could be built with any framework you want, such as React.js, Svelte, Vue.js etc.
+
+### SSR or SSG
+
+SSR(Server Side Rendering) or SSG(Static Site Generation) is a way to render your website.
+SSR is a way to render your website on the server, and SSG is a way to render your website on the build time.
+
+
+![SSR or SSG](/images/blog/ssr-vs-ssg.jpg)
+
+We choose SSG because we want to build a website that we can pay less for hosting, and website can be loaded faster to avoid unnecessary network calls from the server.
+How to reduce JavaScript code size?  This is another reason why we choose Astro: ship Less JavaScript and more HTML.
+
