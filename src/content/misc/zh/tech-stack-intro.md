@@ -5,7 +5,6 @@ id: software-development
 slug: tech-stack-intro
 ---
 
-We uphold the principle of making everything transparent, and let customers understand our technology and our team, so that customers can make their final correct decisions.
-The ChatChatABC team is still relatively young, and we cannot provide customers with good business and commercial advice, but we hope to help customers with the technology we know and are good at.
+我们秉承让一切透明原则，让客户了解我们的技术，了解我们的团队，客户才能做出自己最终的正确决定。 ChatChatABC 团队目前还比较年轻，我们没法为客户提供业务和商业上很好的建议，但是我们希望通过我们了解并擅长的技术，助客户一臂之力。
 
-Software development involves a wide range of people and technologies. At present, the picture on the right is the technology stack we are relatively good at. Here we also give some brief introductions to facilitate customers to have a comprehensive understanding.
+软件开发涉及的人员和技术非常广泛，目前右图是我们相对比较擅长的技术栈，这里我们也进行一些简单的介绍，方便客户有一个全面的了解。
