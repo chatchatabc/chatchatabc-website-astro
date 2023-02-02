@@ -36,10 +36,10 @@
               "w-full"
             : selected
             ? // Hide item if other was already selected
-              "p-0 md:w-0 md:h-0 md:opacity-0"
+              "md:w-0 md:h-0 md:opacity-0"
             : // Show item while none is selected
-              "opacity-100 w-full py-4 p-2 md:w-[45%]"
-        }`}
+              "opacity-100 w-full md:w-[45%]"
+        } py-4 p-2`}
       >
         <!-- Title -->
         <div class="relative text-center">
@@ -55,7 +55,7 @@
                 "shadow-2xl lg:max-h-[70vh] lg:shadow-neutral-700 lg:flex-row"
               : // if the current item is not selected
                 "shadow-xl overflow-hidden min-h-[300px]"
-          } duration-500 relative flex group flex-1`}
+          } duration-500 relative flex group flex-1 overflow-hidden`}
         >
           <!-- Image || Avatar -->
           <div
