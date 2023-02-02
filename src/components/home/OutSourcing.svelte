@@ -105,9 +105,7 @@
               </div>
             </div>
           {:else}
-            <p
-              class="text-justify text-sm px-4 py-2 whitespace-pre-wrap md:text-base"
-            >
+            <p class=" text-sm px-4 py-2 whitespace-pre-wrap md:text-base">
               {position.data.summary}
             </p>
           {/if}
