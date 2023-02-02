@@ -21,6 +21,12 @@ const jobs = await getCollection(`jobs`, (job) =>
 const aboutList = await getCollection(`about`, (about) =>
   about.id.startsWith(`${currentLanguage}/`)
 );
+const techStack = await getCollection("tech-stack", (tech) =>
+  tech.id.startsWith(`${currentLanguage}/`)
+);
+const miscList = await getCollection("misc", (misc) =>
+  misc.id.startsWith(`${currentLanguage}/`)
+);
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
   .find((job) => job.slug === "java-developer")!
@@ -34,7 +40,7 @@ const webDesigner = await jobs
 const backendEngineer = await jobs
   .find((job) => job.slug === "backend-engineer")!
   .render();
-// Render docs MD Contents
+// Render About MD Contents
 const about1 = await aboutList
   .find((about) => about.slug === "about-1")!
   .render();
@@ -44,10 +50,10 @@ const about2 = await aboutList
 const about3 = await aboutList
   .find((about) => about.slug === "about-3")!
   .render();
-const developmentDoc = await getCollection(`misc`, (data) =>
-  data.id.startsWith(`${currentLanguage}/`)
-).then((list) => list.find((doc) => doc.slug === "software-development")!);
-const development = await developmentDoc.render();
+// Render tech stack intro MD
+const techIntro = await miscList
+  .find((misc) => misc.slug === "tech-stack-intro")!
+  .render();
 ---
 
 <Layout title="ChatChatABC">
@@ -170,11 +176,11 @@ const development = await developmentDoc.render();
     sectionTitle={t("links.software_development") ?? "software development"}
     id={"software-development"}
   >
-    <div class="px-2 grid [&>*]:px-4 [&>*]:pb-4">
+    <div class="px-2 grid">
       <div
-        class="w-full text-justify h-fit rounded-t-3xl py-4 bg-surfaceVariant border-2 border-tertiary shadow-xl"
+        class="flex px-4 flex-col-reverse w-full text-justify h-fit rounded-t-3xl py-4 bg-surfaceVariant border-2 border-tertiary shadow-xl md:block"
       >
-        <div class="float-right pb-4 md:px-4 md:w-1/2">
+        <div class="pb-4 md:float-right md:ml-16 md:px-4 md:w-1/2">
           <ImageViewer
             imgUrl="/images/tech-stack.png"
             className=""
@@ -187,9 +193,42 @@ const development = await developmentDoc.render();
             />
           </ImageViewer>
         </div>
-        <Markdown>
-          <development.Content />
-        </Markdown>
+        <div class="lg:px-16">
+          <h3
+            class="text-capitalize text-2xl md:text-4xl lg:text-5xl lg:w-min lg:py-4"
+          >
+            Things To Know
+          </h3>
+          <Markdown className={"big-first-letter"}>
+            <techIntro.Content />
+          </Markdown>
+        </div>
+      </div>
+
+      <!-- List of technology -->
+      <div class="mt-16 space-y-8">
+        {
+          techStack.map(async (file, index) => {
+            const { data, render } = file;
+            const { Content } = await render();
+            return (
+              <div
+                class={`flex flex-col-reverse items-center ${
+                  index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
+              >
+                <div class="rounded-t-2xl border-2 border-tertiary py-2 px-4 bg-surfaceVariant text-justify md:w-[75%] lg:w-[48%] ">
+                  <Markdown>
+                    <Content />
+                  </Markdown>
+                </div>
+                <div class="mx-8 text-lg bg-tertiary text-onTertiary py-2 rounded-md px-4">
+                  {data.title}
+                </div>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   </Section>

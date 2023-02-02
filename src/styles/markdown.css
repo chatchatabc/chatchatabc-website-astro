@@ -246,4 +246,21 @@
   margin-top: 0.3rem;
   background-size: cover;
   background-image: url("/images/check.png");
+}
+
+.big-first-letter p::first-letter {
+  font-size: 1.5rem;
+  line-height: 1rem;
+}
+@media (min-width: 768px) {
+  .big-first-letter p::first-letter {
+    font-size: 2rem;
+    line-height: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .big-first-letter p::first-letter {
+    font-size: 3rem;
+    line-height: 1rem;
+  }
 }/*# sourceMappingURL=markdown.css.map */
