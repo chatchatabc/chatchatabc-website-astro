@@ -22,6 +22,9 @@ export async function getStaticPaths() {
 const { blog } = Astro.props;
 const { data, render } = blog;
 const { title, author_image, date, author_name, author_link, tags, summary_image, } = data;
+const formattedDate = new Intl.DateTimeFormat("en", {
+    dateStyle: "long",
+}).format(date);
 const { Content } = await render();
 ---
 
@@ -79,7 +82,7 @@ const { Content } = await render();
         </h1>
         <p class="text-xs text-neutral-500 md:text-sm lg:py-4">
           <span class="font-bold">Date:</span>
-          {date ?? "No Date"}
+          {formattedDate ?? "No Date"}
           <span class="ml-4 font-bold">Tags:</span>
           {tags ?? "No tags"}
         </p>
