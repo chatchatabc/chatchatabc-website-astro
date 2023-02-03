@@ -9,9 +9,13 @@
   // Value is null when none is selected
   let selected: number | null = null;
 
-  const handleBtn = (index: number) => {
+  const handleBtn = (index: number, id?: string) => {
     if (selected && selected === index) selected = null;
     else selected = index;
+    if (id) {
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView();
+    }
   };
 
   let translation: ObjectInterface = { misc: {} };
@@ -29,14 +33,14 @@
   >
     {#each jobs as position, index}
       <li
-        tabIndex={selected === index + 1 ? -1 : index + 1}
+        id={`outsourcing-${position.data.title}`}
         class={`duration-500 flex-col flex ${
           index + 1 === selected
             ? // Show item design if it is selected
               "w-full"
             : selected
             ? // Hide item if other was already selected
-              "md:w-0 md:h-0 md:opacity-0"
+              "md:w-0 md:h-0 md:opacity-0 md:p-0"
             : // Show item while none is selected
               "opacity-100 w-full md:w-[45%]"
         } py-4 p-2`}
@@ -112,7 +116,7 @@
 
           <!-- Button for Desktop -->
           <button
-            on:click={() => handleBtn(index + 1)}
+            on:click={() => handleBtn(index + 1, `outsourcing`)}
             class={`hidden pointer-events-none relative p-2 text-onPrimary ${
               selected
                 ? // if there's a selected item
@@ -140,7 +144,8 @@
 
           <!-- Button for Smaller Screens -->
           <button
-            on:click={() => handleBtn(index + 1)}
+            on:click={() =>
+              handleBtn(index + 1, `outsourcing-${position.data.title}`)}
             class="mt-auto p-2 bg-tertiary text-onPrimary lg:hidden"
           >
             <span>
