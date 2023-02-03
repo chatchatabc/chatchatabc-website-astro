@@ -10,7 +10,7 @@ import { getCollection } from "astro:content";
 changeLanguage("en");
 
 const blogs = (await getCollection("blogs")).filter((blog) => {
-    return blog.data.draft !== true;
+  return blog.data.draft !== true;
 });
 const { pathname } = Astro.url;
 ---
@@ -31,6 +31,9 @@ const { pathname } = Astro.url;
               author_image,
               summary_image,
             } = data;
+            const formattedDate = new Intl.DateTimeFormat("en", {
+              dateStyle: "long",
+            }).format(date);
             return (
               <li class="border-2 border-primary rounded-xl overflow-hidden">
                 <div class="h-full grid lg:grid-cols-5">
@@ -93,7 +96,7 @@ const { pathname } = Astro.url;
                           <span class="text-neutral-600 font-medium">
                             Date:
                           </span>{" "}
-                          {date ?? "No Date"}
+                          {formattedDate ?? "No Date"}
                         </p>
                       </div>
                     </div>

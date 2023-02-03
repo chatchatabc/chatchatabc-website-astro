@@ -5,11 +5,11 @@ export const blogSchema = defineCollection({
     title: z.string(),
     summary: z.string(),
     tags: z.string(),
-    date: z.string(),
+    date: z.date(),
     author_name: z.string(),
     author_link: z.string(),
     author_image: z.string(),
     summary_image: z.string(),
-    draft: z.boolean().optional()
+    draft: z.boolean().optional(),
   }),
 });
