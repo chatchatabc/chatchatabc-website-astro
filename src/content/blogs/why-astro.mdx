@@ -12,43 +12,49 @@ summary_image: /images/blog/astro-site-build.png
 
 ### Introduction
 
-Astro is a powerful JAMstack framework that helps developers to build a great content-based website for their projects. Astro is mainly known for its great versatile architecture and easy-to-use technologies that ensure a great developer experience when developing a project website. In ChatChatABC, most of the time we choose Astro to build a website, and we will explain why we choose Astro and why you should also use it for your next project. Let's start!
+**Astro** is a powerful **JAMstack** framework that helps developers to build a great **content-based website** for their projects. Astro is mainly known for its [unique architecture](#island-architecture) and its [outstanding performance](#outstanding-loading-performance), which ensures both the developer experience and user experience have a great time having it.
+
+In [ChatChatABC](/), most of the time we choose Astro to build a website, and we will explain why we choose Astro and why you should also use it for your next project. Let's start!
 
 ### Features
 
-We know that there are a lot of different JAMstack out there aside from Astro, such as Next.js, Gatsby, Nuxt.js, Hugo, etc., but how does Astro stand out from the rest? Here are some of the cool features that Astro has in their system:
+We know that there are a lot of different JAMstack out there aside from Astro, such as `Next.js, Gatsby, Nuxt.js, Hugo, etc.`, but how does **Astro** stand out from the rest? Here are some of the **cool features** that Astro has in their system:
 
-- Component Islands: A new web architecture for building faster websites.
-- Server-first API design: Move expensive hydration off of your users’ devices.
-- Zero JS, by default: No JavaScript runtime overhead to slow you down.
-- Edge-ready: Deploy anywhere, even a global edge runtime like Deno or Cloudflare.
-- Customizable: Tailwind, MDX, and 100+ other integrations to choose from.
-- UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more.
-- Content Collections: Type-Safe Markdown
+- **Component Islands**: A new web architecture for building faster websites.
+- **Server-first API design**: Move expensive hydration off of your users’ devices.
+- **Zero JS, by default**: No JavaScript runtime overhead to slow you down.
+- **Edge-ready**: Deploy anywhere, even a global edge runtime like Deno or Cloudflare.
+- **Customizable**: Tailwind, MDX, and 100+ other integrations to choose from.
+- **UI-agnostic**: Supports React, Preact, Svelte, Vue, Solid, Lit and more.
+- **Content Collections**: Type-Safe Markdown
 
 ### Island Architecture
 
-One of the cool things about Astro that made them different from any other JAMstack frameworks out there is because of their unique web architecture that they call **`"Astro Island"`**.
+One of the cool things about Astro that made them different from any other JAMstack frameworks out there is the unique web architecture that they have which they call **`"Astro Island"`**.
 
-Astro Island: refers to an interactive UI component on an otherwise static page of HTML. Multiple islands can exist on a page, and an island always renders in isolation. Think of it like an island in a sea of static HTML.
+**Astro Island**: refers to an interactive UI component on an otherwise static page of HTML. Multiple islands can exist on a page, and an island always renders in isolation. Think of it like an island in a sea of static HTML.
 
 ![island architecture](/images/blog/island-architecture.png)
 
-In short, you can use Astro to build a website that has a lot of interactive UI components, and these components could be built with any framework you want, such as React.js, Svelte, Vue.js etc.
+In short, you can use Astro to build a website that has a lot of reactive UI components that are built with any framework you want, such as **React.js**, **Svelte**, **Vue.js**, etc.
 
-### SSR or SSG
+### SSR or SSG on Astro
 
-SSR(Server Side Rendering) or SSG(Static Site Generation) is a way to render your website.
-SSR is a way to render your website on the server, and SSG is a way to render your website on the build time.
+By using Astro, we can create website projects that are rendered in **SSR** (`Server Side Rendering`) or **SSG** (`Static Site Generation`) or **both at the same time** (`hybrid rendering`). But choosing one of these two main ways would greatly depend on your needs and resources for the project.
+
+`*For more information about `SSR`and`SSG`, both of them is the way how you would render your project website, either render it on a server (SSR) or render it on build time (SSG).*`
 
 ![SSR or SSG](/images/blog/ssr-vs-ssg.jpg)
 
-We choose SSG because we want to build a website that we can pay less for hosting, and website can be loaded faster to avoid unnecessary network calls from the server.
-How to reduce JavaScript code size? This is another reason why we choose Astro: ship Less JavaScript and more HTML.
+Most of the time we use SSG instead of SSR, as SSG provides more benefits compared to SSR based on the projects that we develop here in [ChatChatABC](/). One good thing about SSG is that it provides less cost for us and for our clients when building a **content-based website** for them. Aside from having low cost, it also provides better performance since there would be no unnecessary network calls from the server when loading the web page.
 
-### Zero JS, by default
+### Outstanding Loading Performance
 
-The right website provides a great user experience, improves SEO, reduces bounce rates, increases engagement, and makes the whole thing faster.
+Another reason why we choose Astro is that it provides **better loading performance** for your static website than other JAMstack frameworks out there. One way of providing better loading performance is by shipping **fewer JavaScript** files/codes to your static website, meaning that your website would have lesser time to fetch and serve your main content to your users.
+
+![Astro Performance](/images/blog/astro-vs-next.png)
+
+#### Benefits
 
 1. **Improved User Experience**: A fast website provides a better user experience, as users can quickly access the content they want without waiting for slow page loads or experiencing lag.
 
@@ -59,3 +65,11 @@ The right website provides a great user experience, improves SEO, reduces bounce
 4. **Increased Engagement**: A fast website can increase engagement, as users are more likely to spend more time on a website that loads quickly and provides a good experience.
 
 5. **Improved Mobile Experience**: With the growing use of mobile devices to access the internet, it is increasingly important to provide a fast website experience on mobile devices, as slow load times on mobile can lead to higher bounce rates and lower engagement.
+
+### Conclusions
+
+Astro is able to provide a **great developer experience** by providing a versatile environment for using various multiple JavaScript frameworks within their web architecture called [Astro Islands](#island-architecture). Astro also provides a [better loading performance](#outstanding-loading-performance) for your static websites by providing less JavaScript for your user's browsers. Thus, building a project website with Astro is really good if you are planning to build a content-based website for your users and being rendered on **build time** ([SSG](#ssr-or-ssg-on-astro)).
+
+### References
+
+- **Astro** - https://docs.astro.build/en/concepts/why-astro/

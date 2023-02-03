@@ -72,7 +72,7 @@
   font-weight: 400;
 }
 .markdown-body a {
-  text-decoration: none;
+  text-decoration: underline;
   color: #1976d2;
   color: var(--bf-primary);
 }
@@ -85,6 +85,7 @@
 .markdown-body a:focus,
 .markdown-body a:hover {
   text-decoration: underline;
+  color: green;
 }
 .markdown-body ul,
 .markdown-body ol {
