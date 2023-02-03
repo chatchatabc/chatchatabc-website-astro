@@ -29,11 +29,11 @@ const {
     <!-- astro-i18next -->
     <HeadHrefLangs />
 
-    <!-- Cedarville Cursive -->
+    <!-- Patrick Hand -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Handlee&display=swap"
       rel="stylesheet"
     />
 
@@ -59,33 +59,32 @@ const {
       <slot />
     </main>
     <Footer />
+    <style is:global>
+      /* Ellipsis */
+      .ellipsis {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+
+      /* Scrollbar */
+      .scrollbar::-webkit-scrollbar {
+        /* width */
+        width: 10px;
+      }
+      .scrollbar::-webkit-scrollbar-track {
+        /* Track */
+        box-shadow: inset 0 0 5px #e8def8;
+        border-radius: 10px;
+      }
+      .scrollbar::-webkit-scrollbar-thumb {
+        /* Handle */
+        background: #76a99d;
+        border-radius: 10px;
+      }
+      .scrollbar::-webkit-scrollbar-thumb:hover {
+        /* Handle on hover */
+        background: #76a99d;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  /* Ellipsis */
-  .ellipsis {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-  }
-
-  /* Scrollbar */
-  .scrollbar::-webkit-scrollbar {
-    /* width */
-    width: 10px;
-  }
-  .scrollbar::-webkit-scrollbar-track {
-    /* Track */
-    box-shadow: inset 0 0 5px #e8def8;
-    border-radius: 10px;
-  }
-  .scrollbar::-webkit-scrollbar-thumb {
-    /* Handle */
-    background: #76a99d;
-    border-radius: 10px;
-  }
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    /* Handle on hover */
-    background: #76a99d;
-  }
-</style>

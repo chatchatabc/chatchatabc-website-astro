@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cursive: ["Cedarville Cursive", "cursive"],
+        handlee: ["Handlee", "cursive"],
       },
       colors: {
         primary: "#1c6d00",
