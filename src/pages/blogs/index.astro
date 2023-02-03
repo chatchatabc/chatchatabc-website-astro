@@ -9,9 +9,11 @@ import { getCollection } from "astro:content";
 
 changeLanguage("en");
 
-const blogs = (await getCollection("blogs")).filter((blog) => {
-  return blog.data.draft !== true;
-});
+const blogs = (await getCollection("blogs"))
+  .filter((blog) => {
+    return blog.data.draft !== true;
+  })
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 const { pathname } = Astro.url;
 ---
 
