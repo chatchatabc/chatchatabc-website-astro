@@ -21,7 +21,7 @@ const { pathname } = Astro.url;
   <Section sectionTitle={t("links.blogs") ?? "blogs"}>
     {
       blogs.length ? (
-        <ul class="grid md:grid-cols-2 px-8 gap-4 space-y-2 md:space-y-0">
+        <ul class="grid md:grid-cols-2 gap-4 space-y-2 px-2 md:px-4 lg:px-8 md:space-y-0">
           {blogs.map((blog) => {
             const { data, slug } = blog;
             const {
