@@ -10,11 +10,10 @@ import { getCollection } from "astro:content";
 changeLanguage("en");
 
 const blogs = (await getCollection("blogs"))
-  .filter((blog) => {
+    .filter((blog) => {
     return blog.data.draft !== true;
-  })
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-console.log(blogs);
+})
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const { pathname } = Astro.url;
 ---
 
