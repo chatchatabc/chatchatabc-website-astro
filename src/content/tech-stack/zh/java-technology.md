@@ -4,6 +4,7 @@ summary: test
 id: java-technology
 slug: java-technology
 order: 2
+icons: []
 ---
 
 Java 依然是企业应用开发的主流，也是众多大型公司的主要开发语言，如果是一些企业应用或者大型项目的话，我们建议客户采用更为成熟的 Java 技术栈，这样风险会更低，同时也能更好的保证项目的质量。
