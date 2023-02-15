@@ -4,6 +4,7 @@ summary: test
 id: site-development
 slug: site-development
 order: 1
+icons: []
 ---
 
 针对中小公司的网站和站点，我们建议客户采用更性更轻量级的技术栈，如 Astro, Next.js 等，主要是开发快捷，同时部署的成本也比较低。
