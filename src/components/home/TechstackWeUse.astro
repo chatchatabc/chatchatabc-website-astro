@@ -1,0 +1,156 @@
+---
+import Markdown from "@components/widgets/Markdown.astro";
+import { utilGetCurrentLangauge } from "@helpers/commonUtils";
+import { getCollection } from "astro:content";
+import { Img } from "astro-imagetools/components";
+
+// Get md files based on the current language
+const { pathname } = Astro.url;
+const currentLanguage = utilGetCurrentLangauge(pathname);
+const miscList = await getCollection("misc", (misc) =>
+  misc.id.startsWith(`${currentLanguage}/`)
+);
+const techStack = [
+  ...(
+    await getCollection("tech-stack", (tech) =>
+      tech.id.startsWith(`${currentLanguage}/`)
+    )
+  ).sort((tech1, tech2) => tech1.data.order - tech2.data.order),
+];
+
+// Render tech stack intro MD
+const techIntro = await miscList
+  .find((misc) => misc.slug === "tech-stack-intro")!
+  .render();
+
+const middleIndexTechStack = techStack.length / 2;
+---
+
+<techstack-we-use>
+  <!-- Introduction -->
+  <article>
+    <header>
+      <h3 class="text-center text-3xl text-primary font-bold py-2">
+        Techstack We Use
+      </h3>
+    </header>
+    <Markdown className={"text-center"}>
+      <techIntro.Content />
+    </Markdown>
+  </article>
+
+  <div class="grid md:grid-cols-2">
+    <!-- Left -->
+    <ul>
+      {
+        [...techStack]
+          .slice(0, middleIndexTechStack)
+          .map(async (file, index) => {
+            const { data, render } = file;
+            const { Content } = await render();
+            return (
+              <li class="p-2">
+                <article class="border-2 bg-surfaceVariant p-2 border-tertiary rounded-xl shadow-xl">
+                  <header class="relative">
+                    <h4 class="text-xl text-primary font-medium lg:text-2xl">
+                      {data.title}
+                    </h4>
+                    <ul class="flex flex-wrap py-2">
+                      {data.icons.map((icon) => {
+                        return (
+                          <li class="w-12 h-12 p-1">
+                            <Img
+                              src={`/images/techstacks/${icon}`}
+                              alt={"java"}
+                              layout="constrained"
+                            />
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <button class="absolute text-white px-4 py-1 rounded-md right-0 top-1/2 -translate-y-1/2 bg-tertiary">
+                      View
+                    </button>
+                  </header>
+                  <Markdown
+                    className={"tech-details overflow-hidden duration-300"}
+                  >
+                    <Content />
+                  </Markdown>
+                </article>
+              </li>
+            );
+          })
+      }
+    </ul>
+
+    <!-- Right -->
+    <ul>
+      {
+        [...techStack].slice(middleIndexTechStack).map(async (file, index) => {
+          const { data, render } = file;
+          const { Content } = await render();
+          return (
+            <li class="p-2">
+              <article class="border-2 bg-surfaceVariant p-2 border-tertiary rounded-xl shadow-xl">
+                <header class="relative">
+                  <h4 class="text-xl text-primary font-medium lg:text-2xl">
+                    {data.title}
+                  </h4>
+                  <ul class="flex flex-wrap py-2">
+                    {data.icons.map((icon) => {
+                      return (
+                        <li class="w-12 h-12 p-1">
+                          <Img
+                            src={`/images/techstacks/${icon}`}
+                            alt={"java"}
+                            layout="constrained"
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <button class="absolute text-white px-4 py-1 rounded-md right-0 top-1/2 -translate-y-1/2 bg-tertiary">
+                    View
+                  </button>
+                </header>
+                <Markdown
+                  className={"tech-details overflow-hidden duration-300"}
+                >
+                  <Content />
+                </Markdown>
+              </article>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</techstack-we-use>
+
+<script>
+  class TechstackWeUse extends HTMLElement {
+    constructor() {
+      super();
+
+      const buttons = this.querySelectorAll("button");
+      const techDetails = this.querySelectorAll<HTMLElement>(".tech-details");
+
+      techDetails.forEach((techDetail) => {
+        techDetail.style.maxHeight = "0";
+      });
+
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          if (techDetails[index].style.maxHeight === "0px") {
+            techDetails[index].style.maxHeight = "500px";
+          } else {
+            techDetails[index].style.maxHeight = "0";
+          }
+        });
+      });
+    }
+  }
+
+  customElements.define("techstack-we-use", TechstackWeUse);
+</script>

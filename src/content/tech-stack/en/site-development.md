@@ -4,7 +4,7 @@ summary: test
 id: site-development
 slug: site-development
 order: 1
-icons: []
+icons: ["astro.png", "tailwind.png"]
 ---
 
 For the websites and sites of small and medium-sized companies, we recommend customers to adopt more flexible and lightweight technology stacks, such as Astro, Next.js, etc., mainly because the development is fast and the cost of deployment is relatively low.
