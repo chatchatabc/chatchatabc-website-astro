@@ -43,51 +43,49 @@ const middleIndexTechStack = techStack.length / 2;
     <!-- Left -->
     <ul>
       {
-        [...techStack]
-          .slice(0, middleIndexTechStack)
-          .map(async (file, index) => {
-            const { data, render } = file;
-            const { Content } = await render();
-            return (
-              <li class="p-2">
-                <article class="border-2 bg-surfaceVariant p-2 border-tertiary rounded-xl shadow-xl">
-                  <header class="relative">
-                    <h4 class="text-xl text-primary font-medium lg:text-2xl">
-                      {data.title}
-                    </h4>
-                    <ul class="flex flex-wrap py-2">
-                      {data.icons.map((icon) => {
-                        return (
-                          <li class="w-12 h-12 p-1">
-                            <Picture
-                              src={`/images/techstacks/${icon}`}
-                              alt={"java"}
-                              layout="constrained"
-                            />
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    <button class="absolute text-white px-4 py-1 rounded-md right-0 top-1/2 -translate-y-1/2 bg-tertiary">
-                      View
-                    </button>
-                  </header>
-                  <Markdown
-                    className={"tech-details overflow-hidden duration-300"}
-                  >
-                    <Content />
-                  </Markdown>
-                </article>
-              </li>
-            );
-          })
+        [...techStack].slice(0, middleIndexTechStack).map(async (file) => {
+          const { data, render } = file;
+          const { Content } = await render();
+          return (
+            <li class="p-2">
+              <article class="border-2 bg-surfaceVariant p-2 border-tertiary rounded-xl shadow-xl">
+                <header class="relative">
+                  <h4 class="text-xl text-primary font-medium lg:text-2xl">
+                    {data.title}
+                  </h4>
+                  <ul class="flex flex-wrap py-2">
+                    {data.icons.map((icon) => {
+                      return (
+                        <li class="w-12 h-12 p-1">
+                          <Picture
+                            src={`/images/techstacks/${icon}`}
+                            alt={"java"}
+                            layout="constrained"
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <button class="absolute text-white px-4 py-1 rounded-md right-0 top-1/2 -translate-y-1/2 bg-tertiary">
+                    View
+                  </button>
+                </header>
+                <Markdown
+                  className={"tech-details overflow-hidden duration-300"}
+                >
+                  <Content />
+                </Markdown>
+              </article>
+            </li>
+          );
+        })
       }
     </ul>
 
     <!-- Right -->
     <ul>
       {
-        [...techStack].slice(middleIndexTechStack).map(async (file, index) => {
+        [...techStack].slice(middleIndexTechStack).map(async (file) => {
           const { data, render } = file;
           const { Content } = await render();
           return (
