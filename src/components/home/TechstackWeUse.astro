@@ -144,8 +144,10 @@ const middleIndexTechStack = techStack.length / 2;
         button.addEventListener("click", () => {
           if (techDetails[index].style.maxHeight === "0px") {
             techDetails[index].style.maxHeight = "500px";
+            button.textContent = "Hide";
           } else {
             techDetails[index].style.maxHeight = "0";
+            button.textContent = "View";
           }
         });
       });
