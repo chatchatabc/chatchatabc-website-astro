@@ -2,7 +2,7 @@
 import Markdown from "@components/widgets/Markdown.astro";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { getCollection } from "astro:content";
-import { Img } from "astro-imagetools/components";
+import { Picture } from "astro-imagetools/components";
 
 // Get md files based on the current language
 const { pathname } = Astro.url;
@@ -59,7 +59,7 @@ const middleIndexTechStack = techStack.length / 2;
                       {data.icons.map((icon) => {
                         return (
                           <li class="w-12 h-12 p-1">
-                            <Img
+                            <Picture
                               src={`/images/techstacks/${icon}`}
                               alt={"java"}
                               layout="constrained"
@@ -101,7 +101,7 @@ const middleIndexTechStack = techStack.length / 2;
                     {data.icons.map((icon) => {
                       return (
                         <li class="w-12 h-12 p-1">
-                          <Img
+                          <Picture
                             src={`/images/techstacks/${icon}`}
                             alt={"java"}
                             layout="constrained"

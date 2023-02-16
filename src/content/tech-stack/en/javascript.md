@@ -4,7 +4,7 @@ summary: test
 id: javascript
 slug: javascript
 order: 4
-icons: ["js.png", "ts.png"]
+icons: ["js.png", "ts.png", "nodejs.png", "deno.png", "bun.png"]
 ---
 
 JavaScript/TypeScript is currently the most popular development language, and this trend will not change in a short time. For some start-ups or innovative projects, we recommend that customers adopt a JS/TS-based full-stack technology architecture, and in fact we do the same.
