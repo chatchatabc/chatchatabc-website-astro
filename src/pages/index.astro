@@ -5,6 +5,7 @@ import OutSourcing from "@components/home/OutSourcing.svelte";
 import AboutUs from "@components/home/AboutUs.svelte";
 import Markdown from "@components/widgets/Markdown.astro";
 import TechstackWeUse from "@components/home/TechstackWeUse.astro";
+import CareersSection from "@components/home/CareersSection.astro";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { Img } from "astro-imagetools/components";
 import { t, changeLanguage } from "i18next";
@@ -170,6 +171,16 @@ const about3 = await aboutList
       <about2.Content slot="about-2" />
       <about3.Content slot="about-3" />
     </AboutUs>
+  </Section>
+
+  <!-- Careers Section -->
+  <Section id={"careers"}>
+    <header>
+      <h2 class="text-primary text-center font-bold text-2xl lg:text-3xl">
+        Careers
+      </h2>
+    </header>
+    <CareersSection />
   </Section>
 </Layout>
 

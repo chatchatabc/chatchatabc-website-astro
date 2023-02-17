@@ -1,0 +1,139 @@
+---
+import Markdown from "@components/widgets/Markdown.astro";
+import { utilGetCurrentLangauge } from "@helpers/commonUtils";
+import { Picture } from "astro-imagetools/components";
+import { getCollection } from "astro:content";
+
+// Get md files based on the current language
+const { pathname } = Astro.url;
+const currentLanguage = utilGetCurrentLangauge(pathname);
+const careers = await getCollection(`careers`, (career) =>
+  career.id.startsWith(`${currentLanguage}/`)
+);
+---
+
+<careers-section
+  class="container mx-auto bg-surfaceVariant overflow-hidden rounded-xl border-2 mt-4 border-tertiary flex flex-col lg:flex-row"
+>
+  <!-- Left Section -->
+  <section class="bg-tertiary flex-1 p-2 py-8 lg:p-8">
+    <figure class="text-center">
+      <div class="w-40 h-40 rounded-full overflow-hidden mx-auto">
+        <Picture src="/images/jobs/careers.jpg" alt="careers" />
+      </div>
+      <figcaption class="lg:mt-8">
+        <header>
+          <h3 class="text-white text-lg font-medium md:text-2xl">
+            We offer jobs for those who are interested
+          </h3>
+        </header>
+        <p class="text-neutral-200 text-sm md:text-base">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, ab
+          reprehenderit mollitia pariatur aspernatur veritatis quibusdam
+          sapiente praesentium quaerat quas nostrum alias est at tempora sed.
+          Autem dolores veritatis dolore.
+        </p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Right Section -->
+  <section
+    id="careers-container"
+    class="flex-[2] flex flex-wrap group lg:[&:hover>*:not(:hover)]:scale-90"
+  >
+    {
+      careers.map(async (career) => {
+        const { data, render } = career;
+        const { title, imageUrl } = data;
+        const { Content } = await render();
+        return (
+          <button class="py-2 border-2 border-tertiary shrink-0 w-full transition-transform duration-500 overflow-hidden lg:hover:scale-95 lg:group-hover:rounded-xl md:w-1/2">
+            <figure>
+              <div class="text-center">
+                <span class="inline-block font-medium text-xl mb-2">
+                  {title}
+                </span>
+                <div class="mx-auto h-48 max-w-[200px]">
+                  <Picture src={imageUrl} alt={title} layout="constrained" />
+                </div>
+              </div>
+              <figcaption class="mt-2 h-0 text-left origin-top scale-y-0 careers-figcaption">
+                <Markdown className={"li-check"}>
+                  <Content />
+                </Markdown>
+                <span class="inline-block w-full animate-pulse transition font-bold text-center">
+                  Tap here to close
+                </span>
+              </figcaption>
+            </figure>
+          </button>
+        );
+      })
+    }
+  </section>
+</careers-section>
+
+<script>
+  class CareersSection extends HTMLElement {
+    constructor() {
+      super();
+
+      let opened = false;
+
+      const buttons = this.querySelectorAll("button");
+      const careersFigcaptions = this.querySelectorAll(".careers-figcaption");
+
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          // If one is selected, only go here
+          if (opened) {
+            // Make all buttons visible
+            buttons.forEach((button) => {
+              button.classList.remove("hidden");
+              button.classList.add("md:w-1/2");
+              button.classList.add("lg:hover:scale-95");
+              button.classList.add("lg:group-hover:rounded-xl");
+            });
+
+            // Make all figcaptions invisible
+            careersFigcaptions.forEach((figcaption) => {
+              figcaption.classList.remove("duration-500");
+              figcaption.classList.add("h-0");
+              figcaption.classList.add("scale-y-0");
+            });
+            opened = false;
+          } else {
+            // Make all figcaptions invisible
+            careersFigcaptions.forEach((figcaption) => {
+              figcaption.classList.add("h-0");
+            });
+
+            // Show the selected figcaption
+            careersFigcaptions[index].classList.add("duration-500");
+            careersFigcaptions[index].classList.remove("h-0");
+            careersFigcaptions[index].classList.remove("scale-y-0");
+
+            // Hide all buttons except the selected one
+            buttons.forEach((button, index1) => {
+              if (index !== index1) {
+                button.classList.add("hidden");
+              } else {
+                button.classList.remove("md:w-1/2");
+                button.classList.remove("lg:hover:scale-95");
+                button.classList.remove("lg:group-hover:rounded-xl");
+              }
+            });
+
+            // Set opened to true
+            opened = true;
+          }
+
+          button.scrollIntoView();
+        });
+      });
+    }
+  }
+
+  customElements.define("careers-section", CareersSection);
+</script>

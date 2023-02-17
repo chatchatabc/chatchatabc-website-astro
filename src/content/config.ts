@@ -8,5 +8,6 @@ export const collections = {
   about: miscSchema,
   misc: miscSchema,
   blogs: blogSchema,
+  careers: jobSchema,
   "tech-stack": techStackSchema,
 };
