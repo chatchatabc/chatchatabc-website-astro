@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="relative">
+<div class="relative z-[2]">
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     on:click={() => (open = !open)}
