@@ -7,4 +7,4 @@ order: 3
 icons: ["cloudflare.png", "docker.png", "kubernetes.png"]
 ---
 
-At present, more projects adopt the cloud native (Cloud Native) architecture. We also believe that this is the trend of the future architecture. We have made preparations for this, and fully support the needs of customers in this regard from technical architecture to operation and maintenance deployment.
+Currently, more projects are embracing cloud-native (Cloud Native) architecture. This is the future architectural trend. We have prepared for this and fully support customers' needs in this regard, from technical architecture to operation and maintenance deployment.

@@ -7,5 +7,4 @@ order: 5
 icons: ["ddd.png", "trpc.png"]
 ---
 
-At present, we mainly adopt Domain Driven Design, and of course we will also combine architectural patterns such as Hexagonal Architecture, Event Driven Architecture and CQRS. We use this pattern in both Java and TypeScript projects.
-We also hope that our accumulation in this area can help customers better design and develop software projects.
+We are currently using Domain Driven Design, but we will also combine architectural patterns like Hexagonal Architecture, Event Driven Architecture, and CQRS. This pattern can be found in both Java and TypeScript projects. Our experience in this field will assist customers in better designing and developing software projects.
