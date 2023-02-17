@@ -10,9 +10,9 @@ const currentLanguage = utilGetCurrentLangauge(pathname);
 const miscList = await getCollection("misc", (misc) =>
   misc.id.startsWith(`${currentLanguage}/`)
 );
-const techStack = [
+const technologies = [
   ...(
-    await getCollection("tech-stack", (tech) =>
+    await getCollection("technologies", (tech) =>
       tech.id.startsWith(`${currentLanguage}/`)
     )
   ).sort((tech1, tech2) => tech1.data.order - tech2.data.order),
@@ -23,7 +23,7 @@ const techIntro = await miscList
   .find((misc) => misc.slug === "tech-stack-intro")!
   .render();
 
-const middleIndexTechStack = techStack.length / 2;
+const middleIndexTechStack = technologies.length / 2;
 ---
 
 <techstack-we-use>
@@ -43,7 +43,7 @@ const middleIndexTechStack = techStack.length / 2;
     <!-- Left -->
     <ul>
       {
-        [...techStack].slice(0, middleIndexTechStack).map(async (file) => {
+        [...technologies].slice(0, middleIndexTechStack).map(async (file) => {
           const { data, render } = file;
           const { Content } = await render();
           return (
@@ -86,7 +86,7 @@ const middleIndexTechStack = techStack.length / 2;
     <!-- Right -->
     <ul>
       {
-        [...techStack].slice(middleIndexTechStack).map(async (file) => {
+        [...technologies].slice(middleIndexTechStack).map(async (file) => {
           const { data, render } = file;
           const { Content } = await render();
           return (

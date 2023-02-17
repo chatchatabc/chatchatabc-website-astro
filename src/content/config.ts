@@ -4,10 +4,10 @@ import { blogSchema } from "../schemas/blogSchema";
 import { techStackSchema } from "../schemas/techStackSchema";
 
 export const collections = {
-  jobs: jobSchema,
+  services: jobSchema,
   about: miscSchema,
   misc: miscSchema,
   blogs: blogSchema,
   careers: jobSchema,
-  "tech-stack": techStackSchema,
+  technologies: techStackSchema,
 };

@@ -2,7 +2,6 @@
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/widgets/Section.astro";
 import AboutUs from "@components/home/AboutUs.svelte";
-import Markdown from "@components/widgets/Markdown.astro";
 import TechstackWeUse from "@components/home/TechstackWeUse.astro";
 import CareersSection from "@components/home/CareersSection.astro";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
@@ -15,23 +14,18 @@ changeLanguage("en");
 // Get md files based on the current language
 const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const services = await getCollection(`services`, (service) =>
-  service.id.startsWith(`${currentLanguage}/`)
-);
-const aboutList = await getCollection(`about`, (about) =>
-  about.id.startsWith(`${currentLanguage}/`)
-);
-
+const services = await getCollection(`services`, (service) => service.id.startsWith(`${currentLanguage}/`));
+const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
 // Render About MD Contents
 const about1 = await aboutList
-  .find((about) => about.slug === "about-1")!
-  .render();
+    .find((about) => about.slug === "about-1")!
+    .render();
 const about2 = await aboutList
-  .find((about) => about.slug === "about-2")!
-  .render();
+    .find((about) => about.slug === "about-2")!
+    .render();
 const about3 = await aboutList
-  .find((about) => about.slug === "about-3")!
-  .render();
+    .find((about) => about.slug === "about-3")!
+    .render();
 ---
 
 <Layout title="ChatChatABC">
@@ -158,7 +152,7 @@ const about3 = await aboutList
     </div>
   </Section>
 
-  <!-- Software Development Section -->
+  <!-- Technologies Section -->
   <Section id={"technologies"}>
     <TechstackWeUse />
   </Section>
