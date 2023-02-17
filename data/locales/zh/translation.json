@@ -1,7 +1,7 @@
 {
   "links": {
-    "outsourcing": "人员外包",
-    "software_development": "软件开发",
+    "services": "人员外包",
+    "technologies": "软件开发",
     "about_us": "关于我们",
     "blogs": "博客",
     "contact_us": "联系我们",

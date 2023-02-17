@@ -15,31 +15,35 @@ changeLanguage("en");
 // Get md files based on the current language
 const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const jobs = await getCollection(`jobs`, (job) => job.id.startsWith(`${currentLanguage}/`));
-const aboutList = await getCollection(`about`, (about) => about.id.startsWith(`${currentLanguage}/`));
+const jobs = await getCollection(`jobs`, (job) =>
+  job.id.startsWith(`${currentLanguage}/`)
+);
+const aboutList = await getCollection(`about`, (about) =>
+  about.id.startsWith(`${currentLanguage}/`)
+);
 // Render Jobs MD Contents
 const javaDeveloper = await jobs
-    .find((job) => job.slug === "java-developer")!
-    .render();
+  .find((job) => job.slug === "java-developer")!
+  .render();
 const webDeveloper = await jobs
-    .find((job) => job.slug === "web-developer")!
-    .render();
+  .find((job) => job.slug === "web-developer")!
+  .render();
 const webDesigner = await jobs
-    .find((job) => job.slug === "web-designer")!
-    .render();
+  .find((job) => job.slug === "web-designer")!
+  .render();
 const backendEngineer = await jobs
-    .find((job) => job.slug === "backend-engineer")!
-    .render();
+  .find((job) => job.slug === "backend-engineer")!
+  .render();
 // Render About MD Contents
 const about1 = await aboutList
-    .find((about) => about.slug === "about-1")!
-    .render();
+  .find((about) => about.slug === "about-1")!
+  .render();
 const about2 = await aboutList
-    .find((about) => about.slug === "about-2")!
-    .render();
+  .find((about) => about.slug === "about-2")!
+  .render();
 const about3 = await aboutList
-    .find((about) => about.slug === "about-3")!
-    .render();
+  .find((about) => about.slug === "about-3")!
+  .render();
 ---
 
 <Layout title="ChatChatABC">
@@ -137,10 +141,7 @@ const about3 = await aboutList
   </section>
 
   <!-- Outsourcing Section -->
-  <Section
-    sectionTitle={t("links.outsourcing") ?? "outsourcing"}
-    id={"outsourcing"}
-  >
+  <Section sectionTitle={t("links.services") ?? "Services"} id={"services"}>
     <OutSourcing jobs={jobs} client:load>
       <Markdown slot="java-developer" className={"li-check"}>
         <javaDeveloper.Content />
@@ -158,7 +159,7 @@ const about3 = await aboutList
   </Section>
 
   <!-- Software Development Section -->
-  <Section id={"software-development"}>
+  <Section id={"technologies"}>
     <TechstackWeUse />
   </Section>
 
