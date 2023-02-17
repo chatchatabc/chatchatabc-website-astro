@@ -138,7 +138,7 @@
               alt="back button"
             />
             <span class="relative">
-              {selected ? "" : translation.misc.show_more}
+              {selected ? "" : translation.misc.show_more ?? "Show More"}
             </span>
           </button>
 
@@ -150,8 +150,8 @@
           >
             <span>
               {selected === index + 1
-                ? translation.misc.close
-                : translation.misc.show_more}
+                ? translation.misc.close ?? "Close"
+                : translation.misc.show_more ?? "Show More"}
             </span>
           </button>
         </div>
