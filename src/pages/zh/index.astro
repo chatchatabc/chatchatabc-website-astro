@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/widgets/Section.astro";
 import AboutUs from "@components/home/AboutUs.svelte";
-import TechstackWeUse from "@components/home/TechstackWeUse.astro";
+import TechnologiesSection from "@components/home/TechnologiesSection.astro";
 import CareersSection from "@components/home/CareersSection.astro";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { Img, Picture } from "astro-imagetools/components";
@@ -154,7 +154,7 @@ const about3 = await aboutList
 
   <!-- Technologies Section -->
   <Section id={"technologies"}>
-    <TechstackWeUse />
+    <TechnologiesSection />
   </Section>
 
   <!-- About Us Section -->

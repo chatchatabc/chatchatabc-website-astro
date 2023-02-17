@@ -26,7 +26,7 @@ const techIntro = await miscList
 const middleIndexTechStack = technologies.length / 2;
 ---
 
-<techstack-we-use>
+<technologies-section>
   <!-- Introduction -->
   <article>
     <header>
@@ -126,10 +126,10 @@ const middleIndexTechStack = technologies.length / 2;
       }
     </ul>
   </div>
-</techstack-we-use>
+</technologies-section>
 
 <script>
-  class TechstackWeUse extends HTMLElement {
+  class TechnologiesSection extends HTMLElement {
     constructor() {
       super();
 
@@ -154,5 +154,5 @@ const middleIndexTechStack = technologies.length / 2;
     }
   }
 
-  customElements.define("techstack-we-use", TechstackWeUse);
+  customElements.define("technologies-section", TechnologiesSection);
 </script>
