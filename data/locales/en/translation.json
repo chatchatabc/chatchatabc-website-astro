@@ -1,12 +1,13 @@
 {
   "links": {
-    "services": "Services",
-    "technologies": "Technologies",
+    "services": "services",
+    "technologies": "technologies we use",
     "about_us": "about us",
     "blogs": "blogs",
     "contact_us": "contact us",
     "davao_jobs": "Opening Jobs",
-    "chatchatabc": "Travel in Davao"
+    "chatchatabc": "Travel in Davao",
+    "careers": "careers"
   },
   "misc": {
     "telephone": "tel",
