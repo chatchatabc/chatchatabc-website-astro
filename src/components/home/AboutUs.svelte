@@ -32,7 +32,7 @@
           ? // Make other cards hidden when one is selected
             "max-h-0 w-0 p-0 opacity-0 top-0"
           : // Make cards visible when none is selected
-            "h-full max-h-[500px] p-12 opacity-100 md:w-[50%]"
+            "h-full max-h-[500px] p-12 opacity-100 md:w-[65%]"
       } duration-300 rounded-t-[4rem] rounded-b-xl lg:hover:z-10 even:mx-auto last:ml-auto`}
     >
       <!-- Item Title -->
