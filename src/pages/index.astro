@@ -1,13 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/widgets/Section.astro";
-import OutSourcing from "@components/home/OutSourcing.svelte";
 import AboutUs from "@components/home/AboutUs.svelte";
 import Markdown from "@components/widgets/Markdown.astro";
 import TechstackWeUse from "@components/home/TechstackWeUse.astro";
 import CareersSection from "@components/home/CareersSection.astro";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
-import { Img } from "astro-imagetools/components";
+import { Img, Picture } from "astro-imagetools/components";
 import { t, changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 
@@ -16,25 +15,13 @@ changeLanguage("en");
 // Get md files based on the current language
 const { pathname } = Astro.url;
 const currentLanguage = utilGetCurrentLangauge(pathname);
-const jobs = await getCollection(`jobs`, (job) =>
-  job.id.startsWith(`${currentLanguage}/`)
+const services = await getCollection(`services`, (service) =>
+  service.id.startsWith(`${currentLanguage}/`)
 );
 const aboutList = await getCollection(`about`, (about) =>
   about.id.startsWith(`${currentLanguage}/`)
 );
-// Render Jobs MD Contents
-const javaDeveloper = await jobs
-  .find((job) => job.slug === "java-developer")!
-  .render();
-const webDeveloper = await jobs
-  .find((job) => job.slug === "web-developer")!
-  .render();
-const webDesigner = await jobs
-  .find((job) => job.slug === "web-designer")!
-  .render();
-const backendEngineer = await jobs
-  .find((job) => job.slug === "backend-engineer")!
-  .render();
+
 // Render About MD Contents
 const about1 = await aboutList
   .find((about) => about.slug === "about-1")!
@@ -141,22 +128,34 @@ const about3 = await aboutList
     </div>
   </section>
 
-  <!-- Outsourcing Section -->
+  <!-- Services Section -->
   <Section sectionTitle={t("links.services") ?? "Services"} id={"services"}>
-    <OutSourcing jobs={jobs} client:load>
-      <Markdown slot="java-developer" className={"li-check"}>
-        <javaDeveloper.Content />
-      </Markdown>
-      <Markdown slot="web-developer" className={"li-check"}>
-        <webDeveloper.Content />
-      </Markdown>
-      <Markdown slot="web-designer" className={"li-check"}>
-        <webDesigner.Content />
-      </Markdown>
-      <Markdown slot="backend-engineer" className={"li-check"}>
-        <backendEngineer.Content />
-      </Markdown>
-    </OutSourcing>
+    <div class="flex -mt-2 justify-between flex-col flex-wrap md:flex-row">
+      {
+        services.map(async (service) => {
+          const { data, render } = service;
+          const { title, imageUrl } = data;
+          const { Content } = await render();
+          return (
+            <div class="py-2 flex-1 min-w-[45vw] md:px-2 lg:min-w-[unset]">
+              <figure class="rounded-xl group h-full bg-surfaceVariant overflow-hidden">
+                <div class="bg-tertiary h-40 w-full xl:h-48">
+                  <Picture src={imageUrl} alt={title} layout="fill" />
+                </div>
+                <figcaption class="p-4">
+                  <header>
+                    <h4 class="text-xl font-medium">{title}</h4>
+                  </header>
+                  <div class="my-2">
+                    <Content />
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          );
+        })
+      }
+    </div>
   </Section>
 
   <!-- Software Development Section -->
