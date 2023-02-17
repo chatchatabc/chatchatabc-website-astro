@@ -7,5 +7,6 @@ order: 1
 icons: ["astro.png", "tailwind.png", "reactjs.png", "vuejs.png", "ant.png"]
 ---
 
-For the websites and sites of small and medium-sized companies, we recommend customers to adopt more flexible and lightweight technology stacks, such as Astro, Next.js, etc., mainly because the development is fast and the cost of deployment is relatively low.
-We provide comprehensive site development services including website design, website development, website deployment, website maintenance and more.
+We offer comprehensive site development services such as website design, development, deployment, and maintenance, among other things.
+
+For small and medium-sized business websites and sites, we recommend that customers use more flexible and lightweight technology stacks, such as Astro, Next.js, and others, because development is fast and deployment costs are low.

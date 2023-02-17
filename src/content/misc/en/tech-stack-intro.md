@@ -5,7 +5,6 @@ id: software-development
 slug: tech-stack-intro
 ---
 
-We uphold the principle of making everything transparent, and let customers understand our technology and our team, so that customers can make their final correct decisions.
-The ChatChatABC team is still relatively young, and we cannot provide customers with good business and commercial advice, but we hope to help customers with the technology we know and are good at.
+We uphold the principle of making everything transparent and letting customers understand our technology and our team so that customers can make their final correct decisions. The ChatChatABC team strives to provide customers with sound business practices by utilizing technology we are familiar with and skilled at.
 
-Software development involves a wide range of people and technologies. At present, the picture on the right is the technology stack we are relatively good at. Here we also give some brief introductions to facilitate customers to have a comprehensive understanding.
+Software development involves a wide range of people and technologies. At the moment, the picture on the right depicts the technology stack in which we excel. We also provide some brief introductions here to help customers gain a thorough understanding.
