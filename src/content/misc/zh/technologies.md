@@ -1,8 +1,7 @@
 ---
-title: Software Development
+title: Technologies We Use
 summary: test
-id: software-development
-slug: tech-stack-intro
+id: technologies
 ---
 
 我们秉承让一切透明原则，让客户了解我们的技术，了解我们的团队，客户才能做出自己最终的正确决定。 ChatChatABC 团队目前还比较年轻，我们没法为客户提供业务和商业上很好的建议，但是我们希望通过我们了解并擅长的技术，助客户一臂之力。

@@ -20,7 +20,7 @@ const technologies = [
 
 // Render tech stack intro MD
 const techIntro = await miscList
-  .find((misc) => misc.slug === "tech-stack-intro")!
+  .find((misc) => misc.data.id === `technologies`)!
   .render();
 
 const middleIndexTechStack = technologies.length / 2;
