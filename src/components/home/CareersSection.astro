@@ -1,5 +1,6 @@
 ---
 import Markdown from "@components/widgets/Markdown.astro";
+import { Icon } from "astro-icon";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { Picture } from "astro-imagetools/components";
 import { getCollection } from "astro:content";
@@ -39,17 +40,14 @@ const careers = await getCollection(`careers`, (career) =>
   </section>
 
   <!-- Right Section -->
-  <section
-    id="careers-container"
-    class="flex-[2] flex flex-wrap group p-1 lg:[&:hover>*:not(:hover)]:scale-90"
-  >
+  <section id="careers-container" class="flex-[2] flex flex-wrap group p-1">
     {
       careers.map(async (career) => {
         const { data, render } = career;
         const { title, imageUrl } = data;
         const { Content } = await render();
         return (
-          <button class="py-2 border-2 rounded-xl bg-surfaceVariant border-tertiary shrink-0 w-full transition-transform duration-500 overflow-hidden lg:hover:scale-95 lg:group-hover:rounded-xl md:w-1/2">
+          <div class="careers cursor-pointer relative py-2 border-2 rounded-xl bg-surfaceVariant border-tertiary shrink-0 w-full transition-transform duration-500 overflow-hidden md:w-1/2 lg:hover:scale-95 lg:group-hover:rounded-xl">
             <figure>
               <div class="text-center">
                 <span class="inline-block font-medium text-xl mb-2">
@@ -63,12 +61,12 @@ const careers = await getCollection(`careers`, (career) =>
                 <Markdown className={"li-check"}>
                   <Content />
                 </Markdown>
-                <span class="inline-block w-full animate-pulse transition font-bold text-center">
-                  Tap here to close
-                </span>
               </figcaption>
             </figure>
-          </button>
+            <button class="close-btn hidden absolute top-4 left-4 p-1 rounded-full border border-tertiary z-[4] duration-500 origin-center hover:scale-90">
+              <Icon class="w-6 h-6 text-tertiary" name="ic:round-close" />
+            </button>
+          </div>
         );
       })
     }
@@ -80,59 +78,80 @@ const careers = await getCollection(`careers`, (career) =>
     constructor() {
       super();
 
-      let opened = false;
+      let opened: null | number = null;
 
-      const buttons = this.querySelectorAll("button");
+      const careers = this.querySelectorAll(".careers");
+      const closeBtns = this.querySelectorAll(".close-btn");
       const careersFigcaptions = this.querySelectorAll(".careers-figcaption");
 
-      buttons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-          // If one is selected, only go here
-          if (opened) {
-            // Make all buttons visible
-            buttons.forEach((button) => {
-              button.classList.remove("hidden");
-              button.classList.add("md:w-1/2");
-              button.classList.add("lg:hover:scale-95");
-              button.classList.add("lg:group-hover:rounded-xl");
-            });
-
-            // Make all figcaptions invisible
-            careersFigcaptions.forEach((figcaption) => {
-              figcaption.classList.remove("duration-500");
-              figcaption.classList.add("h-0");
-              figcaption.classList.add("scale-y-0");
-            });
-            opened = false;
-          } else {
-            // Make all figcaptions invisible
-            careersFigcaptions.forEach((figcaption) => {
-              figcaption.classList.add("h-0");
-            });
-
-            // Show the selected figcaption
-            careersFigcaptions[index].classList.add("duration-500");
-            careersFigcaptions[index].classList.remove("h-0");
-            careersFigcaptions[index].classList.remove("scale-y-0");
-
-            // Hide all buttons except the selected one
-            buttons.forEach((button, index1) => {
-              if (index !== index1) {
-                button.classList.add("hidden");
-              } else {
-                button.classList.remove("md:w-1/2");
-                button.classList.remove("lg:hover:scale-95");
-                button.classList.remove("lg:group-hover:rounded-xl");
-              }
-            });
-
-            // Set opened to true
-            opened = true;
-          }
-
-          button.scrollIntoView();
+      closeBtns.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          closeSelectedCard();
+          e.stopPropagation();
         });
       });
+
+      careers.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          if (!opened) {
+            openSelectedCard(index);
+          }
+        });
+      });
+
+      function openSelectedCard(index: number) {
+        // Make all figcaptions invisible
+        careersFigcaptions.forEach((figcaption) => {
+          figcaption.classList.add("h-0");
+        });
+
+        // Show the selected figcaption
+        careersFigcaptions[index].classList.add("duration-500");
+        careersFigcaptions[index].classList.remove("h-0");
+        careersFigcaptions[index].classList.remove("scale-y-0");
+
+        // Hide all buttons except the selected one
+        careers.forEach((button, index1) => {
+          if (index !== index1) {
+            button.classList.add("hidden");
+          } else {
+            button.classList.remove("cursor-pointer");
+            button.classList.remove("md:w-1/2");
+            button.classList.remove("lg:hover:scale-95");
+            button.classList.remove("lg:group-hover:rounded-xl");
+          }
+        });
+
+        closeBtns[index].classList.remove("hidden");
+
+        // Set opened to true
+        opened = index + 1;
+      }
+
+      function closeSelectedCard() {
+        // Make all buttons visible
+        careers.forEach((button) => {
+          button.classList.remove("hidden");
+          button.classList.add("cursor-pointer");
+          button.classList.add("md:w-1/2");
+          button.classList.add("lg:hover:scale-95");
+          button.classList.add("lg:group-hover:rounded-xl");
+        });
+
+        // Make all figcaptions invisible
+        careersFigcaptions.forEach((figcaption) => {
+          figcaption.classList.remove("duration-500");
+          figcaption.classList.add("h-0");
+          figcaption.classList.add("scale-y-0");
+        });
+
+        // Make all close buttons hidden
+        closeBtns.forEach((closeBtn) => {
+          closeBtn.classList.add("hidden");
+        });
+
+        opened = null;
+      }
     }
   }
 
