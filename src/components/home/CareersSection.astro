@@ -3,7 +3,7 @@ import Markdown from "@components/widgets/Markdown.astro";
 import { Icon } from "astro-icon";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { Picture } from "astro-imagetools/components";
-import { getCollection } from "astro:content";
+import { getCollection, getEntryBySlug } from "astro:content";
 
 // Get md files based on the current language
 const { pathname } = Astro.url;
@@ -11,6 +11,12 @@ const currentLanguage = utilGetCurrentLangauge(pathname);
 const careers = await getCollection(`careers`, (career) =>
   career.id.startsWith(`${currentLanguage}/`)
 );
+const careerIntroFile = await getEntryBySlug(
+  "misc",
+  `${currentLanguage}/careers-intro`
+);
+const careerIntroTitle = careerIntroFile?.data.title;
+const { Content } = await careerIntroFile?.render()!;
 ---
 
 <careers-section
@@ -25,16 +31,12 @@ const careers = await getCollection(`careers`, (career) =>
       <figcaption class="lg:mt-8">
         <header>
           <h3 class="text-white text-lg font-medium md:text-2xl">
-            Explore Career Paths with ChatChatABC
+            {careerIntroTitle}
           </h3>
         </header>
-        <p class="text-neutral-200 text-sm md:text-base">
-          We're looking for talented individuals to join our team and help us
-          achieve our mission. We offer a wide range of exciting career
-          opportunities across various departments, from engineering and
-          development to marketing and design. Whether you're just starting your
-          career or have years of experience, we have a place for you.
-        </p>
+        <Markdown className={"text-neutral-200 text-sm md:text-base"}>
+          <Content />
+        </Markdown>
       </figcaption>
     </figure>
   </section>

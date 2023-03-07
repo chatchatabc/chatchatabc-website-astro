@@ -169,8 +169,10 @@ const about3 = await aboutList
   <!-- Careers Section -->
   <Section id={"careers"}>
     <header>
-      <h2 class="text-primary text-center font-bold text-2xl lg:text-3xl">
-        Careers
+      <h2
+        class="capitalize text-primary text-center font-bold text-2xl lg:text-3xl"
+      >
+        {t("links.careers") ?? "Careers"}
       </h2>
     </header>
     <CareersSection />

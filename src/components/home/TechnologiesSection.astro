@@ -3,6 +3,7 @@ import Markdown from "@components/widgets/Markdown.astro";
 import { utilGetCurrentLangauge } from "@helpers/commonUtils";
 import { getCollection } from "astro:content";
 import { Picture } from "astro-imagetools/components";
+import { t } from "i18next";
 
 // Get md files based on the current language
 const { pathname } = Astro.url;
@@ -30,8 +31,8 @@ const middleIndexTechStack = technologies.length / 2;
   <!-- Introduction -->
   <article>
     <header>
-      <h3 class="text-center text-3xl text-primary font-bold py-2">
-        Technologies We Use
+      <h3 class="capitalize text-center text-3xl text-primary font-bold py-2">
+        {t("links.technologies") ?? "Technologies"}
       </h3>
     </header>
     <Markdown className={"text-center"}>
