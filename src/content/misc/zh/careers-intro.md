@@ -1,5 +1,5 @@
 ---
-title: Explore Career Paths with ChatChatABC
+title: 和ChatChatABC一起探索你的职业规划
 summary: test
 id: careers-intro
 ---
