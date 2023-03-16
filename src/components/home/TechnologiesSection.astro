@@ -25,9 +25,13 @@ const techIntro = await miscList
   .render();
 
 const middleIndexTechStack = technologies.length / 2;
+
+// Translation
+const hide = t("misc.hide");
+const view = t("misc.view");
 ---
 
-<technologies-section>
+<technologies-section data-hide={hide} data-view={view}>
   <!-- Introduction -->
   <article>
     <header>
@@ -69,7 +73,7 @@ const middleIndexTechStack = technologies.length / 2;
                     })}
                   </ul>
                   <button class="absolute text-white px-4 py-1 rounded-md right-0 top-1/2 -translate-y-1/2 bg-tertiary">
-                    View
+                    {t("misc.view") ?? "View"}
                   </button>
                 </header>
                 <Markdown
@@ -112,7 +116,7 @@ const middleIndexTechStack = technologies.length / 2;
                     })}
                   </ul>
                   <button class="absolute text-white px-4 py-1 rounded-md right-0 top-1/2 -translate-y-1/2 bg-tertiary">
-                    View
+                    {t("misc.view") ?? "View"}
                   </button>
                 </header>
                 <Markdown
@@ -145,10 +149,10 @@ const middleIndexTechStack = technologies.length / 2;
         button.addEventListener("click", () => {
           if (techDetails[index].style.maxHeight === "0px") {
             techDetails[index].style.maxHeight = "500px";
-            button.textContent = "Hide";
+            button.textContent = this.dataset.hide ?? "Hide";
           } else {
             techDetails[index].style.maxHeight = "0";
-            button.textContent = "View";
+            button.textContent = this.dataset.view ?? "View";
           }
         });
       });

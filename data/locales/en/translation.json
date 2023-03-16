@@ -17,7 +17,9 @@
     "links": "sitemap",
     "show_more": "Show more",
     "read_more": "Read more",
-    "close": "Close"
+    "close": "Close",
+    "view": "View",
+    "hide": "Hide"
   },
   "home": {
     "hero": {

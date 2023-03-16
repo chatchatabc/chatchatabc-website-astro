@@ -17,7 +17,9 @@
     "links": "网站地图",
     "show_more": "展示更多",
     "read_more": "阅读更多",
-    "close": "关闭"
+    "close": "关闭",
+    "view": "详情",
+    "hide": "隐藏"
   },
   "home": {
     "hero": {
