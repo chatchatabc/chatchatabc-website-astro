@@ -1,0 +1,67 @@
+---
+title: Node.js vs Spring Boot
+summary: Node.js和Java是目前非常流行的开发平台，两者都有各自的特点和优势，在此基础上也诞生了非常多的知名框架，如Node.js的Express.js, Fastify, Java的Spring Boot, Quarkus等。这篇文章主要是对比这些框架的性能，同时也展望一下未来的预期。
+slug: node-vs-springboot
+tags: Node, Spring, SpringBoot
+date: 2023-03-21
+author_name: Libing Chen
+author_link: https://github.com/linux-china
+author_image: https://avatars.githubusercontent.com/u/46711
+summary_image: /images/blog/node-vs-boot/node-vs-springboot.png
+---
+
+Medium上的[Mayank Choubey](https://medium.com/@choubey)写了很多关于性能测试的文章，其中包括了Node.js和Spring Boot的对比，这里我就借鉴其结论，方便大家参考，尤其是Java程序员。
+
+# Node.js Native Server vs Spring Boot
+
+[Node.js vs Springboot: Hello world performance comparison](https://medium.com/deno-the-complete-reference/node-js-vs-springboot-hello-world-performance-comparison-59b4d461526c)
+这里使用Node.js Native Server和Spring Boot对比了两者的性能，结论是Node.js Native Server的性能要好于Spring Boot，一个报告如下：
+
+![Node.js Native vs Spring Boot](/images/blog/node-vs-boot/node-native-vs-springboot.png)
+
+# Express.js vs Spring Boot
+
+Spring Boot是一个Web框架，如果用框架和Node.js Native Server进行对比，那么结果就不公平了，如果是对比应该使用Netty HTTP Server和Node.js Native Server，
+所以作者使用[Express.js和Spring Boot进行对比](https://medium.com/deno-the-complete-reference/express-vs-springboot-hello-world-performance-comparison-dd066bf53858)，
+结论是Spring Boot比Express.js性能要好，一个报告如下：
+
+![Node.js Native vs Spring Boot](/images/blog/node-vs-boot/express-vs-springboot.png)
+
+# Express (Bun) vs Spring Boot
+
+[Bun](https://bun.sh/)是一款新的JavaScript Runtime，基于JavaScriptCore引擎，而不是V8，从测试的报告来看，性能更好。
+在完成了Express.js和Spring Boot的对比后，
+作者又使用了[Express (Bun)和Spring Boot进行对比](https://medium.com/deno-the-complete-reference/express-bun-vs-springboot-hello-world-performance-comparison-331344b29903)，
+结论是Spring Boot比Express (Bun)性能要好，一个报告如下：
+
+![Node.js Native vs Spring Boot](/images/blog/node-vs-boot/express-bun-vs-springboot.png)
+
+# Fastify vs Spring Boot
+
+我们都知道Fastify的性能要高于Express.js，所以作者使用[Fastify和Spring Boot进行对比](https://medium.com/deno-the-complete-reference/fastify-vs-springboot-hello-world-performance-comparison-411b83d165a1)，
+结果综合下来，Fastify的性能要略好于Spring Boot，一个报告如下：
+
+![Node.js Native vs Spring Boot](/images/blog/node-vs-boot/fastify-vs-springboot.png)
+
+# Fastify vs Spring WebFlux
+
+对应Java程序员来说，WebFlux是基于Reactive的，性能要好于基于Thread Pool的Spring
+Web，所以作者使用[Fastify和Spring WebFlux进行对比](https://medium.com/deno-the-complete-reference/fastify-node-js-vs-webflux-spring-hello-world-performance-comparison-4cd391fac441),
+结果综合下来，Spring WebFlux的性能要略好于fastify，一个报告如下：
+
+![Node.js Native vs Spring Boot](/images/blog/node-vs-boot/fastify-vs-webflux.png)
+
+# 内存占用问题
+
+在内存占用方面，无论是那种类型测试，都是Node.js应用占有的，这个是不用怀疑的，这个也是为何Serverless应用主要偏向于JavaScript/WebAssembly的主要原因，内存占用小，而且启动速度快。
+当然我们都知道GraalVM Native Image在内存占用方面要好非常多，而且启动速度也非常快，此外在即将发布的GraalVM版本中将整合ZGC，ZGC的性能比Serial GC要好非常多，当然内存方面可能会占用更多一些，但是还是比较传统的Java应用在内存占用方面要好非常多。
+
+# 总结
+
+考虑到我们开发都会基于框架，而不是原生的API，整体下来，Spring Boot应用的性能要好于Node.js应用，尤其是你使用了基于Reactive技术的Spring WebFlux。
+此次目前的Java框架测试报告中，Quarkus的性能是优于Spring Boot的，如果是选用Quarkus对比Node.js应用进行测试，那么Quarkus的性能测试数据可能会更好。
+
+当然这个还不是终点，随着[Java Virtual Threads](https://openjdk.org/jeps/436)的引入，Java应用的性能会更好。
+目前的报告已经有结论：创建一个Virtual Thread代价比从Thread Pool中获取一个Thread还要低，当然这个是对Spring Web是利好消息，当然WebFlux也可以考虑将底层对接到Virtual Thread上，性能提升将会更大，
+当然GraalVM Native Image也已经开始支持Virtual Thread，所以未来的Java应用性能将会更好这个还是可以被期待的。
+
