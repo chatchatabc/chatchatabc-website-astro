@@ -5,6 +5,7 @@ import { astroImageTools } from "astro-imagetools";
 import svelte from "@astrojs/svelte";
 import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
 
 export default defineConfig({
   site: "https://chatchatabc.com",
@@ -15,5 +16,6 @@ export default defineConfig({
     astroImageTools,
     svelte(),
     sitemap(),
+    robotsTxt(),
   ],
 });
