@@ -1,13 +1,51 @@
-import { miscSchema } from "../schemas/miscSchema";
-import { jobSchema } from "../schemas/jobSchema";
-import { blogSchema } from "../schemas/blogSchema";
-import { techStackSchema } from "../schemas/techStackSchema";
+import { z, defineCollection } from "astro:content";
+
+const JobSchema = defineCollection({
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    summary: z.string(),
+    imageUrl: z.string(),
+  }),
+});
+
+const MiscSchema = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    id: z.string(),
+  }),
+});
+
+const BlogSchema = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    tags: z.string(),
+    date: z.date(),
+    author_name: z.string(),
+    author_link: z.string(),
+    author_image: z.string(),
+    summary_image: z.string(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+const TechStackSchema = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    id: z.string(),
+    order: z.number(),
+    icons: z.array(z.string()),
+  }),
+});
 
 export const collections = {
-  services: jobSchema,
-  about: miscSchema,
-  misc: miscSchema,
-  blogs: blogSchema,
-  careers: jobSchema,
-  technologies: techStackSchema,
+  services: JobSchema,
+  about: MiscSchema,
+  misc: MiscSchema,
+  blogs: BlogSchema,
+  careers: JobSchema,
+  technologies: TechStackSchema,
 };
