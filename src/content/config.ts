@@ -2,7 +2,6 @@ import { z, defineCollection } from "astro:content";
 
 const JobSchema = defineCollection({
   schema: z.object({
-    id: z.string(),
     title: z.string(),
     summary: z.string(),
     imageUrl: z.string(),
@@ -13,7 +12,6 @@ const MiscSchema = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
-    id: z.string(),
   }),
 });
 
