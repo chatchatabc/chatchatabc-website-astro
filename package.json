@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro check --watch & astro dev",
+    "dev": "astro dev",
     "start": "astro dev",
     "build": "npm run i18next && astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
@@ -14,7 +14,6 @@
     "deploy": "wrangler pages publish --project-name=chatchatabc-website dist"
   },
   "dependencies": {
-    "@astrojs/check": "^0.2.0",
     "@astrojs/mdx": "^1.1.0",
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/svelte": "^4.0.2",
