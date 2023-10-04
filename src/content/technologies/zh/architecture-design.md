@@ -1,8 +1,6 @@
 ---
 title: 架构设计
 summary: test
-id: architecture-design
-slug: architecture-design
 order: 5
 icons: ["ddd.png", "trpc.png"]
 ---

@@ -1,8 +1,6 @@
 ---
 title: Cloud Technology
 summary: test
-id: cloud-technology
-slug: cloud-technology
 order: 3
 icons: ["cloudflare.png", "docker.png", "kubernetes.png"]
 ---

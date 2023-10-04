@@ -1,8 +1,6 @@
 ---
 title: Java 技术栈
 summary: test
-id: java-technology
-slug: java-technology
 order: 2
 icons: ["java.png", "kotlin.png", "spring.png", "spring-boot.png", "maven.png"]
 ---

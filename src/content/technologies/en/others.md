@@ -1,8 +1,6 @@
 ---
 title: Others
 summary: test
-id: others
-slug: others
 order: 6
 icons: ["rust.png", "go.png", "python.png", "open-ai.png"]
 ---

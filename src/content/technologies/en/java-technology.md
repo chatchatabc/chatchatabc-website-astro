@@ -1,8 +1,6 @@
 ---
 title: Java Technology Stack
 summary: test
-id: java-technology
-slug: java-technology
 order: 2
 icons: ["java.png", "kotlin.png", "spring.png", "spring-boot.png", "maven.png"]
 ---

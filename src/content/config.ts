@@ -1,6 +1,7 @@
 import { z, defineCollection } from "astro:content";
 
 const JobSchema = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     summary: z.string(),
@@ -9,6 +10,7 @@ const JobSchema = defineCollection({
 });
 
 const MiscSchema = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     summary: z.string(),
@@ -16,6 +18,7 @@ const MiscSchema = defineCollection({
 });
 
 const BlogSchema = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     summary: z.string(),
@@ -30,10 +33,10 @@ const BlogSchema = defineCollection({
 });
 
 const TechStackSchema = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
     summary: z.string(),
-    id: z.string(),
     order: z.number(),
     icons: z.array(z.string()),
   }),

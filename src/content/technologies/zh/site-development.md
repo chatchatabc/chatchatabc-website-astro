@@ -1,8 +1,6 @@
 ---
 title: 站点开发
 summary: test
-id: site-development
-slug: site-development
 order: 1
 icons: ["astro.png", "tailwind.png", "reactjs.png", "vuejs.png", "ant.png"]
 ---

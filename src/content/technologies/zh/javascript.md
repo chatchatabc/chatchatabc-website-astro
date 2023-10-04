@@ -1,8 +1,6 @@
 ---
 title: 基于 JavaScript/TypeScript 全栈
 summary: test
-id: javascript
-slug: javascript
 order: 4
 icons: ["js.png", "ts.png", "nodejs.png", "deno.png", "bun.png"]
 ---

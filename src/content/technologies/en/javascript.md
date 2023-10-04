@@ -1,8 +1,6 @@
 ---
 title: JavaScript/TypeScript Full Stack
 summary: test
-id: javascript
-slug: javascript
 order: 4
 icons: ["js.png", "ts.png", "nodejs.png", "deno.png", "bun.png"]
 ---
