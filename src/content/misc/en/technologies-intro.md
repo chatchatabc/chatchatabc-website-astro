@@ -1,7 +1,6 @@
 ---
 title: Technologies We Use
 summary: test
-id: technologies
 ---
 
 We uphold the principle of making everything transparent and letting customers understand our technology and our team so that customers can make their final correct decisions. The ChatChatABC team strives to provide customers with sound business practices by utilizing technology we are familiar with and skilled at.
