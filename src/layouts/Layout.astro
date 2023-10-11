@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
@@ -75,32 +75,33 @@ const {
       <slot />
     </main>
     <Footer />
-    <style is:global>
-      /* Ellipsis */
-      .ellipsis {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-      }
-
-      /* Scrollbar */
-      .scrollbar::-webkit-scrollbar {
-        /* width */
-        width: 10px;
-      }
-      .scrollbar::-webkit-scrollbar-track {
-        /* Track */
-        box-shadow: inset 0 0 5px #e8def8;
-        border-radius: 10px;
-      }
-      .scrollbar::-webkit-scrollbar-thumb {
-        /* Handle */
-        background: #76a99d;
-        border-radius: 10px;
-      }
-      .scrollbar::-webkit-scrollbar-thumb:hover {
-        /* Handle on hover */
-        background: #76a99d;
-      }
-    </style>
   </body>
 </html>
+
+<style is:global>
+  /* Ellipsis */
+  .ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Scrollbar */
+  .scrollbar::-webkit-scrollbar {
+    /* width */
+    width: 10px;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    /* Track */
+    box-shadow: inset 0 0 5px #e8def8;
+    border-radius: 10px;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    /* Handle */
+    background: #76a99d;
+    border-radius: 10px;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    /* Handle on hover */
+    background: #76a99d;
+  }
+</style>
